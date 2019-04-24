@@ -20,11 +20,10 @@ class Admin extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('alomundo');
-	}
-
-	public function workshop()
-	{
-		$this->load->view('work');
+        $this->load->view('templates/admin-header');
+        $this->load->view('templates/admin-nav');
+        $this->load->view('templates/admin-leftnav');
+        $this->load->view('admin/admin-home');
+        $this->load->view('templates/admin-footer');
 	}
 }
