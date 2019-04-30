@@ -18,10 +18,10 @@
                         <div id="submenu-1" class="collapse submenu" style="">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="dashboard-finance.html">Principal</a>
+                                    <a class="nav-link" href="<?=base_url('gerenciamento/dashboard')?>">Principal</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="dashboard-sales.html">Comissões</a>
+                                    <a class="nav-link" href="<?=base_url('gerenciamento/comissoes')?>">Comissões</a>
                                 </li>
                             </ul>
                         </div>
@@ -33,7 +33,7 @@
                                 <?php for($i = 1; $i<11; $i++){
                                     echo 
                                     '<li class="nav-item">
-                                        <a class="nav-link" href="#">Curso '.$i.'<span class="badge badge-secondary"></span></a>
+                                        <a class="nav-link" href="'.base_url('gerenciamento/cursos/'.$i).'">Curso '.$i.'<span class="badge badge-secondary"></span></a>
                                     </li>';
                                 }?>
                             </ul>
@@ -46,7 +46,7 @@
                                 <?php for($i = 1; $i<11; $i++){
                                     echo 
                                     '<li class="nav-item">
-                                        <a class="nav-link" href="#">Workshop '.$i.'<span class="badge badge-secondary"></span></a>
+                                        <a class="nav-link" href="'.base_url('gerenciamento/workshops/'.$i).'">Workshop '.$i.'<span class="badge badge-secondary"></span></a>
                                     </li>';
                                 }?>
                             </ul>
@@ -59,7 +59,7 @@
                                 <?php for($i = 1; $i<11; $i++){
                                     echo 
                                     '<li class="nav-item">
-                                        <a class="nav-link" href="#">Palestra '.$i.'<span class="badge badge-secondary"></span></a>
+                                        <a class="nav-link" href="'.base_url('gerenciamento/palestras/'.$i).'">Palestra '.$i.'<span class="badge badge-secondary"></span></a>
                                     </li>';
                                 }?>
                             </ul>

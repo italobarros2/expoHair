@@ -4,15 +4,8 @@
             <div class="footer">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                             Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                            <div class="text-md-right footer-links d-none d-sm-block">
-                                <a href="javascript: void(0);">About</a>
-                                <a href="javascript: void(0);">Support</a>
-                                <a href="javascript: void(0);">Contact Us</a>
-                            </div>
+                        <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
+                            Plataforma Administrativa E-commerce. Desenvolvido por ©<a href="#"> TecHHub - Soluções Tecnológicas</a>.
                         </div>
                     </div>
                 </div>
@@ -49,7 +42,7 @@
     <script src="<?=base_url('static/assets/vendor/charts/c3charts/d3-5.4.0.min.js')?>"></script>
     <script src="<?=base_url('static/assets/vendor/charts/c3charts/C3chartjs.js')?>"></script>
     <script src="<?=base_url('static/assets/libs/js/dashboard-ecommerce.js')?>"></script>
-
+    <script src="<?=base_url('static/js/charts-config.js')?>"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/r-2.2.2/datatables.min.js"></script>
 
     <script>
@@ -62,11 +55,11 @@
                     "sInfoFiltered": "(Filtrados de _MAX_ registros)",
                     "sInfoPostFix": "",
                     "sInfoThousands": ".",
-                    "sLengthMenu": "_MENU_ resultados por página",
+                    "sLengthMenu": " ",
                     "sLoadingRecords": "Carregando...",
                     "sProcessing": "Processando...",
                     "sZeroRecords": "Nenhum registro encontrado",
-                    "sSearch": "Pesquisar",
+                    "sSearch": "Pesquisar  ",
                     "oPaginate": {
                         "sNext": "Próximo",
                         "sPrevious": "Anterior",
