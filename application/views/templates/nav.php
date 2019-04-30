@@ -18,9 +18,9 @@
 			<ul class="main-menu">
 				<li class="active"><a href="/">Home</a></li>
 				<li><a href="#">Cursos/Palestras/Workshops</a></li>	
-				<li><a href="sobre.php">Sobre</a></li>
+				<li><a href="#">Sobre</a></li>
 				<li><a href="#">Contato</a></li>
-				<li><a href="mapa.php">Planta</a></li>
+				<li><a href="#">Planta</a></li>
 			</ul>
 			<div class="header-right">
 				<a href="#" class="site-btn sb-line sb-big">(85) 9 9659 - 7500</a>
