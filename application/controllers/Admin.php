@@ -23,7 +23,62 @@ class Admin extends CI_Controller {
         $this->load->view('templates/admin-header');
         $this->load->view('templates/admin-nav');
         $this->load->view('templates/admin-leftnav');
+        $this->load->view('templates/admin-headsection');
         $this->load->view('admin/admin-home');
         $this->load->view('templates/admin-footer');
-	}
+    }
+
+    public function login()
+	{
+        $this->load->view('admin/admin-login');
+    }
+
+    public function resetpass()
+	{
+        $this->load->view('admin/admin-pass');
+    }
+    
+    public function cursos($id){
+
+        $this->load->view('templates/admin-header');
+        $this->load->view('templates/admin-nav');
+        $this->load->view('templates/admin-leftnav');
+        $this->load->view('templates/admin-headsection');
+        $this->load->view('admin/admin-cursos');
+        $this->load->view('templates/admin-footer');
+
+    }
+
+    public function workshops($id){
+
+        $this->load->view('templates/admin-header');
+        $this->load->view('templates/admin-nav');
+        $this->load->view('templates/admin-leftnav');
+        $this->load->view('templates/admin-headsection');
+        $this->load->view('admin/admin-workshops');
+        $this->load->view('templates/admin-footer');
+
+    }
+
+    public function palestras($id){
+
+        $this->load->view('templates/admin-header');
+        $this->load->view('templates/admin-nav');
+        $this->load->view('templates/admin-leftnav');
+        $this->load->view('templates/admin-headsection');
+        $this->load->view('admin/admin-palestras');
+        $this->load->view('templates/admin-footer');
+
+    }
+
+    public function compra($id){
+
+        $this->load->view('templates/admin-header');
+        $this->load->view('templates/admin-nav');
+        $this->load->view('templates/admin-leftnav');
+        $this->load->view('templates/admin-headsection');
+        $this->load->view('admin/admin-compra');
+        $this->load->view('templates/admin-footer');
+
+    }
 }
