@@ -24,8 +24,46 @@ class Pages extends CI_Controller {
 			$this->load->view('pages/home');
 			$this->load->view('templates/footer');
 		} 
-
 		public function workshop(){
+			$this->load->view('templates/header');
+			$this->load->view('templates/nav');
 			$this->load->view('pages/work');
+			$this->load->view('templates/footer');
+		}
+	    public function planta(){
+			$this->load->view('templates/header');
+			$this->load->view('templates/nav');
+			$this->load->view('pages/mapa');
+			$this->load->view('templates/footer');
+		}
+	    public function noiva(){
+			$this->load->view('templates/header');
+			$this->load->view('templates/nav');
+			$this->load->view('pages/noivas');
+			$this->load->view('templates/footer');
+		}
+	    public function barber(){
+			$this->load->view('templates/header');
+			$this->load->view('templates/nav');
+			$this->load->view('pages/barbeiro');
+			$this->load->view('templates/footer');
+		}
+	    public function info(){
+			$this->load->view('templates/header');
+			$this->load->view('templates/nav');
+			$this->load->view('pages/sobre');
+			$this->load->view('templates/footer');
+		}
+	    public function humor(){
+			$this->load->view('templates/header');
+			$this->load->view('templates/nav');
+			$this->load->view('pages/humor');
+			$this->load->view('templates/footer');
+		}
+	    public function insc(){
+			$this->load->view('templates/header');
+			$this->load->view('templates/nav');
+			$this->load->view('pages/inscricao');
+			$this->load->view('templates/footer');
 		}
 }
