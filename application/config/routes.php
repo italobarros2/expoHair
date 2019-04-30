@@ -52,5 +52,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 $route['default_controller']    = 'pages';
-$route['work'] 				    = 'pages/workshop';
+$route['work'] 				    = 'pages/work';
+$route['planta'] 			    = 'pages/mapa';
+$route['noiva'] 			    = 'pages/noivas';
+$route['barber'] 			    = 'pages/barbeiro';
+$route['info'] 				    = 'pages/sobre';
+$route['humor'] 			    = 'pages/humor';
+$route['inscricao'] 		    = 'pages/inscricao';
 $route['404_override']          = 'pages/erro404';
