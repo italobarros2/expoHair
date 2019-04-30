@@ -1,0 +1,30 @@
+.fixicon{
+    position: relative;
+    float: right;
+    bottom: 29px;
+    right: 13px;
+}
+
+.card-perso{
+    height: auto;
+    width: 320px;
+}
+
+.fixtext{
+    padding-bottom: 0px!important;
+}
+
+.display_none{
+    display: none;
+}
+
+@media only screen and (min-height: 700px){
+    .fixtable{
+        margin-bottom: 78px;
+    }
+
+    .card-perso{
+        height: auto;
+        width: 430px;   
+    }
+}
