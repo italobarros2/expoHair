@@ -23,9 +23,23 @@ class Pages extends CI_Controller {
 			$this->load->view('templates/nav');
 			$this->load->view('pages/home');
 			$this->load->view('templates/footer');
-		} 
+		}
 
-		public function workshop(){
+		public function inscricao(){
+			$this->load->view('templates/header');
+			$this->load->view('templates/nav-market');
+			$this->load->view('pages/market-form');
+			$this->load->view('templates/footer');
+		}
+
+		public function inscricaoVendor(){
+			$this->load->view('templates/header');
+			$this->load->view('templates/nav-market');
+			$this->load->view('pages/market-form-v');
+			$this->load->view('templates/footer');
+		}
+
+	public function workshop(){
 			$this->load->view('pages/work');
 		}
 }
