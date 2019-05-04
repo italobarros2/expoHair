@@ -5,31 +5,28 @@
 				<h2 class="contact-title">Faça sua inscrição</h2>
 				<form class="needs-validation contact-form" novalidate>
 					<div class="form-row">
-						<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+						<div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
 							<input type="text" class="form-control" id="validationCustom01" placeholder="Nome Completo" required>
-							<div class="valid-feedback valid_perso">
-								Tudo Certo.
-							</div>
-							<div class="invalid-feedback valid_perso ">
-								Preencha.
+							<div class="invalid-feedback valid_perso">
+								Esse campo não pode está vazio!
 							</div>
 						</div>
-						<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+						<div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
 							<input type="text" class="form-control" id="validationCustom02" placeholder="E-mail" required>
-							<div class="valid-feedback valid_perso">
-								Tudo Certo.
-							</div>
 							<div class="invalid-feedback valid_perso ">
-								Preencha.
+								Esse campo não pode está vazio!
 							</div>
 						</div>
-						<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+						<div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
 							<input type="text" class="form-control" id="validationCustom02" placeholder="CPF" required>
-							<div class="valid-feedback valid_perso">
-								Tudo Certo.
-							</div>
 							<div class="invalid-feedback valid_perso ">
-								Preencha.
+								Esse campo não pode está vazio!
+							</div>
+						</div>
+						<div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+							<input type="text" class="form-control" id="validationCustom02" placeholder="ID_vendedora: 05" disabled>
+							<div class="invalid-feedback valid_perso ">
+								Esse campo não pode está vazio!
 							</div>
 						</div>
 					</div>
@@ -47,29 +44,20 @@
 						</div>
 						<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mb-2">
 							<input type="text" class="form-control" id="validationCustom01" placeholder="Cidade" required>
-							<div class="valid-feedback valid_perso">
-								Tudo Certo.
-							</div>
 							<div class="invalid-feedback valid_perso ">
-								Preencha.
+								Esse campo não pode está vazio!
 							</div>
 						</div>
 						<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mb-2">
 							<input type="text" class="form-control" id="validationCustom02" placeholder="Bairro" required>
-							<div class="valid-feedback valid_perso">
-								Tudo Certo.
-							</div>
 							<div class="invalid-feedback valid_perso ">
-								Preencha.
+								Esse campo não pode está vazio!
 							</div>
 						</div>
 						<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mb-2">
 							<input type="text" class="form-perso form-control" id="validationCustom02" placeholder="Telefone" required>
-							<div class="valid-feedback valid_perso">
-								Tudo Certo.
-							</div>
 							<div class="invalid-feedback valid_perso ">
-								Preencha.
+								Esse campo não pode está vazio!
 							</div>
 						</div>
 					</div>
