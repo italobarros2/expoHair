@@ -28,6 +28,16 @@ class Admin extends CI_Controller {
         $this->load->view('templates/admin-footer');
     }
 
+	public function comissoes()
+	{
+		$this->load->view('templates/admin-header');
+		$this->load->view('templates/admin-nav');
+		$this->load->view('templates/admin-leftnav');
+		$this->load->view('templates/admin-headsection');
+		$this->load->view('admin/admin-comissoes');
+		$this->load->view('templates/admin-footer');
+	}
+
     public function login()
 	{
         $this->load->view('admin/admin-login');
