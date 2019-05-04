@@ -89,6 +89,85 @@
         <script src="<?=base_url('static/js/owl.carousel.min.js')?>"></script>
         <script src="<?=base_url('static/js/circle-progress.min.js')?>"></script>
         <script src="<?=base_url('static/js/main.js')?>"></script>
+		<script src="<?=base_url('static/assets/vendor/multi-select/js/jquery.multi-select.js')?>"></script>
+		<script>
+			// Example starter JavaScript for disabling form submissions if there are invalid fields
+			(function() {
+				'use strict';
+				window.addEventListener('load', function() {
+					// Fetch all the forms we want to apply custom Bootstrap validation styles to
+					var forms = document.getElementsByClassName('needs-validation');
+					// Loop over them and prevent submission
+					var validation = Array.prototype.filter.call(forms, function(form) {
+						form.addEventListener('submit', function(event) {
+							if (form.checkValidity() === false) {
+								event.preventDefault();
+								event.stopPropagation();
+							}
+							form.classList.add('was-validated');
+						}, false);
+					});
+				}, false);
+			})();
+		</script>
+
+		<script>
+			$('#my-select, #pre-selected-options').multiSelect()
+		</script>
+		<script>
+			$('#callbacks').multiSelect({
+				afterSelect: function(values) {
+					alert("Select value: " + values);
+				},
+				afterDeselect: function(values) {
+					alert("Deselect value: " + values);
+				}
+			});
+		</script>
+		<script>
+			$('#keep-order').multiSelect({ keepOrder: true });
+		</script>
+		<script>
+			$('#public-methods').multiSelect();
+			$('#select-all').click(function() {
+				$('#public-methods').multiSelect('select_all');
+				return false;
+			});
+			$('#deselect-all').click(function() {
+				$('#public-methods').multiSelect('deselect_all');
+				return false;
+			});
+			$('#select-100').click(function() {
+				$('#public-methods').multiSelect('select', ['elem_0', 'elem_1'..., 'elem_99']);
+				return false;
+			});
+			$('#deselect-100').click(function() {
+				$('#public-methods').multiSelect('deselect', ['elem_0', 'elem_1'..., 'elem_99']);
+				return false;
+			});
+			$('#refresh').on('click', function() {
+				$('#public-methods').multiSelect('refresh');
+				return false;
+			});
+			$('#add-option').on('click', function() {
+				$('#public-methods').multiSelect('addOption', { value: 42, text: 'test 42', index: 0 });
+				return false;
+			});
+		</script>
+		<script>
+			$('#optgroup').multiSelect({ selectableOptgroup: true });
+		</script>
+		<script>
+			$('#disabled-attribute').multiSelect();
+		</script>
+		<script>
+			$('#custom-headers').multiSelect({
+				selectableHeader: "<div class='custom-header'>Selectable items</div>",
+				selectionHeader: "<div class='custom-header'>Selection items</div>",
+				selectableFooter: "<div class='custom-header'>Selectable footer</div>",
+				selectionFooter: "<div class='custom-header'>Selection footer</div>"
+			});
+		</script>
 
     </body>
 </html>

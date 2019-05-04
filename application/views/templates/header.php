@@ -10,6 +10,7 @@
 	<link href="<?=base_url('static/img/favicon.ico')?>" rel="shortcut icon"/>
 
 	<!-- Stylesheets -->
+	<link rel="stylesheet" href="<?=base_url('static/css/style-form.css')?>">
 	<link rel="stylesheet" href="<?=base_url('static/css/bootstrap.min.css')?>"/>
 	<link rel="stylesheet" href="<?=base_url('static/css/font-awesome.min.css')?>"/>
 	<link rel="stylesheet" href="<?=base_url('static/css/jquery-ui.min.css')?>"/>
@@ -17,6 +18,7 @@
 	<link rel="stylesheet" href="<?=base_url('static/css/owl.carousel.css')?>"/>
 	<link rel="stylesheet" href="<?=base_url('static/css/style.css')?>"/>
 	<link rel="stylesheet" href="<?=base_url('static/css/animate.css')?>"/>
+	<link rel="stylesheet" href="<?=base_url('static/assets/vendor/multi-select/css/multi-select.css')?>"/>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 

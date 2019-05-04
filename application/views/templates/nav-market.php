@@ -22,10 +22,6 @@
 				<li><a href="#">Contato</a></li>
 				<li><a href="mapa.php">Planta</a></li>
 			</ul>
-			<div class="header-right">
-				<a href="#" class="site-btn sb-line sb-big">(85) 9 9659 - 7500</a>
-				<a href="#" class="site-btn sb-big">Inscrições</a>
-			</div>
 		</div>
 </header>
 	<!-- Header section end -->

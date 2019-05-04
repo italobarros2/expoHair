@@ -1,0 +1,17 @@
+.form-perso{
+	border:none;
+	height: 25px;
+}
+
+.form-sec{
+	padding: 250px 0 !important;
+}
+
+.valid_perso{
+	margin-top: -20px !important;
+}
+@media only screen and (max-height: 700px){
+	.form-sec{
+		padding: 50px 0 !important;
+	}
+}
