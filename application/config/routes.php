@@ -53,11 +53,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['default_controller']    = 'pages';
 $route['gerenciamento/dashboard'] = 'admin';
+$route['gerenciamento/comissoes'] = 'admin/comissoes';
 $route['gerenciamento/cursos/(:num)'] = 'admin/cursos/$1';
 $route['gerenciamento/workshops/(:num)'] = 'admin/workshops/$1';
 $route['gerenciamento/palestras/(:num)'] = 'admin/palestras/$1';
 $route['gerenciamento/compra/(:num)'] = 'admin/compra/$1';
 $route['gerenciamento/login'] = 'admin/login';
 $route['gerenciamento/resetpass'] = 'admin/resetpass';
+$route['inscricao']    = 'pages/inscricao';
+$route['vendor/inscricao/(:num)']    = 'pages/inscricaoVendor';
 $route['work'] 				    = 'pages/workshop';
 $route['404_override']          = 'pages/erro404';
