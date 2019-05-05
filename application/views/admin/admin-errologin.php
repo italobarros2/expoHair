@@ -44,6 +44,9 @@
         <div class="card card-perso">
             <div class="card-header text-center"><a href="../index.html"><img class="logo-img" src="" alt="logo"></a><span class="splash-description fixtext" style="margin-top: 10px; font-size: 20px">Login no sistema</span></div>
             <div class="card-body">
+				<div class="alert alert-danger" role="alert">
+					Dados informados incorretos
+				</div>
                 <form action="<?=base_url('gerenciamento/autenticate')?>" method="post"><!--?=base_url('static/assets/images/logo.png')?>-->
                     <div class="form-group">
                         <input class="form-control form-control-lg" id="username" name="username" type="text" placeholder="Usuário" autocomplete="off" style="margin-top: 12px"><i class="fas fa-user fixicon"></i>

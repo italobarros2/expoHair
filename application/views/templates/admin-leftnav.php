@@ -30,10 +30,10 @@
                         <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-rocket"></i>Cursos</a>
                         <div id="submenu-2" class="collapse submenu" style="">
                             <ul class="nav flex-column">
-                                <?php for($i = 1; $i<11; $i++){
+                                <?php foreach ($cursos as $curso){
                                     echo 
                                     '<li class="nav-item">
-                                        <a class="nav-link" href="'.base_url('gerenciamento/cursos/'.$i).'">Curso '.$i.'<span class="badge badge-secondary"></span></a>
+                                        <a class="nav-link" href="'.base_url('gerenciamento/cursos/'.$curso->idCURSOS).'">'.$curso->nomeCURSOS.'<span class="badge badge-secondary"></span></a>
                                     </li>';
                                 }?>
                             </ul>
@@ -43,10 +43,10 @@
                         <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-2"><i class="fas fa-fw fa-inbox"></i></i>Workshops</a>
                         <div id="submenu-3" class="collapse submenu" style="">
                             <ul class="nav flex-column">
-                                <?php for($i = 1; $i<11; $i++){
+                                <?php foreach ($workshops as $workshop){
                                     echo 
                                     '<li class="nav-item">
-                                        <a class="nav-link" href="'.base_url('gerenciamento/workshops/'.$i).'">Workshop '.$i.'<span class="badge badge-secondary"></span></a>
+                                        <a class="nav-link" href="'.base_url('gerenciamento/workshops/'.$workshop->idCURSOS).'">'.$workshop->nomeCURSOS.'<span class="badge badge-secondary"></span></a>
                                     </li>';
                                 }?>
                             </ul>
@@ -56,10 +56,10 @@
                         <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-2"><i class="fab fa-fw fa-wpforms"></i></i>Palestras</a>
                         <div id="submenu-4" class="collapse submenu" style="">
                             <ul class="nav flex-column">
-                                <?php for($i = 1; $i<11; $i++){
+                                <?php foreach ($palestras as $palestra){
                                     echo 
                                     '<li class="nav-item">
-                                        <a class="nav-link" href="'.base_url('gerenciamento/palestras/'.$i).'">Palestra '.$i.'<span class="badge badge-secondary"></span></a>
+                                        <a class="nav-link" href="'.base_url('gerenciamento/palestras/'.$palestra->idCURSOS).'">'.$palestra->nomeCURSOS.'<span class="badge badge-secondary"></span></a>
                                     </li>';
                                 }?>
                             </ul>
