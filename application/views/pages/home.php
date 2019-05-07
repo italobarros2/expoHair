@@ -5,10 +5,10 @@
             <!-- slider item -->
     <div class="hs-item">
                 <div class="hs-content text-white">
-                    <h2>SUA CARREIRA<br>NO GLAMUR ESTÁ AQUI.</h2>
+                    <h2>SUA CARREIRA<br>NO GLAMUR ESTA AQUI.</h2>
                     <p><h4>ExpoHair - 13 a 15 / Julho<br>Centro de Eventos de Sobral - CE.</h4></p>
                     <p><h5>Visite nossos stands dos mais diversos setores do mundo da beleza. E participe dos nossos cursos, workshops e palestras.</h5></p>
-                    <a href="#" style="margin-top: 71px" class="site-btn sb-big">Inscreva-se</a>
+                    <a href="/" style="margin-top: 71px" class="site-btn sb-big">Inscri��o em Breve!</a>
                 </div>
                 <div class="hs-preview set-bg" data-setbg="<?=base_url('static/img/hero-slider/1.png')?>"></div>
     </div>
@@ -17,7 +17,7 @@
                     <h2>NOIVAS,<br>PENTEANDO COM CRIATIVIDADE.</h2>
                     <p><h4>ExpoHair - 13 a 15 / Julho<br>Centro de Eventos de Sobral - CE.</h4></p>
                     <p><h5>Mostrar penteados criativos  um caminho mais fácil do que você imagina... Junte-se a nós do ExpoHair e participe!</h5></p>
-                    <a href="/noivas.php" class="site-btn sb-big">Participe</a>
+                    <a href="<?=base_url('pages/noiva')?>" class="site-btn sb-big">Participe</a>
                 </div>
                 <div class="hs-preview set-bg" data-setbg="<?=base_url('static/img/hero-slider/noiva_1.png')?>"></div>
     </div>
@@ -26,7 +26,7 @@
                     <h2>BARBER HAIR.</h2>
                     <p><h4>ExpoHair - 13 a 15 / Julho<br>Centro de Eventos de Sobral - CE.</h4></p>
                     <p><h5>Ser um barbeiro nos dias de hoje significa muito mais do que ter um estabelecimento voltado exclusivamente para o público masculino. A profissão exige pesquisa de mercado, visão de negócio, mente aberta para apresentar inovações.</h5></p>
-                    <a href="barbeiro.php" style="margin-top: 171px" class="site-btn sb-big">Participe</a>
+                    <a href="<?=base_url('pages/barber')?>" style="margin-top: 171px" class="site-btn sb-big">Participe</a>
                 </div>
                 <div class="hs-preview set-bg" data-setbg="<?=base_url('static/img/hero-slider/barber_1.png')?>"></div>
     </div>

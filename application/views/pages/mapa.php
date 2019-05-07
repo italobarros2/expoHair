@@ -34,7 +34,7 @@
 			<p>**Adquira logo seu stand quanto mais cedo, mais barato e quem deixar pra última hora, fica sujeito a existência de vagas.
 			<br>*Verificar disponibilidade.</p>
 			</div>
-			<div class="col-lg-8" style="margin: 50px 0px 50px 0px">
+            <div class="col-lg-8" style="margin: 50px 0px 50px 0px">
 				<a href="#" class="site-btn sb-big">PARA COMPRA E MAIS INFORMAÇÕES: (85) 9 9659 - 7500 | TIM & WhatsApp</a>
 			</div></center>
 		</div>

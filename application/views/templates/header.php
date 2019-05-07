@@ -2,7 +2,7 @@
 <html lang="PT-br">
 <head>
 	<title>Congresso e Feira ExpoHair</title>
-	<meta charset="UTF-8">
+	<meta charset="iso-8859-1">
 	<meta name="description" content="Site oficial Congresso e Feira Expohair">
 	<meta name="keywords" content="diva, beauty, beleza, congresso">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">

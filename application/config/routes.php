@@ -59,4 +59,7 @@ $route['barber'] 			    = 'pages/barbeiro';
 $route['info'] 				    = 'pages/sobre';
 $route['humor'] 			    = 'pages/humor';
 $route['inscricao'] 		    = 'pages/inscricao';
+$route['show']       		    = 'pages/show';
+$route['cursos']       		    = 'pages/cursos';
+$route['ingresso']     		    = 'pages/ingresso';
 $route['404_override']          = 'pages/erro404';
