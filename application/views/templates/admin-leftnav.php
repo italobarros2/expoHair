@@ -33,7 +33,7 @@
                                 <?php foreach ($cursos as $curso){
                                     echo 
                                     '<li class="nav-item">
-                                        <a class="nav-link" href="'.base_url('gerenciamento/cursos/'.$curso->idCURSOS).'">'.$curso->nomeCURSOS.'<span class="badge badge-secondary"></span></a>
+                                        <a class="nav-link" href="'.base_url('gerenciamento/cursos/'.$curso->idATIVIDADE).'">'.$curso->nomeATIVIDADE.'<span class="badge badge-secondary"></span></a>
                                     </li>';
                                 }?>
                             </ul>
@@ -46,20 +46,20 @@
                                 <?php foreach ($workshops as $workshop){
                                     echo 
                                     '<li class="nav-item">
-                                        <a class="nav-link" href="'.base_url('gerenciamento/workshops/'.$workshop->idCURSOS).'">'.$workshop->nomeCURSOS.'<span class="badge badge-secondary"></span></a>
+                                        <a class="nav-link" href="'.base_url('gerenciamento/workshops/'.$workshop->idATIVIDADE).'">'.$workshop->nomeATIVIDADE.'<span class="badge badge-secondary"></span></a>
                                     </li>';
                                 }?>
                             </ul>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-2"><i class="fab fa-fw fa-wpforms"></i></i>Palestras</a>
+                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-2"><i class="fab fa-fw fa-wpforms"></i></i>Concursos</a>
                         <div id="submenu-4" class="collapse submenu" style="">
                             <ul class="nav flex-column">
-                                <?php foreach ($palestras as $palestra){
+                                <?php foreach ($concursos as $concurso){
                                     echo 
                                     '<li class="nav-item">
-                                        <a class="nav-link" href="'.base_url('gerenciamento/palestras/'.$palestra->idCURSOS).'">'.$palestra->nomeCURSOS.'<span class="badge badge-secondary"></span></a>
+                                        <a class="nav-link" href="'.base_url('gerenciamento/palestras/'.$concurso->idATIVIDADE).'">'.$concurso->nomeATIVIDADE.'<span class="badge badge-secondary"></span></a>
                                     </li>';
                                 }?>
                             </ul>

@@ -73,7 +73,7 @@
 								<div class="card-body">
 									<h5 class="text-muted">Vendas na Atividade</h5>
 									<div class="metric-value d-inline-block">
-										<h1 class="mb-1">R$<?php $tot = $total->qtd*$const->precoCURSO;echo $tot;?></h1>
+										<h1 class="mb-1">R$<?php $tot = $total->qtd*$const->preco;echo $tot;?></h1>
 									</div>
 									<div class="metric-label d-inline-block float-right text-success font-weight-bold">
 										<span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5.86%</span>
@@ -92,7 +92,7 @@
 								<div class="card-body">
 									<h5 class="text-muted">TecHHub</h5>
 									<div class="metric-value d-inline-block">
-										<h1 class="mb-1">R$<?php $tottec = $tec->qtd*0.1*$const->precoCURSO; echo $tottec;?></h1>
+										<h1 class="mb-1">R$<?php $tottec = $tec->qtd*0.1*$const->preco; echo $tottec;?></h1>
 									</div>
 									<div class="metric-label d-inline-block float-right text-success font-weight-bold">
 										<span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">10%</span>
