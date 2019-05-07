@@ -11,7 +11,7 @@
 		<div class="container">
 			<div class="row about-box">
 				<div class="col-md-6 about-img">
-					<img src="img/barba-1.jpg" alt="">
+					<img src="<?=base_url('static/img/barba-1.jpg')?>" alt="">
 				</div>
 				<div class="col-md-6">
 					<div class="about-content">

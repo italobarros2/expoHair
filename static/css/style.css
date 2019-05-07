@@ -140,6 +140,21 @@ ol {
 
 /* buttons */
 
+.infoCurso-btn {
+	display: inline-block;
+	text-align: center;
+	font-size: 16px;
+	color: #fff;
+	padding: 12px 30px;
+    margin-bottom: 30px;
+	min-width: 145px;
+	border: 2px solid #e22b63;
+	background: #e22b63;
+	cursor: pointer;
+	-webkit-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
+}
+
 .site-btn {
 	display: inline-block;
 	text-align: center;
@@ -453,8 +468,7 @@ ol {
 .main-menu {
 	display: inline-block;
 	list-style: none;
-	padding-left: 125px;
-	margin-left: 650px;
+	margin-left: 100px;
 }
 
 .main-menu li {
@@ -751,22 +765,22 @@ ol {
 -----------------------*/
 
 .footer-section {
-	padding-top: 135px;
+	padding-top: 25px;
 }
 
 .footer-warp {
 	max-width: 1613px;
 	margin: 0 auto;
-	padding: 0 15px;
+	padding: 0 5px;
 }
 
 .footer-widgets {
-	padding: 0 15px;
+	padding: 0 5px;
 }
 
 .footer-widget .fw-title {
 	color: #fff;
-	margin-bottom: 35px;
+	margin-bottom: 10px;
 }
 
 .footer-widget .fw-title i {
@@ -783,11 +797,11 @@ ol {
 }
 
 .footer-widget.about-widget {
-	padding-top: 20px;
+	padding-top: 5px;
 }
 
 .footer-widget.about-widget img {
-	margin-bottom: 50px;
+	margin-bottom: 5px;
 }
 
 .footer-widget.about-widget p {
@@ -816,11 +830,11 @@ ol {
 }
 
 .footer-widget .fw-social {
-	padding-top: 85px;
+	padding-top: 15px;
 }
 
 .footer-widget .fw-social a {
-	font-size: 14px;
+	font-size: 20px;
 	color: #fff;
 	margin-right: 25px;
 }
@@ -868,7 +882,7 @@ ol {
 .footer-bottom {
 	overflow: hidden;
 	padding-bottom: 28px;
-	padding-top: 95px;
+	padding-top: 40px;
 }
 
 .footer-bottom .footer-nav {
@@ -896,7 +910,7 @@ ol {
 }
 
 .footer-bottom .copyright {
-	float: left;
+	float: center;
 	padding-top: 3px;
 }
 
@@ -904,13 +918,80 @@ ol {
 	font-size: 14px;
 	margin-bottom: 0;
 	color: #fff;
-	opacity: 0.17;
+    text-align: center;
+    
 }
 
 /*--------------
   Other Page
 -----------------
 =================*/
+
+.item {
+    border: 1px solid #F30391;
+	border-radius: 15px;
+	height: 60px;
+	margin-top: 15px;
+}
+
+.produto-title{
+	width: 200px;
+    margin-left: 30px;
+	font-size: 18px;
+	margin-top: 15px;
+}
+.valor-title{
+	margin-left: 360px;
+	margin-right: 10px;
+	font-size: 18px;
+	margin-top: 15px;
+}
+
+.qntIng{
+	height: 30px;
+	border-left: 1px solid #000;
+	margin-top: 15px;
+}
+
+.qnt-n{
+    color: #000;
+    border: none;
+    height: 30px;
+	text-align: center;
+    line-height: 30px;
+    padding: 0 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-mais{
+    color: #FFF;
+    background-color: green;
+    border: none;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+	border-radius: 50px;
+	margin-left: 5px;
+}
+.btn-menos{
+	color: #FFF;
+    background-color: green;
+    border: none;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 23px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+	border-radius: 50px;
+	margin-right: 5px;
+	margin-left: 10px;
+}
 
 .page-info-section {
 	padding: 72px 0;
@@ -1014,14 +1095,6 @@ ol {
 	left: 0;
 	bottom: 0;
 	z-index: 1;
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,1+100 */
-	/* FF3.6-15 */
-	/* Chrome10-25,Safari5.1-6 */
-	background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.9)));
-	background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 100%);
-	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000', GradientType=0);
-	/* IE6-9 */
 }
 
 .team-member .tm-info {
@@ -1207,8 +1280,8 @@ ol {
 }
 
 .memberships-section {
-	background: #1e1e1e;
-	padding-top: 90px;
+	/*background: #1e1e1e;*/
+	padding-top: 80px;
 	padding-bottom: 100px;
 }
 
@@ -1563,9 +1636,90 @@ ol {
 }
 
 /* Large Mobile :480px. */
-
 @media only screen and (max-width: 767px) {
-	.header-section {
+
+.infoCurso-btn {
+	display: inline-block;
+	text-align: center;
+	font-size: 16px;
+	color: #fff;
+	min-width: 145px;
+	border: 2px solid #e22b63;
+	background: #e22b63;
+	cursor: pointer;
+	-webkit-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
+}
+    
+.item {
+    border: 1px solid #F30391;
+	border-radius: 15px;
+	height: 110px;
+	margin-top: 15px;
+}
+
+.produto-title{
+	width: 200px;
+    margin-left: 30px;
+	font-size: 18px;
+	margin-top: 15px;
+}
+.valor-title{
+	margin-left: 70px;
+	margin-right: 10px;
+	font-size: 18px;
+	margin-top: 15px;
+}
+
+.qntIng{
+	height: 30px;
+	margin-left: 110px;
+	margin-top: 15px;
+    
+}
+
+.qnt-n{
+    color: #000;
+    border: none;
+    height: 30px;
+	text-align: center;
+    line-height: 30px;
+    padding: 0 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-mais{
+    color: #FFF;
+    background-color: green;
+    border: none;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+	border-radius: 50px;
+	margin-left: 5px;
+}
+.btn-menos{
+	color: #FFF;
+    background-color: green;
+    border: none;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 23px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+	border-radius: 50px;
+	margin-right: 5px;
+	margin-left: 10px;
+}
+
+    
+    .header-section {
 		position: relative;
 		padding: 10px 15px;
 	}
