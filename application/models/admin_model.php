@@ -41,55 +41,59 @@ class Admin_model extends CI_Model
 		return $query->row();
 	}
 
-	public function pesquisa_cursos_general($id)
+	public function pesquisa_atividades_general($id)
 	{
-		/*if($id >100 AND $id < 200){
-			$query = $this->db->query('SELECT Nome, email, telefone, cpf, Cidade, sexo, validacao FROM clientes NATURAL JOIN compras NATURAL JOIN cursos_has_clientes NATURAL JOIN cursos WHERE idCURSOS >100 AND idCURSOS < 200;');
+		if($id >100 AND $id < 200){
+			$query = $this->db->query('SELECT nomeATIVIDADES, lote, preco FROM atividades NATURAL JOIN precos_atividades NATURAL JOIN atividades WHERE idATIVIDADE >100 AND idATIVIDADE < 200;');
 			return $query->result();
 		}elseif ($id >200 AND $id < 300){
-			$query = $this->db->query('SELECT Nome, email, telefone, cpf, Cidade, sexo, validacao FROM clientes NATURAL JOIN compras NATURAL JOIN cursos_has_clientes NATURAL JOIN cursos WHERE idCURSOS >200 AND idCURSOS < 300;');
+			$query = $this->db->query('SELECT nomeATIVIDADES, lote, preco FROM atividades NATURAL JOIN precos_atividades NATURAL JOIN atividades WHERE idATIVIDADE >200 AND idATIVIDADE < 300;');
 			return $query->result();
 		}else{
-			$query = $this->db->query('SELECT Nome, email, telefone, cpf, Cidade, sexo, validacao FROM clientes NATURAL JOIN compras NATURAL JOIN cursos_has_clientes NATURAL JOIN cursos WHERE idCURSOS >300 AND idCURSOS < 400;');
+			$query = $this->db->query('SELECT nomeATIVIDADES, lote, preco FROM atividades NATURAL JOIN precos_atividades NATURAL JOIN atividades WHERE idATIVIDADE >300 AND idATIVIDADE < 400;');
 			return $query->result();
-		}*/
-		$query = $this->db->query('SELECT Nome, email, telefone, cpf, Cidade, sexo, validacao FROM clientes NATURAL JOIN compras NATURAL JOIN cursos_has_clientes NATURAL JOIN cursos WHERE idCURSOS ='.$id.';');
+		}
+	}
+
+	public function pesquisa_publico_atividades($id)
+	{
+		$query = $this->db->query('SELECT Nome, email, telefone, cpf, Cidade, sexo, validacao FROM clientes NATURAL JOIN compras NATURAL JOIN atividades_has_clientes_has_compras NATURAL JOIN atividades WHERE idATIVIDADE ='.$id.';');
 		return $query->result();
 	}
 
 	public function numeroParticipantesPagantes($id)
 	{
-		$query = $this->db->query('SELECT COUNT(*) AS qtd FROM cursos NATURAL JOIN cursos_has_clientes NATURAL JOIN compras WHERE idCURSOS ='.$id.' AND validacao = "pago";');
+		$query = $this->db->query('SELECT COUNT(*) AS qtd FROM atividades NATURAL JOIN atividades_has_clientes_has_compras NATURAL JOIN compras WHERE idATIVIDADE ='.$id.' AND validacao = "pago";');
 		return $query->row();
 	}
 
 	public function constanteCurso($id)
 	{
-		$query = $this->db->query('SELECT precoCURSO FROM cursos WHERE idCURSOS ='.$id.';');
+		$query = $this->db->query('SELECT preco FROM atividades NATURAL JOIN precos_atividades WHERE idATIVIDADE ='.$id.';');
 		return $query->row();
 	}
 
 	public function n_Part_tecHHub_curso($id)
 	{
-		$query = $this->db->query('SELECT COUNT(*) AS qtd FROM compras NATURAL JOIN cursos_has_clientes WHERE tipoPagamento != "dinheiro" AND validacao = "pago" AND idCURSOS = '.$id.';');
+		$query = $this->db->query('SELECT COUNT(*) AS qtd FROM compras NATURAL JOIN atividades_has_clientes_has_compras WHERE tipoPagamento != "dinheiro" AND validacao = "pago" AND idATIVIDADE = '.$id.';');
 		return $query->row();
 	}
 
 	public function pesquisa_cursos()
 	{
-		$query = $this->db->query('SELECT * FROM cursos WHERE idCURSOS >100 AND idCURSOS < 200;');
+		$query = $this->db->query('SELECT * FROM atividades WHERE idATIVIDADE >100 AND idATIVIDADE < 200;');
 		return $query->result();
 	}
 
 	public function pesquisa_workshops()
 	{
-		$query = $this->db->query('SELECT * FROM cursos WHERE idCURSOS >200 AND idCURSOS < 300;');
+		$query = $this->db->query('SELECT * FROM atividades WHERE idATIVIDADE >200 AND idATIVIDADE < 300;');
 		return $query->result();
 	}
 
-	public function pesquisa_palestras()
+	public function pesquisa_concursos()
 	{
-		$query = $this->db->query('SELECT * FROM cursos WHERE idCURSOS >300 AND idCURSOS < 400;');
+		$query = $this->db->query('SELECT * FROM atividades WHERE idATIVIDADE >300 AND idATIVIDADE < 400;');
 		return $query->result();
 	}
 }
