@@ -3,22 +3,22 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h2 class="contact-title">Faça sua inscrição</h2>
-				<form class="needs-validation contact-form" novalidate>
+				<form class="needs-validation contact-form" action="<?= base_url('submitcongress')?>" method="post" novalidate>
 					<div class="form-row">
 						<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
-							<input type="text" class="form-control" id="validationCustom01" placeholder="Nome Completo" required>
+							<input type="text" class="form-control" name="nome" id="field01" placeholder="Nome Completo" required>
 							<div class="invalid-feedback valid_perso">
 								Esse campo não pode está vazio!
 							</div>
 						</div>
 						<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
-							<input type="text" class="form-control" id="validationCustom02" placeholder="E-mail" required>
+							<input type="text" class="form-control" name="email" id="field02" placeholder="E-mail" required>
 							<div class="invalid-feedback valid_perso ">
 								Esse campo não pode está vazio!
 							</div>
 						</div>
 						<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
-							<input type="text" class="form-control" id="validationCustom02" placeholder="CPF" required>
+							<input type="text" class="form-control" name="cpf" id="field03" placeholder="CPF" required>
 							<div class="invalid-feedback valid_perso ">
 								Esse campo não pode está vazio!
 							</div>
@@ -27,83 +27,103 @@
 					<div class="form-row">
 						<div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-12">
 							<div class="form-group">
-								<select class="custom-select" style="border:none; border-bottom: 2px solid #e3e3e3;margin-bottom: 20px" required>
+								<select class="custom-select" style="border:none; border-bottom: 2px solid #e3e3e3;margin-bottom: 20px" name="sexo" id="field04" required>
 									<option value="">Sexo</option>
-									<option value="1">Feminino</option>
-									<option value="2">Masculino</option>
-									<option value="3">Outros</option>
+									<option value="M">Feminino</option>
+									<option value="F">Masculino</option>
+									<option value="O">Outros</option>
 								</select>
 								<div class="invalid-feedback valid_perso" style="margin-top: -4px !important">Deve-se escolher dentre as opções acima.</div>
 							</div>
 						</div>
 						<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mb-2">
-							<input type="text" class="form-control" id="validationCustom01" placeholder="Cidade" required>
+							<input type="text" class="form-control" name="cidade" id="field05" placeholder="Cidade" required>
 							<div class="invalid-feedback valid_perso ">
 								Esse campo não pode está vazio!
 							</div>
 						</div>
 						<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mb-2">
-							<input type="text" class="form-control" id="validationCustom02" placeholder="Bairro" required>
+							<input type="text" class="form-control" name="bairro" id="field06" placeholder="Bairro" required>
 							<div class="invalid-feedback valid_perso ">
 								Esse campo não pode está vazio!
 							</div>
 						</div>
 						<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mb-2">
-							<input type="text" class="form-perso form-control" id="validationCustom02" placeholder="Telefone" required>
+							<input type="text" class="form-perso form-control" name="telefone" id="field07" placeholder="Telefone (preferência Whatsapp)" required>
 							<div class="invalid-feedback valid_perso ">
 								Esse campo não pode está vazio!
 							</div>
 						</div>
 					</div>
-					<div class="form-row">
-						<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+					<h2 class="contact-title" style="margin-top: 10px">Escolha os produtos que você deseja comprar</h2>
+
+					<div class="form-row"style="margin-bottom: 20px">
+						<div class="col-xl-1 col-lg-1 col-md-1"></div>
+						<div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12">
 							<div class="card">
-								<h5 class="card-header">Shows</h5>
+								<h5 class="card-header">Combos</h5>
 								<div class="card-body">
-									<select multiple="multiple" id="my-select" name="my-select5">
-										<option value='elem_1'>Elements 1</option>
-										<option value='elem_2'>Elements 2</option>
-										<option value='elem_3'>Elements 3</option>
-										<option value='elem_4'>Elements 4</option>
+									<select class="my-select" id="field08" name="combos_select[]" multiple>
+										<?php foreach ($combos as $combo){
+											echo '
+												<option value="'.$combo->idCOMBOS.'">'.$combo->nome.' - lote: '.$combo->lote.' - preço: R$'.$combo->preco.'</option>
+											';
+										}
+										?>
 									</select>
 								</div>
 							</div>
 						</div>
-						<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+					</div>
+					<div class="form-row"style="margin-bottom: 20px">
+						<div class="col-xl-1 col-lg-1 col-md-1"></div>
+						<div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12">
 							<div class="card">
 								<h5 class="card-header">Workshops</h5>
 								<div class="card-body">
-									<select multiple="multiple" id="my-select" name="my-select[]">
-										<option value='elem_1'>Elements 1</option>
-										<option value='elem_2'>Elements 2</option>
-										<option value='elem_3'>Elements 3</option>
-										<option value='elem_4'>Elements 4</option>
+									<select multiple="multiple" class="my-select" id="field09" name="workshops_select[]">
+										<?php foreach ($workshops as $workshop){
+											echo '
+												<option value="'.$workshop->idATIVIDADE.'">'.$workshop->nomeATIVIDADE.' - lote: '.$workshop->lote.'- preço: R$'.$workshop->preco.'</option>
+											';
+										}
+										?>
 									</select>
 								</div>
 							</div>
 						</div>
-						<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+					</div>
+					<div class="form-row"style="margin-bottom: 20px">
+						<div class="col-xl-1 col-lg-1 col-md-1"></div>
+						<div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12">
 							<div class="card">
 								<h5 class="card-header">Cursos</h5>
 								<div class="card-body">
-									<select multiple="multiple" id="my-select" name="my-select[]">
-										<option value='elem_1'>Elements 1</option>
-										<option value='elem_2'>Elements 2</option>
-										<option value='elem_3'>Elements 3</option>
-										<option value='elem_4'>Elements 4</option>
+									<select multiple="multiple" class="my-select" id="field10" name="cursos_select[]">
+										<?php foreach ($cursos as $curso){
+											echo '
+												<option value="'.$curso->idATIVIDADE.'">'.$curso->nomeATIVIDADE.' - lote: '.$curso->lote.'- preço: R$'.$curso->preco.'</option>
+											';
+										}
+										?>
 									</select>
 								</div>
 							</div>
 						</div>
-						<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+					</div>
+					<div class="form-row"style="margin-bottom: 20px">
+						<div class="col-xl-1 col-lg-1 col-md-1"></div>
+						<div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12">
 							<div class="card">
-								<h5 class="card-header">Palestras</h5>
+								<h5 class="card-header">Concursos</h5>
 								<div class="card-body">
-									<select multiple="multiple" id="my-select" name="my-select[]">
-										<option value='elem_1'>Elements 1</option>
-										<option value='elem_2'>Elements 2</option>
-										<option value='elem_3'>Elements 3</option>
-										<option value='elem_4'>Elements 4</option>
+									<select multiple="multiple" class="my-select" id="field11" name="concursos_select[]">
+										<?php foreach ($concursos as $concurso){
+											echo '
+												<option value="'.$concurso->idATIVIDADE.'">'.$concurso->nomeATIVIDADE.' - lote: '.$concurso->lote.'- preço: R$'.$concurso->preco.'</option>
+											';
+										}
+										?>
 									</select>
 								</div>
 							</div>
