@@ -20,7 +20,7 @@ class Admin extends CI_Controller {
 			$datanav = array(
 				'cursos' => $this->admin_model->pesquisa_cursos(),
 				'workshops' => $this->admin_model->pesquisa_workshops(),
-				'palestras' => $this->admin_model->pesquisa_palestras(),
+				'concursos' => $this->admin_model->pesquisa_concursos(),
 			);
 			$data = array(
 				'data' => $this->admin_model->transacoes(),
@@ -47,7 +47,7 @@ class Admin extends CI_Controller {
 			$datanav = array(
 				'cursos' => $this->admin_model->pesquisa_cursos(),
 				'workshops' => $this->admin_model->pesquisa_workshops(),
-				'palestras' => $this->admin_model->pesquisa_palestras(),
+				'concursos' => $this->admin_model->pesquisa_concursos(),
 			);
 			$this->load->view('templates/admin-header');
 			$this->load->view('templates/admin-nav');
@@ -102,10 +102,10 @@ class Admin extends CI_Controller {
 			$datanav = array(
 				'cursos' => $this->admin_model->pesquisa_cursos(),
 				'workshops' => $this->admin_model->pesquisa_workshops(),
-				'palestras' => $this->admin_model->pesquisa_palestras(),
+				'concursos' => $this->admin_model->pesquisa_concursos(),
 			);
 			$data = array(
-				'data' => $this->admin_model->pesquisa_cursos_general($id),
+				'data' => $this->admin_model->pesquisa_publico_atividades($id),
 				'total' => $this->admin_model->numeroParticipantesPagantes($id),
 				'const' => $this->admin_model->constanteCurso($id),
 				'tec' => $this->admin_model->n_Part_tecHHub_curso($id)
@@ -129,7 +129,7 @@ class Admin extends CI_Controller {
 			$datanav = array(
 				'cursos' => $this->admin_model->pesquisa_cursos(),
 				'workshops' => $this->admin_model->pesquisa_workshops(),
-				'palestras' => $this->admin_model->pesquisa_palestras(),
+				'concursos' => $this->admin_model->pesquisa_concursos(),
 			);
 			$this->load->view('templates/admin-header');
 			$this->load->view('templates/admin-nav');
@@ -143,20 +143,20 @@ class Admin extends CI_Controller {
 
 	}
 
-	public function palestras($id){
+	public function concursos($id){
 		$user = $this->session->userdata('usuario');
 		$res = $this->admin_model->verifica_user($user);
 		if($res){
 			$datanav = array(
 				'cursos' => $this->admin_model->pesquisa_cursos(),
 				'workshops' => $this->admin_model->pesquisa_workshops(),
-				'palestras' => $this->admin_model->pesquisa_palestras(),
+				'concursos' => $this->admin_model->pesquisa_concursos(),
 			);
 			$this->load->view('templates/admin-header');
 			$this->load->view('templates/admin-nav');
 			$this->load->view('templates/admin-leftnav', $datanav);
 			$this->load->view('templates/admin-headsection');
-			$this->load->view('admin/admin-palestras');
+			$this->load->view('admin/admin-concursos');
 			$this->load->view('templates/admin-footer');
 		}else{
 			redirect(base_url('gerenciamento/login'));
@@ -171,7 +171,7 @@ class Admin extends CI_Controller {
 			$datanav = array(
 				'cursos' => $this->admin_model->pesquisa_cursos(),
 				'workshops' => $this->admin_model->pesquisa_workshops(),
-				'palestras' => $this->admin_model->pesquisa_palestras(),
+				'concursos' => $this->admin_model->pesquisa_concursos(),
 			);
 			$this->load->view('templates/admin-header');
 			$this->load->view('templates/admin-nav');
