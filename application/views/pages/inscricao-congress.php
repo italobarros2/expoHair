@@ -60,7 +60,7 @@
 							<div class="card">
 								<h5 class="card-header">Shows</h5>
 								<div class="card-body">
-									<select multiple="multiple" id="my-select" name="my-select[]">
+									<select multiple="multiple" id="my-select" name="my-select5">
 										<option value='elem_1'>Elements 1</option>
 										<option value='elem_2'>Elements 2</option>
 										<option value='elem_3'>Elements 3</option>
