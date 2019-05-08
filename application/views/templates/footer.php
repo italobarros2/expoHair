@@ -50,7 +50,7 @@
 		</script>
 
 		<script>
-			$('.my-select, #pre-selected-options').multiSelect()
+			$('#my-select, #pre-selected-options').multiSelect()
 		</script>
 		<script>
 			$('#callbacks').multiSelect({
@@ -106,46 +106,15 @@
 				selectionFooter: "<div class='custom-header'>Selection footer</div>"
 			});
 		</script>
+		<!--<script>
+			function enviaPagseguro(data){
+				$.post('< ?=base_url('submitcongress')?>', '', function (tokie){
 
-		<script>
-
-			function formCad(){
-
-				var field1 = $('#field1').val();
-				var field2 = $('#field2').val();
-				var field3 = $('#field3').val();
-				var field4 = $('#field4').val();
-				var field5 = $('#field5').val();
-				var field6 = $('#field6').val();
-				var field7 = $('#field7').val();
-				var field8 = $('#field08').val();
-				var field9 = $('#field09').val();
-				var field10 = $('#field10').val();
-				var field11 = $('#field11').val();
-
-				$.ajax({ url: 'http://localhost/expohair/submitcongress',
-					data: {
-						'nome':field1,
-						'email':field2,
-						'cpf':field3,
-						'sexo':field4,
-						'cidade':field5,
-						'bairro':field6,
-						'telefone':field7,
-						'combos_select':field8,
-						'workshops_select':field9,
-						'cursos_select':field10,
-						'concursos_select':field11
-					},
-					type: 'post',
-					dataType:'json',
-					success: function(data) {
-						alert(data);
-					}
+				} {
+					
 				});
-			}
+			}-->
 
 		</script>
-
     </body>
 </html>

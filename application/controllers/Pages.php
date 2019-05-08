@@ -110,13 +110,21 @@ class Pages extends CI_Controller {
 
 
 		public function teste($data = null){
+			$tst = $this->input->post('cpf');
+			$num = $this->input->post('num');
+			if($num == null){
+				$num = 123;
+			}
 			$datestring = '%Y%m%d%H%i%s';
 			$time = now("America/Fortaleza");
 			$date = array(
 				'time' => mdate($datestring, $time),
-				'code' => $data
+				'code' => $data,
+				'tst' => $tst,
+				'num' => $num
 			);
-			$this->load->view('pages/teste-submit', $date);
+			redirect('facebook.com/'.$num);
+			//$this->load->view('tests/teste-submit', $date);
 		}
 
 		/*
@@ -131,6 +139,19 @@ class Pages extends CI_Controller {
 		}
 
 		public function submitCongress(){
+
+			$flag = false;   //TRUE = Real; FALSE = SANDBOX
+
+			if($flag){
+				$urlcheck = 'https://ws.pagseguro.uol.com.br/v2/checkout';
+				$urltransaction = 'https://pagseguro.uol.com.br/v2/checkout/payment.html?code=';
+				$id = 'edb6f6de-3125-401c-a1cf-664af789e6c7e9dc25cc459293ba57a61ee7cab448c08673-200c-4642-a41f-fcfd8fd086fa';
+			}else{
+				$urlcheck = 'https://ws.sandbox.pagseguro.uol.com.br/v2/checkout';
+				$urltransaction = 'https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code=';
+				$id = '4108EBCEF6A34AEAAB72579116A5DCC0';
+			}
+
 			$nome = $this->input->post('nome');
 			$email = $this->input->post('email');
 			$cpf = $this->input->post('cpf');
@@ -302,7 +323,7 @@ class Pages extends CI_Controller {
 
 			$pagseguro = http_build_query(array(
 
-				'token' => "4108EBCEF6A34AEAAB72579116A5DCC0",
+				'token' => $id,
 				'email' => 'italoctb@gmail.com',
 				'currency' => "BRL",
 				'itemId1' => $this->pages_model->pesquisaIdCompras($cpf, $tempo_atual)->idCOMPRAS,
@@ -318,9 +339,9 @@ class Pages extends CI_Controller {
 				'reference' => $this->pages_model->pesquisaIdCompras($cpf, $tempo_atual)->idCOMPRAS,
 				'redirectURL' => base_url(),
 				'excludePaymentMethodGroup'=>'DEPOSIT',
-				'paymentMethodGroup1'=>'CREDIT_CARD',
-				'paymentMethodConfigKey1_1'=>'MAX_INSTALLMENTS_LIMIT',
-				'paymentMethodConfigValue1_1'=> '1'
+				//'paymentMethodGroup1'=>'CREDIT_CARD',
+				//'paymentMethodConfigKey1_1'=>'MAX_INSTALLMENTS_LIMIT',
+				//'paymentMethodConfigValue1_1'=> '6'
 
 
 			));
@@ -336,8 +357,9 @@ class Pages extends CI_Controller {
 			$doc = file_get_contents('https://ws.pagseguro.uol.com.br/v2/checkout', null, $context);
 			*/
 
-			$curl = curl_init('https://ws.sandbox.pagseguro.uol.com.br/v2/checkout');
+			$curl = curl_init($urlcheck);
 
+			curl_setopt($curl, CURLOPT_ENCODING ,"UTF-8");
 			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($curl, CURLOPT_POST, true);
@@ -348,10 +370,12 @@ class Pages extends CI_Controller {
 
 			curl_close($curl);
 
-			$doc = simplexml_load_string($xml);
-			$tokie = $doc -> code;
-			redirect('https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code='.$tokie);
 
-			//$this->teste($xml);
+			$xml = simplexml_load_string($xml);
+			$tokie = $xml -> code;
+			//echo $tokie;
+			redirect($urltransaction.$tokie);
+
+			$this->teste($xml);
 		}
 }

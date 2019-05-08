@@ -67,9 +67,12 @@ $route['teste']    = 'pages/teste';
 $route['pag']    = 'pagseguro/teste_pag';
 $route['trata_pagseguro']    = 'pagseguro/trata_pag';
 $route['dados_pagseguro']    = 'pagseguro/dados_pag';
+$route[	'pagamento/processo'] = 'pagseguro/recebidos';
 
 $route['inscricao']    = 'pages/inscricao';
 $route['submitcongress'] = 'pages/submitCongress';
+
+
 $route['vendor/inscricao/(:num)']    = 'pages/inscricaoVendor';
 $route['workshops'] 				    = 'pages/workshop';
 $route['work'] 				    = 'pages/work';

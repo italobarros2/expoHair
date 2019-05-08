@@ -1,4 +1,4 @@
 <?php
-echo $code;
+echo $tst;echo '</br>';echo $num;
 
 

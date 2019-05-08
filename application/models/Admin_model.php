@@ -1,5 +1,5 @@
 <?php
-class Admin_model extends CI_Model
+class admin_model extends CI_Model
 {
 
 	//Conectar ao banco de dados

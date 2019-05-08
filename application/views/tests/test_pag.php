@@ -5,16 +5,11 @@
 	</head>
 
 	<body>
-		<form action="<?=base_url('trata_pagseguro')?>" method="post">
-			<input type="hidden" name="token" id="token" value="edb6f6de-3125-401c-a1cf-664af789e6c7e9dc25cc459293ba57a61ee7cab448c08673-200c-4642-a41f-fcfd8fd086fa">
-			<input type="hidden" name="email" id="email" value="italoctb@gmail.com">
-			<input type="hidden" name="currency" id="cur" value="BRL">
-			<input type="hidden" name="itemId1" id="id" value="1">
-			<input type="hidden" name="itemQuantity1" id="qtd" value="1">
-			<input type="hidden" name="itemDescription1" id="dsc" value="aprendendo">
-			<input type="hidden" name="itemAmount1" id="amt" value="1.00">
+		<form action="<?=base_url('pagamento/processo')?>" method="post">
+			<input type="hidden" name="notificationCode" id="token" value="97A522C73AF43AF4910AA4570FADEE3CABB0">
 			<button type="submit">Botao</button>
 		</form>
+		<?php echo $tst;?>
 	</body>
 
 	<footer>

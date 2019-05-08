@@ -1489,7 +1489,7 @@ ol {
 	padding: 92px 0;
 }
 
-.contact-form input {
+.contact-form input.inptsel{
 	padding-bottom: 17px;
 	width: 100%;
 	border: none;

@@ -73,12 +73,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
+/*'username' => 'adminuserexpohair',
+'password' => 'ExpOhAIr123',
+'database' => 'expohair2',*/
+
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'adminuserexpohair',
+	'hostname' => 'congressoexpohair.com.br',
+	'username' => 'cong9971_ExpoH',
 	'password' => 'ExpOhAIr123',
-	'database' => 'expohair2',
+	'database' => 'cong9971_expohair',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

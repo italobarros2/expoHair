@@ -1,38 +1,60 @@
 <script type="text/javascript">
-function id( el ){
-        return document.getElementById( el );
-}
-window.onload = function(){
-        id('mais').onclick = function(){   
-                if(id('format').value < 3){
-                   id('format').value = parseInt( id('format').value )+1; 
-                }
-            
-                id('total').value = 110*id('format').value;
-        }
-        id('menos').onclick = function(){
-                if( id('format').value>0 )
-                        id('format').value = parseInt( id('format').value )-1;
-                
-                id('total').value = 110*id('format').value;
-        }
-}
+	function id( el ){
+		return document.getElementById( el );
+	}
+	window.onload = function(){
+		id('mais').onclick = function(){
+			if(id('format').value < 3){
+				id('format').value = parseInt( id('format').value )+1;
+			}
+
+			id('total').value = 110*id('format').value;
+		}
+		id('menos').onclick = function(){
+			if( id('format').value>0 )
+				id('format').value = parseInt( id('format').value )-1;
+
+			id('total').value = 110*id('format').value;
+		}
+	}
 </script>
 <!-- Page info section -->
-	<section class="page-info-section set-bg" data-setbg="<?=base_url('static/img/page-top-bg/2.jpg')?>" >
-		<div class="container text-center">
-			<h2>Ingressos Shows</h2>
-		</div>
-	</section>
-	<!-- Page info section end -->
+<section class="page-info-section set-bg" data-setbg="<?=base_url('static/img/page-top-bg/2.jpg')?>" >
+	<div class="container text-center">
+		<h2>Ingressos Shows</h2>
+	</div>
+</section>
+
+<script>
+	$('#myModal').on('shown.bs.modal', function () {
+		$('#myInput').trigger('focus')
+	})
+</script>
+
+<script type="text/javascript">
+
+	function troca() {
+		$("#ingressoSabadoMeia1").val($("#ingressoSabadoMeia").val());
+		$("#ingressoDomingoMeia1").val($("#ingressoDomingoMeia").val());
+		$("#ingressoSegundaMeia1").val($("#ingressoSegundaMeia").val());
+		$("#ingressoSabadoInteira1").val($("#ingressoSabadoInteira").val());
+		$("#ingressoDomingoInteira1").val($("#ingressoDomingoInteira").val());
+		$("#ingressoSegundaInteira1").val($("#ingressoSegundaInteira").val());
+
+	};
+
+</script>
+
+<!-- Page info section end -->
 
 
-		<!-- Blog section -->
-	<section class="blog-section spad">
-		<div class="container">
-			<div class="row">
-				<div class="col-xl-9 col-lg-8">
-					<!-- blog item -->
+<!-- Blog section -->
+<section class="blog-section spad">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-9 col-lg-8">
+				<!-- blog item -->
+
 					<div class="blog-item">
 						<div class="blog-thumb set-bg" data-setbg="<?=base_url('static/img/shows/img-show1.jpg')?>">
 							<div class="blog-date">13/Julho/2019</div>
@@ -40,30 +62,29 @@ window.onload = function(){
 						<div class="blog-content">
 							<h3>Ingressos dia 13/07</h3>
 							<div class="blog-meta"><a href="#">A partir de R$110,00</a>|<a href="#">Acesso ao show do dia 13/07</a></div>
-		
-	    <div class="item" id="item">
-			<div class="row">
-		<div class="produto-title">Ingresso - Individual (Meia)</div>
-		<div class="valor-title">R$ 110,00</div>
-		<div class="qntIng">
-	    <input class="btn-menos" type="button" name="menos" id="menos" value="-" />
-        <input class="qnt-n" type="text" name="format" value="0" id="format" size="2" disabled="disabled" />
-	    <input class="btn-mais" type="button" name="mais" id="mais" value="+" />
-		</div>
-		    </div>
-		</div>
-		<div class="item" id="item">
-			<div class="row">
-		<div class="produto-title">Ingresso - Individual (Inteira)</div>
-		<div class="valor-title">R$ 220,00</div>
-		<div class="qntIng">
-	    <input class="btn-menos" type="button" name="menos" id="menos" value="-" />
-        <input class="qnt-n" type="text" name="format" value="0" id="format" size="2" disabled="disabled" />
-	    <input class="btn-mais" type="button" name="mais" id="mais" value="+" />
-		</div>
-		    </div>
-		</div>
-						
+							<div class="item" id="item">
+								<div class="row">
+									<div class="produto-title">Ingresso - Individual (Meia)</div>
+									<div class="valor-title">R$ 110,00</div>
+									<div class="qntIng">
+										<input class="btn-menos" type="button" name="menos" id="menos" value="-" />
+										<input class="qnt-n" type="text" name="num" value="0" id="ingressoSabadoMeia" size="2" disabled="disabled" />
+										<input class="btn-mais" type="button" name="mais" id="mais" value="+" />
+									</div>
+								</div>
+							</div>
+							<div class="item" id="item">
+								<div class="row">
+									<div class="produto-title">Ingresso - Individual (Inteira)</div>
+									<div class="valor-title">R$ 220,00</div>
+									<div class="qntIng">
+										<input class="btn-menos" type="button" name="menos" id="menos" value="-" />
+										<input class="qnt-n" type="text" id="ingressoSabadoInteira" value="0" id="format" size="2" disabled="disabled" />
+										<input class="btn-mais" type="button" name="mais" id="mais" value="+" />
+									</div>
+								</div>
+							</div>
+
 						</div>
 					</div>
 					<div class="blog-item">
@@ -73,30 +94,30 @@ window.onload = function(){
 						<div class="blog-content">
 							<h3>Ingressos dia 14/07</h3>
 							<div class="blog-meta"><a href="#">A partir de R$110,00</a>|<a href="#">Acesso ao show do dia 14/07</a></div>
-							
-		<div class="item" id="item">
-			<div class="row">
-		<div class="produto-title">Ingresso - Individual (Meia)</div>
-		<div class="valor-title">R$ 110,00</div>
-		<div class="qntIng">
-	    <input class="btn-menos" type="button" name="menos" id="menos" value="-" />
-        <input class="qnt-n" type="text" name="format" value="0" id="format" size="2" disabled="disabled" />
-	    <input class="btn-mais" type="button" name="mais" id="mais" value="+" />
-		</div>
-		    </div>
-		</div>
-		<div class="item" id="item">
-			<div class="row">
-		<div class="produto-title">Ingresso - Individual (Inteira)</div>
-		<div class="valor-title">R$ 220,00</div>
-		<div class="qntIng">
-	    <input class="btn-menos" type="button" name="menos" id="menos" value="-" />
-        <input class="qnt-n" type="text" name="format" value="0" id="format" size="2" disabled="disabled" />
-	    <input class="btn-mais" type="button" name="mais" id="mais" value="+" />
-		</div>
-		    </div>
-		</div>
-							
+
+							<div class="item" id="item">
+								<div class="row">
+									<div class="produto-title">Ingresso - Individual (Meia)</div>
+									<div class="valor-title">R$ 110,00</div>
+									<div class="qntIng">
+										<input class="btn-menos" type="button" name="menos" id="menos" value="-" />
+										<input class="qnt-n" type="text" id="ingressoDomingoMeia" value="0" id="format" size="2" disabled="disabled" />
+										<input class="btn-mais" type="button" name="mais" id="mais" value="+" />
+									</div>
+								</div>
+							</div>
+							<div class="item" id="item">
+								<div class="row">
+									<div class="produto-title">Ingresso - Individual (Inteira)</div>
+									<div class="valor-title">R$ 220,00</div>
+									<div class="qntIng">
+										<input class="btn-menos" type="button" name="menos" id="menos" value="-" />
+										<input class="qnt-n" type="text" id="ingressoDomingoInteira" value="0" id="format" size="2" disabled="disabled" />
+										<input class="btn-mais" type="button" name="mais" id="mais" value="+" />
+									</div>
+								</div>
+							</div>
+
 						</div>
 					</div>
 					<div class="blog-item">
@@ -106,35 +127,118 @@ window.onload = function(){
 						<div class="blog-content">
 							<h3>Ingressos dia 15/07</h3>
 							<div class="blog-meta"><a href="#">A partir de R$110,00</a>|<a href="#">Acesso ao show do dia 15/07</a></div>
-							
-		<div class="item" id="item">
-			<div class="row">
-		<div class="produto-title">Ingresso - Individual (Meia)</div>
-		<div class="valor-title">R$ 110,00</div>
-		<div class="qntIng">
-	    <input class="btn-menos" type="button" name="menos" id="menos" value="-" />
-        <input class="qnt-n" type="text" name="format" value="0" id="format" size="2" disabled="disabled" />
-	    <input class="btn-mais" type="button" name="mais" id="mais" value="+" />
-		</div>
-		    </div>
-		</div>
-		<div class="item" id="item">
-			<div class="row">
-		<div class="produto-title">Ingresso - Individual (Inteira)</div>
-		<div class="valor-title">R$ 220,00</div>
-		<div class="qntIng">
-	    <input class="btn-menos" type="button" name="menos" id="menos" value="-" />
-        <input class="qnt-n" type="text" name="format" value="0" id="format" size="2" disabled="disabled" />
-	    <input class="btn-mais" type="button" name="mais" id="mais" value="+" />
-		</div>
-		    </div>
-		</div>
-			<button class="site-btn" style="margin-top: 30px;">Comprar</button>
-							
-							
+
+							<div class="item" id="item">
+								<div class="row">
+									<div class="produto-title">Ingresso - Individual (Meia)</div>
+									<div class="valor-title">R$ 110,00</div>
+									<div class="qntIng">
+										<input class="btn-menos" type="button" id="ingressoSegundaMeia" id="menos" value="-" />
+										<input class="qnt-n" type="text" name="format" value="0" id="format" size="2" disabled="disabled" />
+										<input class="btn-mais" type="button" name="mais" id="mais" value="+" />
+									</div>
+								</div>
+							</div>
+							<div class="item" id="item">
+								<div class="row">
+									<div class="produto-title">Ingresso - Individual (Inteira)</div>
+									<div class="valor-title">R$ 220,00</div>
+									<div class="qntIng">
+										<input class="btn-menos" type="button" name="menos" id="menos" value="-" />
+										<input class="qnt-n" type="text" id="ingressoSegundaInteira" value="0" id="format" size="2" disabled="disabled" />
+										<input class="btn-mais" type="button" name="mais" id="mais" value="+" />
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
+
+					<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<div class="container-fluid">
+										<form class="needs-validation contact-form" action="<?=base_url('teste')?>" method="post"  novalidate>
+											<div class="form-row">
+												<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-2">
+
+													<input type="hidden" id = "ingressoSabadoMeia1">
+													<input type="hidden" id = "ingressoSabadoInteira1">
+													<input type="hidden" id = "ingressoDomingoInteira1">
+													<input type="hidden" id = "ingressoSegundaInteira1">
+													<input type="hidden" id = "ingressoDomingoMeia1">
+													<input type="hidden" id = "ingressoSegundaMeia1">
+
+													<input type="text" class="inptsel form-control" name="nome" id="field01" placeholder="Nome Completo" required>
+													<div class="invalid-feedback valid_perso">
+														Esse campo não pode está vazio!
+													</div>
+												</div>
+												<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-2">
+													<input type="text" class="inptsel form-control" name="email" id="field02" placeholder="E-mail" required>
+													<div class="invalid-feedback valid_perso ">
+														Esse campo não pode está vazio!
+													</div>
+												</div>
+												<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-2">
+													<input type="text" class="inptsel form-control" name="cpf" id="field03" placeholder="CPF" required>
+													<div class="invalid-feedback valid_perso ">
+														Esse campo não pode está vazio!
+													</div>
+												</div>
+											</div>
+											<div class="form-row">
+												<div class="col-xl-12 col-lg-12	 col-md-12 col-sm-12 col-12">
+													<div class="form-group">
+														<select class="custom-select" style="border:none; border-bottom: 2px solid #e3e3e3;margin-bottom: 20px" name="sexo" id="field04" required>
+															<option value="">Sexo</option>
+															<option value="F">Feminino</option>
+															<option value="M">Masculino</option>
+															<option value="O">Outros</option>
+														</select>
+														<div class="invalid-feedback valid_perso" style="margin-top: -4px !important">Deve-se escolher dentre as opções acima.</div>
+													</div>
+												</div>
+												<div class="col-xl-12 col-lg-12	 col-md-12 col-sm-12 col-12 mb-2">
+													<input type="text" class="inptsel form-control" name="cidade" id="field05" placeholder="Cidade" required>
+													<div class="invalid-feedback valid_perso ">
+														Esse campo não pode está vazio!
+													</div>
+												</div>
+												<div class="col-xl-12 col-lg-12	 col-md-12 col-sm-12 col-12 mb-2">
+													<input type="text" class="inptsel form-control" name="bairro" id="field06" placeholder="Bairro" required>
+													<div class="invalid-feedback valid_perso ">
+														Esse campo não pode está vazio!
+													</div>
+												</div>
+												<div class="col-xl-12 col-lg-12	 col-md-12 col-sm-12 col-12 mb-2">
+													<input type="text" class="form-perso inptsel form-control" name="telefone" id="field07" placeholder="Telefone (preferência Whatsapp)" required>
+													<div class="invalid-feedback valid_perso ">
+														Esse campo não pode está vazio!
+													</div>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+												<button type="submit" class="btn btn-primary">Save changes</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<button type="button" class="site-btn" onclick="troca()" data-toggle="modal" data-target="#formModal" style="margin-top: 30px;">Comprar</button>
+
+			</div>
+
 				<div class="col-xl-3 col-lg-4 col-md-6 sidebar">
 					<div class="sb-widget">
 						<h5 class="sbw-title" style="color: #e22b63"><strong>Atrações</strong></h5>
@@ -142,15 +246,15 @@ window.onload = function(){
 							<li><strong>13/Julho - Sábado</strong></li>
 							<li>- Fábio Jr.</li>
 							<li>- Noda de Caju</li>
-                            <li>- Laninha</li>
-                            <li><strong>14/Julho - Domingo</strong></li>
+							<li>- Laninha</li>
+							<li><strong>14/Julho - Domingo</strong></li>
 							<li>- Samyra Show e Forró 100%</li>
 							<li>- Forró Real</li>
-                            <li>- Forró da Diretoria</li>
-                            <li><strong>15/Julho - Segunda</strong></li>
+							<li>- Forró da Diretoria</li>
+							<li><strong>15/Julho - Segunda</strong></li>
 							<li>- Ludmilla</li>
 							<li>- Junior Vianna</li>
-                            <li>- Taty Girl</li>
+							<li>- Taty Girl</li>
 						</ul>
 					</div>
 					<div class="sb-widget">
@@ -172,12 +276,14 @@ window.onload = function(){
 				</div>
 			</div>
 		</div>
-	</section>
-	<!-- Blog section end -->
-	<!--====== Javascripts & Jquery ======-->
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/circle-progress.min.js"></script>
-	<script src="js/main.js"></script>
+</section>
+<!-- Blog section end -->
+<!--====== Javascripts & Jquery ======-->
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/circle-progress.min.js"></script>
+<script src="js/main.js"></script>
+
+

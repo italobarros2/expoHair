@@ -1,5 +1,5 @@
 /*
-Template Name: Influence Admin Template
+Template Name: Influence admin Template
 Author: jitu
 Email: chauhanjitu3@gmail.com
 File: js
