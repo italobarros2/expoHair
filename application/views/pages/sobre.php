@@ -29,7 +29,7 @@
 					<div class="about-content">
 						<h2>Divulgue sua marca ou serviço</h2>
 						<p>A ExpoHair será realizada no Centro de Convenções de Sobral, um espaço amplo e ideal para você apresentar sua marca ou serviço! Participe obtendo seu Stand. Mais informação sobre Stands entre em contato através do telefone:</p>
-						<a href="#" class="site-btn sb-line">(85) 9 9659-7500</a>
+						<a href="<?=base_url('inscricao')?>" class="site-btn sb-line">Inscreva-se AGORA</a>
 					</div>
 				</div>
 			</div>

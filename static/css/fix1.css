@@ -18,6 +18,7 @@
     display: none;
 }
 
+
 @media only screen and (min-height: 700px){
     .fixtable{
         margin-bottom: 78px;

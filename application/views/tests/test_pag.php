@@ -6,7 +6,7 @@
 
 	<body>
 		<form action="<?=base_url('pagamento/processo')?>" method="post">
-			<input type="hidden" name="notificationCode" id="token" value="97A522C73AF43AF4910AA4570FADEE3CABB0">
+			<input type="hidden" name="notificationCode" id="token" value="00F7393872A072A0BD5334A75FA391DB0767">
 			<button type="submit">Botao</button>
 		</form>
 		<?php echo $tst;?>

@@ -64,19 +64,28 @@ $route['gerenciamento/autenticate'] = 'admin/autlogin';
 $route['gerenciamento/resetpass'] = 'admin/resetpass';
 
 $route['teste']    = 'pages/teste';
-$route['pag']    = 'pagseguro/teste_pag';
+$route['pag']    = 'pagseguro/enviaEmail';
 $route['trata_pagseguro']    = 'pagseguro/trata_pag';
 $route['dados_pagseguro']    = 'pagseguro/dados_pag';
 $route[	'pagamento/processo'] = 'pagseguro/recebidos';
 
-$route['inscricao']    = 'pages/inscricao';
-$route['submitcongress'] = 'pages/submitCongress';
+$route['inscricao']              = 'pages/inscricao';
+$route['submitcongress'] = 			'pages/submitCongress';
 
+$route['ingressos']     		    = 'pages/ingresso';
+$route['submitingressos']     		    = 'pagseguro/submitingressos';
+
+
+$route['ingressos/usuario/(:any)']     		    = 'pages/confirmaLogin/$1';
+$route['ingressos/usuario']     		    = 'pages/ingressosDisponiveis';
+
+$route['planta'] 			    = 'pages/mapa';
+$route['processaPlanta']            = 'pages/processaPlanta';
 
 $route['vendor/inscricao/(:num)']    = 'pages/inscricaoVendor';
 $route['workshops'] 				    = 'pages/workshop';
 $route['work'] 				    = 'pages/work';
-$route['planta'] 			    = 'pages/mapa';
+
 $route['noiva'] 			    = 'pages/noiva';
 $route['barber'] 			    = 'pages/barbeiro';
 $route['info'] 				    = 'pages/sobre';
@@ -84,5 +93,6 @@ $route['humor'] 			    = 'pages/humor';
 //$route['inscricao'] 		    = 'pages/inscricao';
 $route['show']       		    = 'pages/show';
 $route['cursos']       		    = 'pages/cursos';
-$route['ingresso']     		    = 'pages/ingresso';
+$route['comercial']      	    = 'pages/comercial';
+
 $route['404_override']          = 'pages/erro404';

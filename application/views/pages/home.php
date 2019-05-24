@@ -8,7 +8,7 @@
                     <h2>SUA CARREIRA<br>NO GLAMUR ESTA AQUI.</h2>
                     <p><h4>ExpoHair - 13 a 15 / Julho<br>Centro de Eventos de Sobral - CE.</h4></p>
                     <p><h5>Visite nossos stands dos mais diversos setores do mundo da beleza. E participe dos nossos cursos, workshops e palestras.</h5></p>
-                    <a href="/" style="margin-top: 71px" class="site-btn sb-big">Inscrição em Breve!</a>
+                    <a href="<?=base_url('inscricao')?>" style="margin-top: 71px" class="site-btn sb-big">Inscreva-se AGORA!</a>
                 </div>
                 <div class="hs-preview set-bg" data-setbg="<?=base_url('static/img/hero-slider/1.png')?>"></div>
     </div>

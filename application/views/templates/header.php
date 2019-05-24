@@ -19,7 +19,9 @@
 	<link rel="stylesheet" href="<?=base_url('static/css/style.css')?>"/>
 	<link rel="stylesheet" href="<?=base_url('static/css/animate.css')?>"/>
 	<link rel="stylesheet" href="<?=base_url('static/assets/vendor/multi-select/css/multi-select.css')?>"/>
+	<link rel="stylesheet" href="<?=base_url('static/bootstrap-select/dist/css/bootstrap-select.min.css')?>">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 
 
 	<!--[if lt IE 9]>

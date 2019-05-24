@@ -79,10 +79,13 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'congressoexpohair.com.br',
-	'username' => 'cong9971_ExpoH',
+//	'hostname' => 'congressoexpohair.com.br',
+	'hostname' => '127.0.0.1',
+//	'username' => 'cong9971_ExpoH',
+	'username' => 'adminuserexpohair',
 	'password' => 'ExpOhAIr123',
-	'database' => 'cong9971_expohair',
+//	'database' => 'cong9971_dev_expohair',
+	'database' => 'expohairFINAL',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
