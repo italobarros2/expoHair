@@ -70,7 +70,9 @@ $route['dados_pagseguro']    = 'pagseguro/dados_pag';
 $route[	'pagamento/processo'] = 'pagseguro/recebidos';
 
 $route['inscricao']              = 'pages/inscricao';
+$route['vendor/inscricaoCongresso']              = 'pages/inscricaoVendor';
 $route['submitcongress'] = 			'pages/submitCongress';
+$route['submitVendor'] = 			'pages/submitCongress_vendor';
 
 $route['ingressos']     		    = 'pages/ingresso';
 $route['submitingressos']     		    = 'pagseguro/submitingressos';

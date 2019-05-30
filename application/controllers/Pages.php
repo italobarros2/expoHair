@@ -70,9 +70,16 @@ class Pages extends CI_Controller {
 	}
 
 	public function inscricaoVendor(){
+		$data = array(
+			'combos' => $this->pages_model->pesquisa_combos(),
+			'cursos' => $this->pages_model->pesquisa_cursos(),
+			'workshops' => $this->pages_model->pesquisa_workshops(),
+			'concursos' => $this->pages_model->pesquisa_concursos(),
+
+		);
 		$this->load->view('templates/header');
-		$this->load->view('templates/nav-market');
-		$this->load->view('pages/inscricao-congress-v');
+		$this->load->view('templates/nav');
+		$this->load->view('pages/inscricao-congress-v', $data);
 		$this->load->view('templates/footer');
 	}
 
@@ -663,7 +670,6 @@ class Pages extends CI_Controller {
 			$urlcheck = 'https://ws.pagseguro.uol.com.br/v2/checkout';
 			$urltransaction = 'https://pagseguro.uol.com.br/v2/checkout/payment.html?code=';
 			$id = 'ae50af72-db75-4b99-a2dd-dbde8e6e23323e76e1eb4391a482913211f770c15967301b-add2-451d-b266-0bd5925d5b3a';
-//				$id = 'edb6f6de-3125-401c-a1cf-664af789e6c7e9dc25cc459293ba57a61ee7cab448c08673-200c-4642-a41f-fcfd8fd086fa';
 		} else {
 			$urlcheck = 'https://ws.sandbox.pagseguro.uol.com.br/v2/checkout';
 			$urltransaction = 'https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code=';
@@ -683,34 +689,9 @@ class Pages extends CI_Controller {
 		$workshops = $this->input->post('workshops_select');
 		$cursos = $this->input->post('cursos_select');
 		$concursos = $this->input->post('concursos_select');
-		//$token1 = rand();
-		//$token2 = rand();
-		//$token3 = rand();
-//			$total = 0;
 		$i = 1;
 		$format = "%d.00";
-//			$free = '3121996';
 //
-//			if($combos != null){
-//				foreach ($combos as $combo){
-//					$total = $total + $this->pages_model->consulta_preco_combos($combo)->preco;
-//				}
-//			}/*Faço ou não checagem*/
-//			if($workshops != null){
-//				foreach ($workshops as $workshop){
-//					$total = $total + $this->pages_model->consulta_preco_atividades($workshop)->preco;
-//				}
-//			}
-//			if($cursos != null){
-//				foreach ($cursos as $curso){
-//					$total = $total + $this->pages_model->consulta_preco_atividades($curso)->preco;
-//				}
-//			}
-//			if($concursos != null){
-//				foreach ($concursos as $concurso){
-//					$total = $total + $this->pages_model->consulta_preco_atividades($concurso)->preco;
-//				}
-//			}
 		$dataUser = array(
 			'cpf' => $cpf,
 			'Nome' => $nome,
@@ -745,23 +726,13 @@ class Pages extends CI_Controller {
 			'token' => $id,
 			'email' => 'vendas@congressoexpohair.com.br',
 			'currency' => "BRL",
-			/*'itemId1' => $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS,
-            'itemQuantity1' => '1',
-            'itemDescription1' => "Congresso ExpoHair Sobral 2019",
-            'itemAmount1' => $novo,*/
-			//'currecy' => "BRL",
-			//'itemDescription1' => "Congresso ExpoHair Sobral 2019",
 			'shippingAddressRequired' => 'false',
 			'senderName' => $nome,
 			'senderEmail' => $email,
 			'senderCPF' => $cpf,
 			'reference' => $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS,
 			'redirectURL' => base_url(),
-			'excludePaymentMethodGroup'=>'DEPOSIT',
-			//'paymentMethodGroup1'=>'CREDIT_CARD',
-			//'paymentMethodConfigKey1_1'=>'MAX_INSTALLMENTS_LIMIT',
-			//'paymentMethodConfigValue1_1'=> '6'
-
+			'excludePaymentMethodGroup'=>'DEPOSIT'
 
 		);
 
@@ -849,48 +820,9 @@ class Pages extends CI_Controller {
 				$i++;
 			}
 		}
-		$format = "%d.00";
-		//$novo = sprintf($format, $total);
-
-//			$pagseguro = array(
-//				'charset' => 'UTF-8',
-//				'token' => $id,
-//				'email' => 'italoctb@gmail.com',
-//				'currency' => "BRL",
-//				/*'itemId1' => $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS,
-//				'itemQuantity1' => '1',
-//				'itemDescription1' => "Congresso ExpoHair Sobral 2019",
-//				'itemAmount1' => $novo,*/
-//				//'currecy' => "BRL",
-//				//'itemDescription1' => "Congresso ExpoHair Sobral 2019",
-//				'shippingAddressRequired' => 'false',
-//				'senderName' => $nome,
-//				'senderEmail' => $email,
-//				'senderCPF' => $cpf,
-//				'reference' => $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS,
-//				'redirectURL' => base_url(),
-//				'excludePaymentMethodGroup'=>'DEPOSIT',
-//				//'paymentMethodGroup1'=>'CREDIT_CARD',
-//				//'paymentMethodConfigKey1_1'=>'MAX_INSTALLMENTS_LIMIT',
-//				//'paymentMethodConfigValue1_1'=> '6'
-//
-//
-//			);
 
 		$pagseguro = http_build_query($pagseguro);
 
-		//echo $pagseguro; echo "</br>";
-
-		/*$context = stream_context_create(array(
-            'http' => array(
-                'method'  => 'POST',
-                'header' => "Content-Type: application/x-www-form-urlencoded",
-                'content' => $pagseguro,
-            )
-        ));
-
-        $doc = file_get_contents('https://ws.pagseguro.uol.com.br/v2/checkout', null, $context);
-        */
 
 		$curl = curl_init($urlcheck);
 
@@ -905,12 +837,195 @@ class Pages extends CI_Controller {
 
 		curl_close($curl);
 
-//			echo $xml;
 		$xml = simplexml_load_string($xml);
 		$tokie = $xml -> code;
 
 		redirect($urltransaction.$tokie);
 
-		//$this->teste($xml);
+	}
+
+
+	public function submitCongress_vendor()
+	{
+
+		$flag = true;   //TRUE = Real; FALSE = SANDBOX
+
+		if ($flag) {
+			$urlcheck = 'https://ws.pagseguro.uol.com.br/v2/checkout';
+			$urltransaction = 'https://pagseguro.uol.com.br/v2/checkout/payment.html?code=';
+			$id = 'ae50af72-db75-4b99-a2dd-dbde8e6e23323e76e1eb4391a482913211f770c15967301b-add2-451d-b266-0bd5925d5b3a';
+		} else {
+			$urlcheck = 'https://ws.sandbox.pagseguro.uol.com.br/v2/checkout';
+			$urltransaction = 'https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code=';
+			$id = '7CB64880FFC74C969B2E7BC163B2A4BF';
+		}
+
+
+		$nome = $this->input->post('nome');
+		$email = $this->input->post('email');
+		$cpf = str_replace(array('.', '-'), '', $this->input->post('cpf'));
+		$idVendor = $this->input->post('idvendor');
+		$sexo = $this->input->post('sexo');
+		$cidade = $this->input->post('cidade');
+		$bairro = $this->input->post('bairro');
+		$telefone = $this->input->post('telefone');
+		$combos = $this->input->post('combos_select');
+		$workshops = $this->input->post('workshops_select');
+		$cursos = $this->input->post('cursos_select');
+		$concursos = $this->input->post('concursos_select');
+		$i = 1;
+		$format = "%d.00";
+//
+		$dataUser = array(
+			'cpf' => $cpf,
+			'Nome' => $nome,
+			'email' => $email,
+			'Bairro' => $bairro,
+			'Cidade' => $cidade,
+			'sexo' => $sexo,
+			'telefone' => $telefone
+		);
+		$dataBuy = array(
+			'idCOMPRAS' => '',
+			'cpf' => $cpf,
+			'idVENDOR' => $idVendor,
+			'flag_congresso' => 1
+		);
+
+
+		if (!$dataBuy['idVENDOR']){
+			$dataBuy['idVENDOR'] = null;
+		}
+
+
+
+		if(!$this->pages_model->pesquisa_cliente($cpf)){
+			$this->pages_model->insert_db_clientes($dataUser);
+		}
+
+		$this->pages_model->insert_db_compras($dataBuy);
+
+		$pagseguro = array(
+			'charset' => 'UTF-8',
+			'token' => $id,
+			'email' => 'vendas@congressoexpohair.com.br',
+			'currency' => "BRL",
+			'shippingAddressRequired' => 'false',
+			'senderName' => $nome,
+			'senderEmail' => $email,
+			'senderCPF' => $cpf,
+			'reference' => $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS,
+			'redirectURL' => base_url(),
+			'excludePaymentMethodGroup'=>'DEPOSIT'
+
+		);
+
+		if($combos != null){
+
+			foreach ($combos as $combo){
+				$atvs = $this->pages_model->pesquisa_atv_combo($combo);
+				foreach ($atvs as $atv){
+
+					$data_insc = array(
+						'idATIVIDADE' => $atv->idATIVIDADE,
+						'cpf' => $cpf,
+						'idCOMPRAS' => $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS,
+						'idCOMBOS' => $combo
+					);
+
+					$this->pages_model->insert_db_atividades_has_clientes_has_compras($data_insc);
+
+				}
+				$pagseguro['itemId'.$i] = $this->pages_model->pesquisa_combos($combo)->idCOMBOS;
+				$pagseguro['itemDescription'.$i] = $this->pages_model->pesquisa_combos($combo)->nome;
+				$pagseguro['itemQuantity'.$i] = 1;
+				$novo = sprintf($format, $this->pages_model->pesquisa_combos($combo)->preco);
+				$pagseguro['itemAmount'.$i] = $novo;
+				$i++;
+			}
+		}
+
+		if($workshops != null){ //MUDAR FUNC DE PROCURA CONCURSO
+			foreach ($workshops as $atv){
+				$data_insc = array(
+					'idATIVIDADE' => $atv,
+					'cpf' => $cpf,
+					'idCOMPRAS' => $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS,
+					'idCOMBOS' => null
+				);
+				$pagseguro['itemId'.$i] = $this->pages_model->pesquisa_atividades_general($atv)->idATIVIDADE;
+				$pagseguro['itemDescription'.$i] = $this->pages_model->pesquisa_atividades_general($atv)->nomeATIVIDADE;
+				$pagseguro['itemQuantity'.$i] = 1;
+				$novo = sprintf($format, $this->pages_model->pesquisa_atividades_general($atv)->preco);
+				$pagseguro['itemAmount'.$i] = $novo;
+				$i++;
+
+				$this->pages_model->insert_db_atividades_has_clientes_has_compras($data_insc);
+
+			}
+		}
+
+		if($cursos != null){
+			foreach ($cursos as $atv){
+				$data_insc = array(
+					'idATIVIDADE' => $atv,
+					'cpf' => $cpf,
+					'idCOMPRAS' => $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS,
+					'idCOMBOS' => null
+				);
+				$pagseguro['itemId'.$i] = $this->pages_model->pesquisa_atividades_general($atv)->idATIVIDADE;
+				$pagseguro['itemDescription'.$i] = $this->pages_model->pesquisa_atividades_general($atv)->nomeATIVIDADE;
+				$pagseguro['itemQuantity'.$i] = 1;
+				$novo = sprintf($format, $this->pages_model->pesquisa_atividades_general($atv)->preco);
+				$pagseguro['itemAmount'.$i] = $novo;
+				$i++;
+
+				$this->pages_model->insert_db_atividades_has_clientes_has_compras($data_insc);
+
+			}
+		}
+
+		if($concursos != null){
+			foreach ($concursos as $atv){
+				$data_insc = array(
+					'idATIVIDADE' => $atv,
+					'cpf' => $cpf,
+					'idCOMPRAS' => $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS,
+					'idCOMBOS' => null
+				);
+
+				$this->pages_model->insert_db_atividades_has_clientes_has_compras($data_insc);
+
+				$pagseguro['itemId'.$i] = $this->pages_model->pesquisa_atividades_general($atv)->idATIVIDADE;
+				$pagseguro['itemDescription'.$i] = $this->pages_model->pesquisa_atividades_general($atv)->nomeATIVIDADE;
+				$pagseguro['itemQuantity'.$i] = 1;
+				$novo = sprintf($format, $this->pages_model->pesquisa_atividades_general($atv)->preco);
+				$pagseguro['itemAmount'.$i] = $novo;
+				$i++;
+			}
+		}
+
+		$pagseguro = http_build_query($pagseguro);
+
+
+		$curl = curl_init($urlcheck);
+
+//			curl_setopt($curl, CURLOPT_ENCODING ,"UTF-8");
+		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_POST, true);
+		curl_setopt($curl, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
+		curl_setopt($curl, CURLOPT_POSTFIELDS, $pagseguro);
+
+		$xml= curl_exec($curl);
+
+		curl_close($curl);
+
+		$xml = simplexml_load_string($xml);
+		$tokie = $xml -> code;
+
+		echo ($urltransaction.$tokie);
+		echo '</br><a href="'.base_url("vendor/inscricaoCongresso").'"><button>Voltar</button></a>';
+
 	}
 }
