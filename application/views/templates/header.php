@@ -7,7 +7,7 @@
 	<meta name="keywords" content="diva, beauty, beleza, congresso">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Favicon -->   
-	<link href="<?=base_url('static/img/favicon.ico')?>" rel="shortcut icon"/>
+	<link href="<?=base_url('static/img/icone.ico')?>" rel="shortcut icon"/>
 
 	<!-- Stylesheets -->
 	<link rel="stylesheet" href="<?=base_url('static/css/style-form.css')?>">

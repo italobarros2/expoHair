@@ -42,9 +42,9 @@
 <!-- ============================================================== -->
 <div class="splash-container">
 	<div class="card card-perso">
-		<div class="card-header text-center"><a href="#"><img class="logo-img" src="" alt="logo"></a><span class="splash-description fixtext" style="margin-top: 10px; font-size: 20px">Digite seu CPF: </span></div>
+		<div class="card-header text-center"><a href="#"><img class="logo-img" src="<?=base_url('static/img/logo-TH.png')?>" height="105px" style="margin-bottom: 10px" alt="logo"></a><span class="splash-description fixtext" style="margin-top: 10px; font-size: 20px">Digite seu CPF: </span></div>
 		<div class="card-body">
-			<form action="<?=base_url('ingressos/usuario')?>" name="myform" method="post"><!--?=base_url('static/assets/images/logo.png')?>-->
+			<form action="<?=base_url('ingressos/usuario')?>" name="myform" method="post">
 				<div class="form-group" style="margin-bottom: 25px">
 					<div class="form-row">
 						<div class="col-12">

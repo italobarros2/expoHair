@@ -8,7 +8,7 @@ class pagseguro_model extends CI_Model
 
 	public function verificaNotification($data)
 	{
-		$query = $this->db->get_where('processamento_pagseguro', array('idPROCESSAMENTO' => $data));
+		$query = $this->db->get_where('processamento_pagseguro', array('id_PROCESSAMENTO' => $data));
 		return $query->row();
 		//$this->db->get_where('processamento_pagseguro', array('idSTATUS' => $data));
 	}
@@ -23,29 +23,42 @@ class pagseguro_model extends CI_Model
 		return $query->row();
 	}
 
-	public function setDadoCompra($reference, $idPROCESSAMENTO)
+	public function setDadoCompra($reference, $id_PROCESSAMENTO)
 	{
 
-		$query = $this->db->query('SELECT * FROM atividades_has_clientes_has_compras WHERE idCOMPRAS = '.$reference.';');
-		$datas = $query->result();
+		$query_atv = $this->db->query('SELECT * FROM atividades_has_clientes_has_compras WHERE idCOMPRAS = '.$reference.';');
+		$datas_atv = $query_atv->result();
 
-		foreach ($datas as $data){
-			$this->db->delete('atividades_has_clientes_has_compras', array('idCOMPRAS' => $reference));
-		}
+		$query_ingresso = $this->db->query('SELECT * FROM ingresso WHERE idCOMPRAS = '.$reference.';');
+		$datas_ingresso = $query_ingresso->result();
+
+
+		$this->db->delete('atividades_has_clientes_has_compras', array('idCOMPRAS' => $reference));
+		$this->db->delete('ingresso', array('idCOMPRAS' => $reference));
+
 
 		$dados = array(
 
 			'idCOMPRAS' => $reference,
 			'cpf' => $this->db->query('SELECT * FROM compras WHERE idCOMPRAS = '.$reference.';')->row()->cpf,
 			'idVENDOR' => $this->db->query('SELECT * FROM compras WHERE idCOMPRAS = '.$reference.';')->row()->idVENDOR,
-			'id_PROCESSAMENTO' => $idPROCESSAMENTO
+			'id_PROCESSAMENTO' => $id_PROCESSAMENTO,
+			'flag_congresso' => $this->db->query('SELECT * FROM compras WHERE idCOMPRAS = '.$reference.';')->row()->flag_congresso,
 
 		);
 
-		$this->db->replace('compras',$dados);
+//		$this->db->where('idCOMPRAS', $reference);
+//		$this->db->update('compras', $dados);
 
-		foreach ($datas as $data){
+		$this->db->replace('compras',$dados);
+		echo '</br>replaçou';
+
+		foreach ($datas_atv as $data){
 			$this->db->insert('atividades_has_clientes_has_compras', $data);
+		}
+
+		foreach ($datas_ingresso as $data){
+			$this->db->insert('ingresso', $data);
 		}
 	}
 

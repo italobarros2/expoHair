@@ -64,7 +64,7 @@ $route['gerenciamento/autenticate'] = 'admin/autlogin';
 $route['gerenciamento/resetpass'] = 'admin/resetpass';
 
 $route['teste']    = 'pages/teste';
-$route['pag']    = 'pagseguro/enviaEmail';
+$route['pag']    = 'pages/pag';
 $route['trata_pagseguro']    = 'pagseguro/trata_pag';
 $route['dados_pagseguro']    = 'pagseguro/dados_pag';
 $route[	'pagamento/processo'] = 'pagseguro/recebidos';
@@ -75,8 +75,8 @@ $route['submitcongress'] = 			'pages/submitCongress';
 $route['ingressos']     		    = 'pages/ingresso';
 $route['submitingressos']     		    = 'pagseguro/submitingressos';
 
-
-$route['ingressos/usuario/(:any)']     		    = 'pages/confirmaLogin/$1';
+$route['ingressos/user/(:any)']  		= 'pages/confirmaLogin/$1';
+$route['ingressos/usuario/(:any)']     		    = 'pages/confirmaLogin_stp2/$1';
 $route['ingressos/usuario']     		    = 'pages/ingressosDisponiveis';
 
 $route['planta'] 			    = 'pages/mapa';
@@ -93,6 +93,6 @@ $route['humor'] 			    = 'pages/humor';
 //$route['inscricao'] 		    = 'pages/inscricao';
 $route['show']       		    = 'pages/show';
 $route['cursos']       		    = 'pages/cursos';
-$route['comercial']      	    = 'pages/comercial';
+//$route['comercial']      	    = 'pages/comercial';
 
 $route['404_override']          = 'pages/erro404';

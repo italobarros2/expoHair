@@ -113,7 +113,7 @@ class pages_model extends CI_Model
 	}
 
 	public function pesquisa_ingresso_cliente($cpf){
-		$query = $this->db->query('SELECT * FROM ingresso NATURAL JOIN clientes NATURAL JOIN shows NATURAL JOIN precos_show NATURAL JOIN compras NATURAL JOIN processamento_pagseguro WHERE cpf ='.$cpf.';');
+		$query = $this->db->query('SELECT * FROM ingresso NATURAL JOIN clientes NATURAL JOIN shows NATURAL JOIN precos_show NATURAL JOIN compras NATURAL JOIN processamento_pagseguro WHERE cpf ='.$cpf.' AND (idSTATUS = 3 OR idSTATUS = 4);');
 		return $query->result();
 	}
 
@@ -127,8 +127,8 @@ class pages_model extends CI_Model
 		return $query->row();
 	}
 
-	public function pesquisa_PROCESSA($idPROCESSAMENTO){
-		$query = $this->db->query('SELECT * FROM compras WHERE id_PROCESSAMENTO ='.$idPROCESSAMENTO.';');
+	public function pesquisa_PROCESSA($id_PROCESSAMENTO){
+		$query = $this->db->query('SELECT * FROM compras WHERE id_PROCESSAMENTO ='.$id_PROCESSAMENTO.';');
 		return $query->row();
 	}
 
@@ -143,7 +143,7 @@ class pages_model extends CI_Model
 	}
 
 	public function verifica_cliente_atv($cpf, $idATIVIDADE){
-		$query = $this->db->query("SELECT * FROM atividades_has_clientes_has_compras WHERE cpf = $cpf AND idATIVIDADE = $idATIVIDADE;");
+		$query = $this->db->query("SELECT * FROM atividades_has_clientes_has_compras NATURAL JOIN compras WHERE cpf = $cpf AND idATIVIDADE = $idATIVIDADE AND id_PROCESSAMENTO != null;");
 		return $query->row();
 	}
 
@@ -173,7 +173,7 @@ class pages_model extends CI_Model
 			$query = $this->db->get_where('stands', array('idSTANDS' => $id));
 			return $query->row();
 		}
-		$query = $this->db->query('SELECT * FROM stands');
+		$query = $this->db->query('SELECT * FROM stands WHERE id_PROCESSAMENTO = 0');
 		return $query->result();
 	}
 
@@ -211,6 +211,11 @@ class pages_model extends CI_Model
 	public function consulta_preco_atividades($atividade)
 	{
 		$query = $this->db->query("SELECT preco FROM atividades NATURAL JOIN precos_atividades WHERE idATIVIDADE = $atividade;");
+		return $query->row();
+	}
+
+	public function consulta_usuario_compras($idCOMPRAS){
+		$query = $this->db->query("SELECT * FROM compras  NATURAL JOIN clientes WHERE idCOMPRAS = $idCOMPRAS;");
 		return $query->row();
 	}
 }

@@ -6,7 +6,7 @@
 </section>
 <!-- Page info section end f5ec5f -->
 <div class="back-mapa" style="margin-top: 20px">
-	<center><img src="<?=base_url('static/img/mapa_1.jpg')?>" width="700px" alt=""></center>
+	<center><img src="<?=base_url('static/img/mapa_1.png')?>" width="700px" alt=""></center>
 </div>
 <section class="popular-services-section">
 	<div class="container">

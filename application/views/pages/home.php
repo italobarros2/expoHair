@@ -10,7 +10,7 @@
                     <p><h5>Visite nossos stands dos mais diversos setores do mundo da beleza. E participe dos nossos cursos, workshops e palestras.</h5></p>
                     <a href="<?=base_url('inscricao')?>" style="margin-top: 71px" class="site-btn sb-big">Inscreva-se AGORA!</a>
                 </div>
-                <div class="hs-preview set-bg" data-setbg="<?=base_url('static/img/hero-slider/1.png')?>"></div>
+                <div class="hs-preview set-bg" data-setbg="<?=base_url('static/img/hero-slider/1.jpg')?>"></div>
     </div>
     <div class="hs-item">
                 <div class="hs-content text-white">

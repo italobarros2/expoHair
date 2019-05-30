@@ -15,12 +15,12 @@
 			</div>
 			<!-- Navigation Menu -->
 			<ul class="main-menu">
-				<li><a href="/">Home</a></li>
-				<li><a href="<?=base_url('cursos')?>">Cursos/Workshops/Concursos</a></li>	
+				<li><a href="<?=base_url()?>">Home</a></li>
+				<li><a href="<?=base_url('inscricao')?>">Inscrição</a></li>
+				<li><a href="<?=base_url('cursos')?>">Cursos/Workshops/Concursos</a></li>
 				<li><a href="<?=base_url('ingressos')?>">Shows</a></li>
                 <li><a href="<?=base_url('pages/info')?>">Sobre</a></li>
 				<li><a href="<?=base_url('pages/planta')?>">Planta</a></li>
-                <li><a href="<?=base_url('comercial')?>">Contato Comercial</a></li>
 			</ul>
 		</div>
 </header>

@@ -23,7 +23,7 @@ class Pages extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 
-	public function enviaEmail($email = 'italoctb@gmail.com', $informacoes = null, $type){ //$titular, $dataEvento, $nomeEvento, $preco, $lote, $dataCompra, idIngresso){
+	public function enviaEmail($email = 'italoctb@gmail.com', $informacoes = null, $token){ //$titular, $dataEvento, $nomeEvento, $preco, $lote, $dataCompra, idIngresso){
 
 		$config = array(
 			'protocol' => 'smtp', // 'mail', 'sendmail', or 'smtp'
@@ -37,38 +37,24 @@ class Pages extends CI_Controller {
 		);
 
 		$this->email->initialize($config);
-		if($type == 0){
-			$this->email->from($config['smtp_user'], 'Congresso ExpoHair 2019 - Sobral');
-			$this->email->to($email);
-			$this->email->cc('italobarroscontato@gmail.com');
-			$this->email->subject('Formulário de compra de Stand(s)');
-			$this->email->message($informacoes);
-			if ($this->email->send()) {
-				echo '<h3>Compra de Stand(s) realizada com sucesso, em breve você receberá um e-mail de confirmação. (2 dias úteis, após a confimação do pagamento)</h3>';
-				echo '<a href="'.base_url().'"><button>Voltar</button></a>';
-			} else {
-				show_error($this->email->print_debugger());
-			}
-		}
-		if($type == 1){
-			$this->email->from($config['smtp_user'], 'Summer BeautyFest 2019 - Sobral');
-			$this->email->to($email);
-//			$this->email->cc('italobarroscontato@gmail.com');
-			$this->email->subject('Ingressos Disponíveis!');
-			$this->email->message($informacoes);
-			/*if ($this->email->send()) {
-				echo '<h3>Compra de Stand(s) realizada com sucesso, em breve você receberá um e-mail de confirmação. (2 dias úteis, após a confimação do pagamento)</h3>';
-				echo '<a href="'.base_url().'"><button>Voltar</button></a>';
-			} else {
-				show_error($this->email->print_debugger());
-			}*/
-			$this->email->send();
-		}
 
-
+		$this->email->from($config['smtp_user'], 'Congresso ExpoHair 2019 - Sobral');
+		$this->email->to($email);
+		$this->email->cc('italobarroscontato@gmail.com');
+		$this->email->subject('Formulário de compra de Stand(s) - #'.$token);
+		$this->email->message($informacoes);
+		if ($this->email->send()) {
+			echo '<h3>Compra de Stand(s) realizada com sucesso, em breve você receberá um e-mail de confirmação. (2 dias úteis, após a confimação do pagamento)</h3>';
+			echo '<a href="'.base_url().'"><button>Voltar</button></a>';
+		} else {
+			show_error($this->email->print_debugger());
+		}
 
 	}
 
+	public function pag(){
+		$this->load->view('tests/test_pag');
+	}
 	public function inscricao(){
 		$data = array(
 			'combos' => $this->pages_model->pesquisa_combos(),
@@ -97,7 +83,12 @@ class Pages extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 
-	public function confirmaLogin($token){
+	public function confirmaLogin($cpf){
+		$token = sha1($cpf);
+		redirect(base_url('ingressos/usuario/'.$token));
+	}
+
+	public function confirmaLogin_stp2($token){
 		$data = array(
 
 			'tokien' => $token
@@ -107,7 +98,7 @@ class Pages extends CI_Controller {
 	}
 
 	public function ingressosDisponiveis(){
-		$cpf = $this->input->post('cpf');
+		$cpf = str_replace(array('.', '-'), '', $this->input->post('cpf'));
 		$token_cpf = sha1($cpf);
 		$token = $this->input->post('token');
 		if($token_cpf == $token){
@@ -115,7 +106,7 @@ class Pages extends CI_Controller {
 			$data = array('queries'=>$queries);
 			$this->load->view('pages/user_ingressos', $data);
 		}else{
-			redirect(base_url('ingressos/usuario/'.$token_cpf));
+			redirect(base_url('ingressos/usuario/'.$token));
 		}
 	}
 
@@ -131,7 +122,7 @@ class Pages extends CI_Controller {
 		} else {
 			$urlcheck = 'https://ws.sandbox.pagseguro.uol.com.br/v2/checkout';
 			$urltransaction = 'https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code=';
-			$id = '4108EBCEF6A34AEAAB72579116A5DCC0';
+			$id = '7CB64880FFC74C969B2E7BC163B2A4BF';
 		}
 
 
@@ -201,6 +192,7 @@ class Pages extends CI_Controller {
 			'idCOMPRAS' => '',
 			'cpf' => $cpf,
 			'idVENDOR' => null,
+			'flag_congresso' => 2
 
 		);
 
@@ -273,24 +265,22 @@ class Pages extends CI_Controller {
 
 		if($select == 0){
 
-			$time = time();
-			$date = mdate(DATE_W3C, $time);
 
 			$dados_recebidos = array(
 
 				'idSTATUS' => 2,
-				'idPROCESSAMENTO' => $processa,
+				'id_PROCESSAMENTO' => $processa,
 				'idNOTIFICA' => null,
 				'valor_compra' => $valor_stand,
 				'tipoPagamento' => 100,
 				'origemCancel' => null,
-				'lastEvent' =>  $date,
-				'dataCompra' => $date,
+				'lastEvent' =>  mdate('%d/%m/%Y', now('America/Fortaleza')),
+				'dataCompra' => mdate('%d/%m/%Y', now('America/Fortaleza')),
 
 			);
 
 			$this->pages_model->insertNotification($dados_recebidos);
-			$this->enviaEmail('hm.comercial.exhibitions@gmail.com', $mensagem);
+			$this->enviaEmail('hm.comercial.exhibitions@gmail.com', $mensagem, $processa);
 
 		}else{
 			$pagseguro = array(
@@ -318,7 +308,7 @@ class Pages extends CI_Controller {
 			}
 
 			$pagseguro = http_build_query($pagseguro);
-
+//			echo $pagseguro;
 			$curl = curl_init($urlcheck);
 
 			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
@@ -330,7 +320,7 @@ class Pages extends CI_Controller {
 			$xml= curl_exec($curl);
 
 			curl_close($curl);
-			//echo $xml;
+//			echo $xml;
 			$xml = simplexml_load_string($xml);
 			$tokie = $xml -> code;
 
@@ -435,213 +425,213 @@ class Pages extends CI_Controller {
 
 
 	public function teste($data = null){
-////		$mensagem = '
-////
-////			<!DOCTYPE html>
-////<html>
-////<head>
-////    <meta charset="UTF-8">
-////    <style>
-////
-////        body{
-////            background-color: #e3d7e1;
-////            height: auto;
-////            padding-bottom: 50px;
-////        }
-////        .card{
-////            background-color: white;
-////            margin: auto;
-////            margin-top: 50px;
-////            height: auto;
-////            width: 815px;
-////            padding-top: 40px;
-////            border-style: ridge;
-////            border-width: 3px;
-////            padding-bottom: 40px;
-////
-////        }
-////        .sec-logo{
-////            text-align: center;
-////            margin-bottom: 10px;
-////        }
-////
-////        .sec-body{
-////            padding-top: 50px;
-////            padding-left: 50px;
-////            padding-right: 50px;
-////            font-family: Helvetica;
-////            font-size: 18px;
-////            text-align: justify;
-////            color: #484848;
-////            line-height: 30px;
-////        }
-////
-////        .sec-body ul li{
-////            margin-bottom: 5px;
-////        }
-////
-////        .sec-standard{
-////            background-color: #ae2185;
-////            /*background-color: #1e1e1e;*/
-////            /*background-color: ;*/
-////            /*border-style: solid;*/
-////            /*border: #ae2185;;*/
-////            padding-top: 20px;
-////            padding-bottom: 20px;
-////            color: white;
-////            text-align: center;
-////        }
-////
-////        .sec-btn{
-////            font-family: Helvetica;
-////            font-size: 18px;
-////            text-align: justify;
-////            color: #484848;
-////            line-height: 30px;
-////            text-align: center;
-////        }
-////
-////        .sec-btn a button{
-////            margin-top: 35px;
-////            margin-bottom: 35px;
-////            display: inline-block;
-////            text-align: center;
-////            font-size: 16px;
-////            color: #fff;
-////            padding: 12px 30px;
-////            min-width: 145px;
-////            border: 2px solid #ae2185;
-////            background: #ae2185;
-////            cursor: pointer;
-////        }
-////
-////        .sec-btn p a{
-////            color: #484848;
-////        }
-////
-////        .sec-btn a{
-////            color: #484848;
-////        }
-////
-////        .sec-btn p a:link{
-////            text-decoration: none;
-////        }.sec-btn p a:visited{
-////             text-decoration: none;
-////         }.sec-btn p a:hover{
-////              text-decoration: underline;
-////          }.sec-btn p a:active{
-////               text-decoration: underline;
-////           }
-////
-////        .sec-btn a:link{
-////            text-decoration: none;
-////        }.sec-btn a:visited{
-////             text-decoration: none;
-////         }.sec-btn a:hover{
-////              text-decoration: underline;
-////          }.sec-btn a:active{
-////               text-decoration: none;
-////           }
-////
-////        .sec-body ul{
-////            list-style-image: url("https://www.congressoexpohair.com.br/static/img/point-pink.png");
-////        }
-////
-////        .sec-btn a ul li{
-////            display: inline-block;
-////        }
-////
-////
-////
-////        @media only screen and (min-height: 800px){
-////            #resp_logo{
-////                height: 150px;
-////            }
-////            #resp_link{
-////                height: 60px;
-////            }
-////            label{
-////                bottom: 18px !important;
-////            }
-////
-////            .sec-btn a button{
-////                margin-top: 35px;
-////                margin-bottom: 35px;
-////                display: inline-block;
-////                text-align: center;
-////                font-size: 25px;
-////                color: #fff;
-////                padding: 30px 80px;
-////                min-width: 145px;
-////                border: 2px solid #ae2185;
-////                background: #ae2185;
-////                cursor: pointer;
-////            }
-////
-////            .sec-body ul{
-////                list-style-image: url("https://www.congressoexpohair.com.br/static/img/point-pinkG.png") !important;
-////            }
-////
-////        }
-//
-//    </style>
-//</head>
-//
-//<body>
-//<div class="card">
-//
-//    <section class="sec-logo">
-//
-//        <img id="resp_logo" src="https://www.congressoexpohair.com.br/static/img/logo_b.png" height="92px" alt="Congresso ExpoHair - Sobral">
-//
-//    </section>
-//
-//    <section class="sec-standard">
-//
-//        <h1 style="font-family: Helvetica;">Seus ingressos para shows ExpoHair estão disponíveis!</h1>
-//
-//    </section>
-//
-//    <section class="sec-body">
-//
-//        <p>Olá, Fulano.<p>
-//        <p>Estamos muito contentes com sua aquisição, e para garantirmos que sua experiência seja a melhor de todas, é importante ficar atento com alguns avisos:</p>
-//        <ul>
-//            <li>Por questões de segurança, não repasse esse e-mail a ninguém.</li>
-//            <li>Cada ingresso só poderá ser usado apenas uma vez.</li>
-//            <li>A apresentação do ingresso <b>pode</b> ser feita através do ingresso impresso ou a apresentação de algum dispositivo móvel (Celulares, Tablets, etc) com a imagem do ingresso.</li>
-//            <li>Divirta-se!</li>
-//        </ul>
-//
-//
-//    </section>
-//
-//    <section class="sec-btn">
-//
-//        <p style="text-align: center"><b>Clique no botão para ter acesso ao(s) seu(s) ingresso(s)</b></p>
-//
-//        <a href="https://www.congressoexpohair.com.br/ingressos/confirmacao/usuario"><button>Clique aqui!</button></a>
-//
-//        <p><a href="https://www.congressoexpohair.com.br/">https://www.congressoexpohair.com.br/</a></p>
-//        <a href=""></a>
-//
-//        <a href="https://www.instagram.com/congressoefeiraexpohair_/"><img id="resp_link" src="https://www.congressoexpohair.com.br/static/img/Instagram_icone.png" height="30px" alt="" style="margin-bottom: -8px"><label style="position: relative; bottom: 8px; margin-left: 5px; font-weight: bold">@congressoefeiraexpohair_</label></a>
-//
-//    </section>
-//
-//</div>
-//
-//
-//</body>
-//
-//</html>
-//
-//
-//		';
+		$mensagem = '
 
-//		$this->enviaEmail('italoctb@gmail.com', $mensagem);
+			<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
 
-		echo sha1('06532114308');
+        body{
+            background-color: #e3d7e1;
+            height: auto;
+            padding-bottom: 50px;
+        }
+        .card{
+            background-color: white;
+            margin: auto;
+            margin-top: 50px;
+            height: auto;
+            width: 815px;
+            padding-top: 40px;
+            border-style: ridge;
+            border-width: 3px;
+            padding-bottom: 40px;
+
+        }
+        .sec-logo{
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .sec-body{
+            padding-top: 50px;
+            padding-left: 50px;
+            padding-right: 50px;
+            font-family: Helvetica;
+            font-size: 18px;
+            text-align: justify;
+            color: #484848;
+            line-height: 30px;
+        }
+
+        .sec-body ul li{
+            margin-bottom: 5px;
+        }
+
+        .sec-standard{
+            background-color: #ae2185;
+            /*background-color: #1e1e1e;*/
+            /*background-color: ;*/
+            /*border-style: solid;*/
+            /*border: #ae2185;;*/
+            padding-top: 20px;
+            padding-bottom: 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .sec-btn{
+            font-family: Helvetica;
+            font-size: 18px;
+            text-align: justify;
+            color: #484848;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .sec-btn a button{
+            margin-top: 35px;
+            margin-bottom: 35px;
+            display: inline-block;
+            text-align: center;
+            font-size: 16px;
+            color: #fff;
+            padding: 12px 30px;
+            min-width: 145px;
+            border: 2px solid #ae2185;
+            background: #ae2185;
+            cursor: pointer;
+        }
+
+        .sec-btn p a{
+            color: #484848;
+        }
+
+        .sec-btn a{
+            color: #484848;
+        }
+
+        .sec-btn p a:link{
+            text-decoration: none;
+        }.sec-btn p a:visited{
+             text-decoration: none;
+         }.sec-btn p a:hover{
+              text-decoration: underline;
+          }.sec-btn p a:active{
+               text-decoration: underline;
+           }
+
+        .sec-btn a:link{
+            text-decoration: none;
+        }.sec-btn a:visited{
+             text-decoration: none;
+         }.sec-btn a:hover{
+              text-decoration: underline;
+          }.sec-btn a:active{
+               text-decoration: none;
+           }
+
+        .sec-body ul{
+            list-style-image: url("https://www.congressoexpohair.com.br/static/img/point-pink.png");
+        }
+
+        .sec-btn a ul li{
+            display: inline-block;
+        }
+
+
+
+        @media only screen and (min-height: 800px){
+            #resp_logo{
+                height: 150px;
+            }
+            #resp_link{
+                height: 60px;
+            }
+            label{
+                bottom: 18px !important;
+            }
+
+            .sec-btn a button{
+                margin-top: 35px;
+                margin-bottom: 35px;
+                display: inline-block;
+                text-align: center;
+                font-size: 25px;
+                color: #fff;
+                padding: 30px 80px;
+                min-width: 145px;
+                border: 2px solid #ae2185;
+                background: #ae2185;
+                cursor: pointer;
+            }
+
+            .sec-body ul{
+                list-style-image: url("https://www.congressoexpohair.com.br/static/img/point-pinkG.png") !important;
+            }
+
+        
+
+    </style>
+</head>
+
+<body>
+<div class="card">
+
+    <section class="sec-logo">
+
+        <img id="resp_logo" src="https://www.congressoexpohair.com.br/static/img/logo_b.png" height="92px" alt="Congresso ExpoHair - Sobral">
+
+    </section>
+
+    <section class="sec-standard">
+
+        <h1 style="font-family: Helvetica;">Seus ingressos para shows ExpoHair estão disponíveis!</h1>
+
+    </section>
+
+    <section class="sec-body">
+
+        <p>Olá, Fulano.<p>
+        <p>Estamos muito contentes com sua aquisição, e para garantirmos que sua experiência seja a melhor de todas, é importante ficar atento com alguns avisos:</p>
+        <ul>
+            <li>Por questões de segurança, não repasse esse e-mail a ninguém.</li>
+            <li>Cada ingresso só poderá ser usado apenas uma vez.</li>
+            <li>A apresentação do ingresso <b>pode</b> ser feita através do ingresso impresso ou a apresentação de algum dispositivo móvel (Celulares, Tablets, etc) com a imagem do ingresso.</li>
+            <li>Divirta-se!</li>
+        </ul>
+
+
+    </section>
+
+    <section class="sec-btn">
+
+        <p style="text-align: center"><b>Clique no botão para ter acesso ao(s) seu(s) ingresso(s)</b></p>
+
+        <a href="https://www.congressoexpohair.com.br/ingressos/"><button>Clique aqui!</button></a>
+
+        <p><a href="https://www.congressoexpohair.com.br/">https://www.congressoexpohair.com.br/</a></p>
+        <a href=""></a>
+
+        <a href="https://www.instagram.com/congressoefeiraexpohair_/"><img id="resp_link" src="https://www.congressoexpohair.com.br/static/img/Instagram_icone.png" height="30px" alt="" style="margin-bottom: -8px"><label style="position: relative; bottom: 8px; margin-left: 5px; font-weight: bold">@congressoefeiraexpohair_</label></a>
+
+    </section>
+
+</div>
+
+
+</body>
+
+</html>
+
+
+		';
+
+		$this->enviaEmail('italoctb@gmail.com', $mensagem);
+
+//		echo sha1('06532114308');
 //		echo sha1('3129468#06532114308');
 	}
 
@@ -677,7 +667,7 @@ class Pages extends CI_Controller {
 		} else {
 			$urlcheck = 'https://ws.sandbox.pagseguro.uol.com.br/v2/checkout';
 			$urltransaction = 'https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code=';
-			$id = '4108EBCEF6A34AEAAB72579116A5DCC0';
+			$id = '7CB64880FFC74C969B2E7BC163B2A4BF';
 		}
 
 
@@ -734,6 +724,7 @@ class Pages extends CI_Controller {
 			'idCOMPRAS' => '',
 			'cpf' => $cpf,
 			'idVENDOR' => $idVendor,
+			'flag_congresso' => 1
 		);
 
 
@@ -774,36 +765,6 @@ class Pages extends CI_Controller {
 
 		);
 
-		$dataTicket1 = array(
-//				'token' => $token1,
-			'data_utilizacao' => null,
-			'cpf' => $cpf,
-			'lote' => '1000', //FAZER PESQUISA
-			'idSHOWS' => 101,
-			'idCOMPRAS' => $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS //FAZER ALTERACAO FUNC
-		);
-		$dataTicket2 = array(
-//				'token' => $token2,
-			'data_utilizacao' => null,
-			'cpf' => $cpf,
-			'lote' => '1000', //FAZER PESQUISA
-			'idSHOWS' =>201,
-			'idCOMPRAS' => $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS
-
-		);
-		$dataTicket3 = array(
-//				'token' => $token3,
-			'data_utilizacao' => null,
-			'cpf' => $cpf,
-			'lote' => '1000', //FAZER PESQUISA
-			'idSHOWS' => 301	,
-			'idCOMPRAS' => $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS
-
-		);
-		$this->pages_model->insert_db_ingresso($dataTicket1);
-		$this->pages_model->insert_db_ingresso($dataTicket2);
-		$this->pages_model->insert_db_ingresso($dataTicket3);
-
 		if($combos != null){
 
 			foreach ($combos as $combo){
@@ -816,9 +777,9 @@ class Pages extends CI_Controller {
 						'idCOMPRAS' => $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS,
 						'idCOMBOS' => $combo
 					);
-					if(!$this->pages_model->verifica_cliente_atv($cpf, $atv->idATIVIDADE)){
-						$this->pages_model->insert_db_atividades_has_clientes_has_compras($data_insc);
-					}
+
+					$this->pages_model->insert_db_atividades_has_clientes_has_compras($data_insc);
+
 				}
 				$pagseguro['itemId'.$i] = $this->pages_model->pesquisa_combos($combo)->idCOMBOS;
 				$pagseguro['itemDescription'.$i] = $this->pages_model->pesquisa_combos($combo)->nome;
@@ -843,9 +804,9 @@ class Pages extends CI_Controller {
 				$novo = sprintf($format, $this->pages_model->pesquisa_atividades_general($atv)->preco);
 				$pagseguro['itemAmount'.$i] = $novo;
 				$i++;
-				if(!$this->pages_model->verifica_cliente_atv($cpf, $atv)){
-					$this->pages_model->insert_db_atividades_has_clientes_has_compras($data_insc);
-				}
+
+				$this->pages_model->insert_db_atividades_has_clientes_has_compras($data_insc);
+
 			}
 		}
 
@@ -863,9 +824,9 @@ class Pages extends CI_Controller {
 				$novo = sprintf($format, $this->pages_model->pesquisa_atividades_general($atv)->preco);
 				$pagseguro['itemAmount'.$i] = $novo;
 				$i++;
-				if(!$this->pages_model->verifica_cliente_atv($cpf, $atv)){
-					$this->pages_model->insert_db_atividades_has_clientes_has_compras($data_insc);
-				}
+
+				$this->pages_model->insert_db_atividades_has_clientes_has_compras($data_insc);
+
 			}
 		}
 
@@ -877,9 +838,9 @@ class Pages extends CI_Controller {
 					'idCOMPRAS' => $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS,
 					'idCOMBOS' => null
 				);
-				if(!$this->pages_model->verifica_cliente_atv($cpf, $atv)){
-					$this->pages_model->insert_db_atividades_has_clientes_has_compras($data_insc);
-				}
+
+				$this->pages_model->insert_db_atividades_has_clientes_has_compras($data_insc);
+
 				$pagseguro['itemId'.$i] = $this->pages_model->pesquisa_atividades_general($atv)->idATIVIDADE;
 				$pagseguro['itemDescription'.$i] = $this->pages_model->pesquisa_atividades_general($atv)->nomeATIVIDADE;
 				$pagseguro['itemQuantity'.$i] = 1;

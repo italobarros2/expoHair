@@ -67,27 +67,36 @@ class Pagseguro extends CI_Controller {
 	}
 */
 
-	public function criaHTML($informacoes = null)
-	{
-	}
+	public function enviaEmail($email = 'italoctb@gmail.com', $informacoes = null, $compra){ //$titular, $dataEvento, $nomeEvento, $preco, $lote, $dataCompra, idIngresso){
 
-	public function enviaEmail($email = 'italoctb@gmail.com', $informacoes = null, $mensagem = 'email enviado com sucesso!'){ //$titular, $dataEvento, $nomeEvento, $preco, $lote, $dataCompra, idIngresso){
+		$config = array(
+			'protocol' => 'smtp', // 'mail', 'sendmail', or 'smtp'
+			'smtp_host' => 'congressoexpohair.com.br',
+			'smtp_port' => 465,
+			'smtp_user' => 'vendas@congressoexpohair.com.br',
+			'smtp_pass' => 'ExpOhAIr123',
+			'smtp_crypto' => 'ssl', //can be 'ssl' or 'tls' for example
+			'mailtype' => 'html', //plaintext 'text' mails or 'html'
 
-		$from = $this->config->item('smtp_user');
+		);
 
-		$this->email->from($from, 'Congresso ExpoHair 2019 - Sobral');
-        $this->email->to($email);
-        $this->email->subject('Ingresso do Show');
-        $this->email->message($this->criaHTML($informacoes));
+		$this->email->initialize($config);
 
-
-		if ($this->email->send()) {
-			echo 'Compra de Stand(s) realizada com sucesso, em breve você receberá um e-mail de confirmação. (2 dias úteis, após a confimação do pagamento)';
-			sleep(12);
-			redirect(base_url());
+		$this->email->from($config['smtp_user'], 'Congresso e Shows ExpoHair 2019 - Sobral');
+		$this->email->to($email);
+//			$this->email->cc('italobarroscontato@gmail.com');
+		$this->email->subject('Ingressos Disponíveis! Compra#'.$compra);
+		$this->email->message($informacoes);
+		/*if ($this->email->send()) {
+			echo '<h3>Compra de Stand(s) realizada com sucesso, em breve você receberá um e-mail de confirmação. (2 dias úteis, após a confimação do pagamento)</h3>';
+			echo '<a href="'.base_url().'"><button>Voltar</button></a>';
 		} else {
 			show_error($this->email->print_debugger());
-		}
+		}*/
+		$this->email->send();
+
+
+
 
 	}
 
@@ -106,7 +115,7 @@ class Pagseguro extends CI_Controller {
 			//$id = 'edb6f6de-3125-401c-a1cf-664af789e6c7e9dc25cc459293ba57a61ee7cab448c08673-200c-4642-a41f-fcfd8fd086fa';
 		}else{
 			$urlnotify = 'https://ws.sandbox.pagseguro.uol.com.br/v3/transactions/notifications/';
-			$id = '4108EBCEF6A34AEAAB72579116A5DCC0';
+			$id = '7CB64880FFC74C969B2E7BC163B2A4BF';
 		}
 
 		$notificationCode = $this->input->post('notificationCode');
@@ -119,7 +128,7 @@ class Pagseguro extends CI_Controller {
 
 		$curl = curl_init($urlnotify.$notificationCode.'?'.$data);
 
-		curl_setopt($curl, CURLOPT_ENCODING ,"UTF-8");
+
 		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($curl, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
@@ -159,7 +168,7 @@ class Pagseguro extends CI_Controller {
 		$dados_recebidos = array(
 
 			'idSTATUS' => $xml->status,
-			'idPROCESSAMENTO' => $xml->code,
+			'id_PROCESSAMENTO' => $xml->code,
 			'idNOTIFICA' => $notificationCode,
 			'valor_compra' => $xml->grossAmount,
 			'tipoPagamento' => $xml->paymentMethod->type,
@@ -171,7 +180,7 @@ class Pagseguro extends CI_Controller {
 
 		//echo $dados_recebidos['dataCompra'];
 		//echo "Nem fui!";
-		if($this->pagseguro_model->verificaNotification($dados_recebidos['idPROCESSAMENTO'])){
+		if($this->pagseguro_model->verificaNotification($dados_recebidos['id_PROCESSAMENTO'])){
 			$this->pagseguro_model->updateNotification($dados_recebidos);
 			//echo "parei aqui!";
 		}else{
@@ -180,21 +189,83 @@ class Pagseguro extends CI_Controller {
 			//echo "WTF!";
 		}
 
+		$query = $this->pages_model->consulta_usuario_compras($xml->reference);
+
+		if ($xml->status == 3 && $query->flag_congresso == 1){
+			$first = strstr($query->Nome, ' ', true);
+			$url_point = 'https://www.congressoexpohair.com.br/static/img/point-pink.png';
+			$mensagem = '
+
+<body style="background-color: #e3d7e1;height: auto;">
+
+<div class="card" style="background-color: white;margin: auto;margin-top: 50px; height: auto;width: 715px;padding-top: 40px; border-style: ridge; border-width: 3px; padding-bottom: 40px;">
+
+    <section class="sec-logo" style="text-align: center;margin-bottom: 10px;">
+
+        <img id="resp_logo" src="https://www.congressoexpohair.com.br/static/img/logo_b.png"  style="height: 96px" alt="Congresso ExpoHair - Sobral">
+
+    </section>
+
+    <section class="sec-standard" style="background-color: #ae2185;padding-top: 20px;padding-bottom: 20px;color: white;text-align: center;">
+
+        <h1 style="font-family: Helvetica;">Seus ingressos para shows ExpoHair estão disponíveis!</h1>
+
+    </section>
+
+    <section class="sec-body" style="padding-top: 50px; padding-left: 50px; padding-right: 50px; font-family: Helvetica;font-size: 18px;text-align: justify; color: #484848; line-height: 30px;">
+
+        <p>Olá '.$first.'.<p>
+        <p>Estamos muito contentes com sua aquisição, e para garantirmos que sua experiência seja a melhor possível, é importante ficar atento com alguns avisos:</p>
+        <ul>
+            <li style="margin-bottom: 5px;">Por questões de segurança, não repasse esse e-mail a ninguém.</li>
+            <li style="margin-bottom: 5px;">Cada ingresso só poderá ser usado apenas uma vez.</li>
+            <li style="margin-bottom: 5px;">A apresentação do ingresso <b>pode</b> ser feita através do ingresso impresso ou a apresentação de algum dispositivo móvel (Celulares, Tablets, etc) com a imagem do ingresso.</li>
+            <li style="margin-bottom: 5px;">Divirta-se!</li>
+        </ul>
+
+
+    </section>
+
+    <section class="sec-btn" style="font-family: Helvetica;font-size: 18px; text-align: justify;color: #484848;line-height: 30px;text-align: center;">
+
+        <p style="text-align: center"><b>Clique no botão para ter acesso ao(s) seu(s) ingresso(s)</b></p>
+
+        <a href="https://www.congressoexpohair.com.br/ingressos/user/'.$query->cpf.'"><button style="margin-top: 35px;margin-bottom: 35px;display: inline-block;text-align: center;font-size: 16px;color: #fff;padding: 12px 30px;min-width: 145px;border: 2px solid #ae2185;background: #ae2185;cursor: pointer;">Clique aqui!</button></a>
+
+        <p><a href="https://www.congressoexpohair.com.br/" style="color: #484848;">https://www.congressoexpohair.com.br/</a></p>
+        
+        <a href="https://www.instagram.com/congressoefeiraexpohair_/"><img id="resp_link" src="https://www.congressoexpohair.com.br/static/img/instagram_icone.png" alt="" style="margin-bottom: -8px"><label style="position: relative; bottom: 8px; margin-left: 5px; font-weight: bold">@congressoefeiraexpohair_</label></a>
+
+    </section>
+
+</div>
+
+
+
+		';
+
+
+
+			$this->enviaEmail($query->email, $mensagem, $xml->reference);
+		}
+
 
 
 
 
 	}
 
-	public function criaIngresso($cpf, $idSHOWS, $lote, $idCOMPRAS){
+	public function criaIngresso($cpf, $idSHOWS, $lote, $idCOMPRAS, $is_entire){
 		$dataTicket1 = array(
 			'cpf' => $cpf,
 			'lote' => $lote,
 			'idSHOWS' => $idSHOWS,
-			'idCOMPRAS' => $idCOMPRAS
+			'idCOMPRAS' => $idCOMPRAS,
+			'is_entire' => $is_entire
 		);
 
 		$this->pages_model->insert_db_ingresso($dataTicket1);
+//		echo 'cria ingresso';echo '</br>';
 	}
 
 	public function submitingressos(){
@@ -209,7 +280,7 @@ class Pagseguro extends CI_Controller {
 		}else{
 			$urlcheck = 'https://ws.sandbox.pagseguro.uol.com.br/v2/checkout';
 			$urltransaction = 'https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code=';
-			$id = '4108EBCEF6A34AEAAB72579116A5DCC0';
+			$id = '7CB64880FFC74C969B2E7BC163B2A4BF';
 		}
 
 		$nome = $this->input->post('nome');
@@ -286,6 +357,7 @@ class Pagseguro extends CI_Controller {
 			'idCOMPRAS' => '',
 			'cpf' => $cpf,
 			'idVENDOR' => null,
+			'flag_congresso' => 0
 		);
 
 
@@ -301,12 +373,6 @@ class Pagseguro extends CI_Controller {
 			'token' => $id,
 			'email' => 'vendas@congressoexpohair.com.br',
 			'currency' => "BRL",
-			/*'itemId1' => $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS,
-            'itemQuantity1' => '1',
-            'itemDescription1' => "Congresso ExpoHair Sobral 2019",
-            'itemAmount1' => $novo,*/
-			//'currecy' => "BRL",
-			//'itemDescription1' => "Congresso ExpoHair Sobral 2019",
 			'shippingAddressRequired' => 'false',
 			'senderName' => $nome,
 			'senderEmail' => $email,
@@ -314,15 +380,11 @@ class Pagseguro extends CI_Controller {
 			'reference' => $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS,
 			'redirectURL' => base_url(),
 			'excludePaymentMethodGroup'=>'DEPOSIT',
-			//'paymentMethodGroup1'=>'CREDIT_CARD',
-			//'paymentMethodConfigKey1_1'=>'MAX_INSTALLMENTS_LIMIT',
-			//'paymentMethodConfigValue1_1'=> '6'
-
 		);
 
 
 		for($j = $num1; $j>0; $j--){
-			$this->criaIngresso($cpf, 101, $l1, $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS);
+			$this->criaIngresso($cpf, 101, $l1, $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS, 0);
 			$tok = $this->pagseguro_model->pesquisa_ultimoIngresso()->token;
 			$pagseguro['itemId'.$i] = $tok;
 			$pagseguro['itemDescription'.$i] = $this->pagseguro_model->pesquisa_ultimoShow($tok)->nome_show.' - PRIMEIRO LOTE - PROMOCIONAL';
@@ -331,7 +393,7 @@ class Pagseguro extends CI_Controller {
 			$pagseguro['itemAmount'.$i] = $novo;
 			$i++;
 		}for($j = $num2; $j>0; $j--){
-			$this->criaIngresso($cpf, 101, $l1, $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS);
+			$this->criaIngresso($cpf, 101, $l1, $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS, 1);
 			$tok = $this->pagseguro_model->pesquisa_ultimoIngresso()->token;
 			$pagseguro['itemId'.$i] = $tok;
 			$pagseguro['itemDescription'.$i] = $this->pagseguro_model->pesquisa_ultimoShow($tok)->nome_show.' - INTEIRA';
@@ -340,7 +402,7 @@ class Pagseguro extends CI_Controller {
 			$pagseguro['itemAmount'.$i] = $novo;
 			$i++;
 		}for($j = $num3; $j>0; $j--){
-			$this->criaIngresso($cpf, 201, $l3, $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS);
+			$this->criaIngresso($cpf, 201, $l3, $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS, 0);
 			$tok = $this->pagseguro_model->pesquisa_ultimoIngresso()->token;
 			$pagseguro['itemId'.$i] = $tok;
 			$pagseguro['itemDescription'.$i] = $this->pagseguro_model->pesquisa_ultimoShow($tok)->nome_show.'  - PRIMEIRO LOTE - PROMOCIONAL';
@@ -349,7 +411,7 @@ class Pagseguro extends CI_Controller {
 			$pagseguro['itemAmount'.$i] = $novo;
 			$i++;
 		}for($j = $num4; $j>0; $j--){
-			$this->criaIngresso($cpf, 201, $l3, $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS);
+			$this->criaIngresso($cpf, 201, $l3, $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS, 1);
 			$tok = $this->pagseguro_model->pesquisa_ultimoIngresso()->token;
 			$pagseguro['itemId'.$i] = $tok;
 			$pagseguro['itemDescription'.$i] = $this->pagseguro_model->pesquisa_ultimoShow($tok)->nome_show.' - INTEIRA';
@@ -358,7 +420,7 @@ class Pagseguro extends CI_Controller {
 			$pagseguro['itemAmount'.$i] = $novo;
 			$i++;
 		}for($j = $num5; $j>0; $j--){
-			$this->criaIngresso($cpf, 301, $l5, $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS);
+			$this->criaIngresso($cpf, 301, $l5, $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS, 0);
 			$tok = $this->pagseguro_model->pesquisa_ultimoIngresso()->token;
 			$pagseguro['itemId'.$i] = $tok;
 			$pagseguro['itemDescription'.$i] = $this->pagseguro_model->pesquisa_ultimoShow($tok)->nome_show.'- PRIMEIRO LOTE - PROMOCIONAL\'';
@@ -367,7 +429,7 @@ class Pagseguro extends CI_Controller {
 			$pagseguro['itemAmount'.$i] = $novo;
 			$i++;
 		}for($j = $num6; $j>0; $j--){
-			$this->criaIngresso($cpf, 301, $l5, $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS);
+			$this->criaIngresso($cpf, 301, $l5, $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS, 1);
 			$tok = $this->pagseguro_model->pesquisa_ultimoIngresso()->token;
 			$pagseguro['itemId'.$i] = $tok;
 			$pagseguro['itemDescription'.$i] = $this->pagseguro_model->pesquisa_ultimoShow($tok)->nome_show.' - INTEIRA';
@@ -377,13 +439,13 @@ class Pagseguro extends CI_Controller {
 			$i++;
 		}for($j = $num7; $j>0; $j--){
 			for($k = $num7; $k>0; $k--){
-				$this->criaIngresso($cpf, 101, $l7, $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS);
+				$this->criaIngresso($cpf, 101, $l7, $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS, 1);
 
 			}for($k = $num7; $k>0; $k--){
-				$this->criaIngresso($cpf, 201, $l7, $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS);
+				$this->criaIngresso($cpf, 201, $l7, $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS, 1);
 
 			}for($k = $num7; $k>0; $k--){
-				$this->criaIngresso($cpf, 301, $l7, $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS);
+				$this->criaIngresso($cpf, 301, $l7, $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS, 1);
 			}
 			$tok = $this->pagseguro_model->pesquisa_ultimoIngresso()->token;
 			$pagseguro['itemId'.$i] = $tok;
@@ -496,7 +558,7 @@ class Pagseguro extends CI_Controller {
             )
         ));*/
 
-        //$doc = file_get_contents('https://ws.pagseguro.uol.com.br/v2/checkout', null, $context);
+		//$doc = file_get_contents('https://ws.pagseguro.uol.com.br/v2/checkout', null, $context);
 		$pagseguro = http_build_query($pagseguro);
 		//echo $pagseguro;
 		$curl = curl_init($urlcheck);
@@ -511,7 +573,7 @@ class Pagseguro extends CI_Controller {
 
 		curl_close($curl);
 
-		//echo $xml;
+//		echo $xml;
 		$xml = simplexml_load_string($xml);
 		$tokie = $xml -> code;
 

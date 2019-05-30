@@ -218,7 +218,7 @@ else{
 													break;
 											}
 											echo '
-												<option value="'.$workshop->idATIVIDADE.'">'.$workshop->nomeATIVIDADE.' - lote: '.$lote.'- preço: R$'.$workshop->preco.'</option>
+												<option value="'.$workshop->idATIVIDADE.'">'.$workshop->nomeATIVIDADE.' - lote: '.$lote.'- preço: R$<b>'.$workshop->preco.'</b></option>
 											';
 										}
 										?>
@@ -249,7 +249,7 @@ else{
 													break;
 											}
 											echo '
-												<option value="'.$curso->idATIVIDADE.'">'.$curso->nomeATIVIDADE.' - lote: '.$lote.'- preço: R$'.$curso->preco.'</option>
+												<option value="'.$curso->idATIVIDADE.'">'.$curso->nomeATIVIDADE.' - lote: '.$lote.'- preço: R$<b>'.$curso->preco.'</b></option>
 											';
 										}
 										?>
@@ -262,7 +262,7 @@ else{
 						<div class="col-xl-1 col-lg-1 col-md-1"></div>
 						<div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12">
 							<div class="card">
-								<h5 class="card-header">Concursos - <button type="button" class="siteinfo-btn" data-toggle="modal" data-target="#infoConcurso">
+								<h5 class="card-header">Outros - <button type="button" class="siteinfo-btn" data-toggle="modal" data-target="#infoConcurso">
   								Para ajudar na sua escolha, clique aqui!
 								</button></h5>
 								<div class="card-body">
@@ -280,26 +280,11 @@ else{
 													break;
 											}
 											echo '
-												<option value="'.$concurso->idATIVIDADE.'">'.$concurso->nomeATIVIDADE.' - lote: '.$lote.'- preço: R$'.$concurso->preco.'</option>
+												<option value="'.$concurso->idATIVIDADE.'">'.$concurso->nomeATIVIDADE.' - lote: '.$lote.'- preço: R$<b>'.$concurso->preco.'</b></option>
 											';
 										}
 										?>
 									</select>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="form-row">
-						<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
-							<div class="form-group">
-								<div class="form-check">
-									<input class="form-check-input form-perso" type="checkbox" value="" id="invalidCheck" style="width: 50px; margin-left:-28px; margin-top: 20px" required>
-									<label class="form-check-label" for="invalidCheck" style="position: relative; left: 25px; top: 20px">
-										Li e aceito os termos do regulamento.
-									</label>
-									<div class="invalid-feedback" style="margin-top: 20px;">
-										Você deve aceitar os termos do regulamento antes de se inscrever.
-									</div>
 								</div>
 							</div>
 						</div>
@@ -345,38 +330,50 @@ else{
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="<?=base_url('static/img/imgCursos/work_1.jpg')?>" class="d-block w-100" alt="">
+      <img src="<?=base_url('static/img/imgCursos/rino_1.jpg')?>" class="d-block w-100" alt="">
     </div>
     <div class="carousel-item">
-      <img src="<?=base_url('static/img/imgCursos/work_2.jpg')?>" class="d-block w-100" alt="">
+      <img src="<?=base_url('static/img/imgCursos/simone_1.jpg')?>" class="d-block w-100" alt="">
     </div>
     <div class="carousel-item">
-      <img src="<?=base_url('static/img/imgCursos/work_3.jpg')?>" class="d-block w-100" alt="">
+      <img src="<?=base_url('static/img/imgCursos/adriana_1.jpg')?>" class="d-block w-100" alt="">
     </div>
 	  <div class="carousel-item">
-      <img src="<?=base_url('static/img/imgCursos/work_4.jpg')?>" class="d-block w-100" alt="">
+      <img src="<?=base_url('static/img/imgCursos/adriana_2.jpg')?>" class="d-block w-100" alt="">
     </div>
 	  <div class="carousel-item">
-      <img src="<?=base_url('static/img/imgCursos/work_5.jpg')?>" class="d-block w-100" alt="">
+      <img src="<?=base_url('static/img/imgCursos/adriana_3.jpg')?>" class="d-block w-100" alt="">
       </div>
 	  <div class="carousel-item">
-      <img src="<?=base_url('static/img/imgCursos/work_6.jpg')?>" class="d-block w-100" alt="">
+      <img src="<?=base_url('static/img/imgCursos/kamilla_1.jpg')?>" class="d-block w-100" alt="">
       </div>
 	  <div class="carousel-item">
-      <img src="<?=base_url('static/img/imgCursos/work_7.jpg')?>" class="d-block w-100" alt="">
+      <img src="<?=base_url('static/img/imgCursos/rino_2.jpg')?>" class="d-block w-100" alt="">
       </div>
 	  <div class="carousel-item">
-      <img src="<?=base_url('static/img/imgCursos/work_8.jpg')?>" class="d-block w-100" alt="">
+      <img src="<?=base_url('static/img/imgCursos/simone_2.jpg')?>" class="d-block w-100" alt="">
       </div>
 	  <div class="carousel-item">
-      <img src="<?=base_url('static/img/imgCursos/work_9.jpg')?>" class="d-block w-100" alt="">
+      <img src="<?=base_url('static/img/imgCursos/suzana_1.jpg')?>" class="d-block w-100" alt="">
       </div>
 	  <div class="carousel-item">
-      <img src="<?=base_url('static/img/imgCursos/work_10.jpg')?>" class="d-block w-100" alt="">
+      <img src="<?=base_url('static/img/imgCursos/rino_3.jpg')?>" class="d-block w-100" alt="">
       </div>
 	  <div class="carousel-item">
-      <img src="<?=base_url('static/img/imgCursos/work_11.jpg')?>" class="d-block w-100" alt="">
+      <img src="<?=base_url('static/img/imgCursos/adriana_6.jpg')?>" class="d-block w-100" alt="">
       </div>
+	  <div class="carousel-item">
+		  <img src="<?=base_url('static/img/imgCursos/adriana_7.jpg')?>" class="d-block w-100" alt="">
+	  </div>
+	  <div class="carousel-item">
+		  <img src="<?=base_url('static/img/imgCursos/russa_1.jpg')?>" class="d-block w-100" alt="">
+	  </div>
+	  <div class="carousel-item">
+		  <img src="<?=base_url('static/img/imgCursos/rino_4.jpg')?>" class="d-block w-100" alt="">
+	  </div>
+	  <div class="carousel-item">
+		  <img src="<?=base_url('static/img/imgCursos/herika_2.jpg')?>" class="d-block w-100" alt="">
+	  </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -415,20 +412,26 @@ else{
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="<?=base_url('static/img/imgCursos/curso_1.jpg')?>" class="d-block w-100" alt="">
+      <img src="<?=base_url('static/img/imgCursos/kleidyr_1.jpg')?>" class="d-block w-100" alt="">
     </div>
     <div class="carousel-item">
-      <img src="<?=base_url('static/img/imgCursos/curso_5.jpg')?>" class="d-block w-100" alt="">
+      <img src="<?=base_url('static/img/imgCursos/kleidyr_2.jpg')?>" class="d-block w-100" alt="">
     </div>
     <div class="carousel-item">
-      <img src="<?=base_url('static/img/imgCursos/curso_6.jpg')?>" class="d-block w-100" alt="">
+      <img src="<?=base_url('static/img/imgCursos/kleidyr_3.jpg')?>" class="d-block w-100" alt="">
     </div>
 	  <div class="carousel-item">
-      <img src="<?=base_url('static/img/imgCursos/curso_8.jpg')?>" class="d-block w-100" alt="">
+      <img src="<?=base_url('static/img/imgCursos/kleidyr_4.jpg')?>" class="d-block w-100" alt="">
     </div>
 	<div class="carousel-item">
-      <img src="<?=base_url('static/img/imgCursos/curso_9.jpg')?>" class="d-block w-100" alt="">
+      <img src="<?=base_url('static/img/imgCursos/adriana_4.jpg')?>" class="d-block w-100" alt="">
     </div>
+	  <div class="carousel-item">
+		  <img src="<?=base_url('static/img/imgCursos/adriana_5.jpg')?>" class="d-block w-100" alt="">
+	  </div>
+	  <div class="carousel-item">
+		  <img src="<?=base_url('static/img/imgCursos/kleidyr_5.jpg')?>" class="d-block w-100" alt="">
+	  </div>
   </div>
   <a class="carousel-control-prev" href="#carouselCurso" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -463,7 +466,7 @@ else{
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="<?=base_url('static/img/imgCursos/concurso_1.jpg')?>" class="d-block w-100" alt="">
+      <img src="<?=base_url('static/img/imgCursos/herika_1.jpg')?>" class="d-block w-100" alt="">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

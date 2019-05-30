@@ -18,7 +18,7 @@
 				</div>
 				<div class="panel">
 					<div class="panel-header" id="headingTres">
-						<div class="infoCurso-btn"><a data-toggle="modal" data-target="#infoCurso30">COLORE & TAGLIO</a><br/>
+						<div class="infoCurso-btn"><a data-toggle="modal" data-target="#infoCurso30">Mechas</a><br/>
 							<a data-toggle="collapse" data-target="#collapse30" aria-expanded="false" aria-controls="collapse30"> Clique aqui!</a></div>
 					</div>
 					<div id="collapse30" class="collapse" aria-labelledby="headingTres" data-parent="#accordion">
@@ -57,9 +57,10 @@
 					</div>
 				</div>
 			</div>
+
 			<div class="col-lg-4 col-md-6">
 				<div class="team-member memberships-card" data-toggle="modal" data-target="#infoCurso2">
-					<img src="<?=base_url('static/img/imgCursos/work_1.jpg')?>" alt="">
+					<img src="<?=base_url('static/img/imgCursos/simone_1.jpg')?>" alt="">
 				</div>
 				<div class="panel">
 					<div class="panel-header" id="headingTres">
@@ -88,7 +89,7 @@
 								<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 									<div class="carousel-inner">
 										<div class="carousel-item active">
-											<img src="<?=base_url('static/img/imgCursos/work_1.jpg')?>" class="d-block w-100" alt="">
+											<img src="<?=base_url('static/img/imgCursos/simone_1.jpg')?>" class="d-block w-100" alt="">
 										</div>
 									</div>
 								</div>
@@ -102,7 +103,7 @@
 			</div>
 			<div class="col-lg-4 col-md-6">
 				<div class="team-member memberships-card accordion-area" data-toggle="modal" data-target="#infoCurso3" id="accordion">
-					<img src="<?=base_url('static/img/imgCursos/work_2.jpg')?>" alt="">
+					<img src="<?=base_url('static/img/imgCursos/adriana_1.jpg')?>" alt="">
 				</div>
 				<div class="panel">
 					<div class="panel-header" id="headingQuatro">
@@ -114,7 +115,7 @@
 							<p>MINISTRADO POR ADRIANA RÊGO.<br/>
 								Especialista em Planejamento; Projetos na área de beleza; Consultora para Salões de Beleza e Clinicas de Estética; Atua há 30 anos no mercado de beleza. Curso de formação nacional de técnicos com: Capilar; Granda; Tânagra; Clairol Profissional; Corporal/Facial: Laborene; Depilisa; Depil Bela. E muito mais.</p>
 							<p>Conteúdo:<br/>
-								Genética; Foto tipo; Metodologia; Exposição solar; Contra indicações; Autobronzeadores; Sugestões nutricionais; Cuidados pré e pós bronze; Pratica.</p>
+								Genética; Fotótipo; Metodologia; Exposição solar; Contra indicações; Autobronzeadores; Sugestões nutricionais; Cuidados pré e pós bronze; Pratica.</p>
 							COM DIREITO A ENTRADA NA FEIRA OS 03 DIAS. COMPRE 1º LOTE E GANHE ACESSO AOS 03 DIAS DE SHOWS
 						</div>
 					</div>
@@ -132,7 +133,7 @@
 								<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 									<div class="carousel-inner">
 										<div class="carousel-item active">
-											<img src="<?=base_url('static/img/imgCursos/work_2.jpg')?>" class="d-block w-100" alt="">
+											<img src="<?=base_url('static/img/imgCursos/adriana_1.jpg')?>" class="d-block w-100" alt="">
 										</div>
 									</div>
 								</div>
@@ -146,7 +147,7 @@
 			</div>
 			<div class="col-lg-4 col-md-6">
 				<div class="team-member memberships-card accordion-area" data-toggle="modal" data-target="#infoCurso4" id="accordion">
-					<img src="<?=base_url('static/img/imgCursos/work_3.jpg')?>" alt="">
+					<img src="<?=base_url('static/img/imgCursos/adriana_2.jpg')?>" alt="">
 				</div>
 				<div class="panel">
 					<div class="panel-header" id="headingUm">
@@ -176,7 +177,7 @@
 								<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 									<div class="carousel-inner">
 										<div class="carousel-item active">
-											<img src="<?=base_url('static/img/imgCursos/work_3.jpg')?>" class="d-block w-100" alt="">
+											<img src="<?=base_url('static/img/imgCursos/adriana_2.jpg')?>" class="d-block w-100" alt="">
 										</div>
 									</div>
 								</div>
@@ -190,7 +191,7 @@
 			</div>
 			<div class="col-lg-4 col-md-6">
 				<div class="team-member memberships-card accordion-area" data-toggle="modal" data-target="#infoCurso5" id="accordion">
-					<img src="<?=base_url('static/img/imgCursos/work_4.jpg')?>" alt="">
+					<img src="<?=base_url('static/img/imgCursos/adriana_3.jpg')?>" alt="">
 				</div>
 				<div class="panel">
 					<div class="panel-header" id="headingUm">
@@ -220,7 +221,7 @@
 								<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 									<div class="carousel-inner">
 										<div class="carousel-item active">
-											<img src="<?=base_url('static/img/imgCursos/work_4.jpg')?>" class="d-block w-100" alt="">
+											<img src="<?=base_url('static/img/imgCursos/adriana_3.jpg')?>" class="d-block w-100" alt="">
 										</div>
 									</div>
 								</div>
@@ -234,11 +235,11 @@
 			</div>
 			<div class="col-lg-4 col-md-6">
 				<div class="team-member memberships-card" data-toggle="modal" data-target="#infoCurso1">
-					<img src="<?=base_url('static/img/imgCursos/curso_9.jpg')?>" alt="">
+					<img src="<?=base_url('static/img/imgCursos/kleidyr_1.jpg')?>" alt="">
 				</div>
 				<div class="panel">
 					<div class="panel-header" id="headingDois">
-						<div class="infoCurso-btn"><a data-toggle="modal" data-target="#infoCurso1">Paraíso I Blond Sun & Paraiso II Stone Blond</a></br>
+						<div class="infoCurso-btn"><a data-toggle="modal" data-target="#infoCurso1">Coleção Paraíso I Blond Sun</a></br>
 							<a data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">Clique Aqui!</a></div>
 					</div>
 					<div id="collapse2" class="collapse" aria-labelledby="headingDois" data-parent="#accordion">
@@ -247,7 +248,50 @@
 								Cabeleireiro profissional, a anos e Hair Stylist especialista em loiros conhecido como REI DO PLATINADO.</p>
 							<p>Conteúdo:<br/>
 								Paraíso I Blond Sun:<br/>
-								TÉC. ESPECIFICAS (LOIRO SOL)<br/>
+								TÉC. ESPECIFICAS (LOIRO SOL)</p>
+							COM DIREITO A ENTRADA NA FEIRA OS 03 DIAS. COMPRE 1º LOTE E GANHE ACESSO AOS 03 DIAS DE SHOWS
+						</div>
+					</div>
+				</div>
+				<div class="modal fade" id="infoCurso1" tabindex="-1" role="dialog" aria-labelledby="info1" aria-hidden="true">
+					<div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="info1">Informações Curso</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+											<img src="<?=base_url('static/img/imgCursos/kleidyr_1.jpg')?>" class="d-block w-100" alt="">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="team-member memberships-card" data-toggle="modal" data-target="#infoCurso1">
+					<img src="<?=base_url('static/img/imgCursos/kleidyr_2.jpg')?>" alt="">
+				</div>
+				<div class="panel">
+					<div class="panel-header" id="headingDois">
+						<div class="infoCurso-btn"><a data-toggle="modal" data-target="#infoCurso1">Coleção Paraiso II Stone Blond</a></br>
+							<a data-toggle="collapse" data-target="#collapse221" aria-expanded="false" aria-controls="collapse2">Clique Aqui!</a></div>
+					</div>
+					<div id="collapse221" class="collapse" aria-labelledby="headingDois" data-parent="#accordion">
+						<div class="panel-body">
+							<p>MINISTRADO POR KLEIDYR BARBOSA<br/>
+								Cabeleireiro profissional, a anos e Hair Stylist especialista em loiros conhecido como REI DO PLATINADO.</p>
+							<p>Conteúdo:<br/>
 								Conteúdo Paraiso II Stone Blond:<br/>
 								TÉC. ESPECIFICAS(LOIRO PEDRA)</p>
 							COM DIREITO A ENTRADA NA FEIRA OS 03 DIAS. COMPRE 1º LOTE E GANHE ACESSO AOS 03 DIAS DE SHOWS
@@ -267,7 +311,51 @@
 								<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 									<div class="carousel-inner">
 										<div class="carousel-item active">
-											<img src="<?=base_url('static/img/imgCursos/curso_9.jpg')?>" class="d-block w-100" alt="">
+											<img src="<?=base_url('static/img/imgCursos/kleidyr_2.jpg')?>" class="d-block w-100" alt="">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="team-member memberships-card accordion-area" data-toggle="modal" data-target="#infoCurso133" id="accordion">
+					<img src="<?=base_url('static/img/imgCursos/kamilla_1.jpg')?>" alt="">
+				</div>
+				<div class="panel">
+					<div class="panel-header" id="headingUm">
+						<div class="infoCurso-btn"><a data-toggle="modal" data-target="#infoCurso133">PENTEADOS & AUTOMAQUIAGEM</a><br />
+							<a data-toggle="collapse" data-target="#collapse66" aria-expanded="false" aria-controls="collapse1">Clique Aqui!</a></div>
+					</div>
+					<div id="collapse66" class="collapse" aria-labelledby="headingUm" data-parent="#accordion">
+						<div class="panel-body">
+							<p>MINISTRADO POR KAMILLA CAMPOS<br/>
+								PENTEADOS NOIVAS & FESTAS PARA LOIRAS & MORENAS – MAKE UP</p>
+							<p>Conteúdo Make up:<br/>
+								Preparação de Pele</br>Make dia Make noite</br>Contorno </br>Iluminação </br>Aplicação de Cílios postiços</p>
+							COM DIREITO A ENTRADA NA FEIRA OS 03 DIAS. COMPRE 1º LOTE E GANHE ACESSO AOS 03 DIAS DE SHOWS
+						</div>
+					</div>
+				</div>
+				<div class="modal fade" id="infoCurso133" tabindex="-1" role="dialog" aria-labelledby="info13" aria-hidden="true">
+					<div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="info13">Informações Curso</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+											<img src="<?=base_url('static/img/imgCursos/kamilla_1.jpg')?>" class="d-block w-100" alt="">
 										</div>
 									</div>
 								</div>
@@ -414,8 +502,53 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-4 col-md-6">
+				<div class="team-member memberships-card" data-toggle="modal" data-target="#infoCurso30">
+					<img src="<?=base_url('static/img/imgCursos/rino_2.jpg')?>" alt="">
+				</div>
+				<div class="panel">
+					<div class="panel-header" id="headingTres">
+						<div class="infoCurso-btn"><a data-toggle="modal" data-target="#infoCurso30">Penteados</a><br/>
+							<a data-toggle="collapse" data-target="#collapse30" aria-expanded="false" aria-controls="collapse30"> Clique aqui!</a></div>
+					</div>
+					<div id="collapse30" class="collapse" aria-labelledby="headingTres" data-parent="#accordion">
+						<div class="panel-body">
+							<p>MINISTRADO POR RINO FARANO & NANCI CARDOSO<br/>
+								<b>RINO FARANO:</b><br/>
+								TRÊS VEZES CAMPEÃO MUNDIAL EM CORTES E FINALIZAÇÃO; RENOMADO INTERNACIONALMENTE COM TRABALHOS REALIZADOS EM TODOS OS CONTINENTES; MINISTRA CURSOS EM VÁRIOS PAÍSES; DIRETOR INTERNACIONAL DA ACADEMIA U.A.A.M.I.; DIRETOR TÉCNICO DO SINDICADO DOS CABELEIREIROS DE SÃO PAULO; CONSULTOR DE HAIR FASHION DAS MAIORES GRIFES MUNDIAIS; DESENVOLVEDOR DE VÁRIAS TÉCNICAS QUE HOJE SÃO MUNDIALMENTE CONHECIDAS; PROFESSOR DOCENTE NA UNICAMP; PROFESSOR DOCENTE NA UNIRP; JURADO INTERNACIONAL DO CAMPEONATO MUNDIAL DOS CABELEIREIROS DA O.M.C. HAIR-WORLD; PRESIDENTE DA O.B.C.-O.M.C. MEMBER BRASIL.<br/>
+								<b>NANCI CARDOSO:</b>
+								ÚNICA BRASILEIRA A FAZER PARTE DA ACADEMIA ITALIANA U.A.A.M.I.; CAMPEÃ ITALIANA REVELAÇÃO EM 2005 COM TÉCNICAS DE MECHAS; PIONEIRA NO BRASIL EM TRABALHAR COM 25 NOVAS TÉCNICA DE MECHAS; MINISTRA CURSO DA CRIAÇÃO DO PENTEADO E SUA ESTRUTURA; ESPECIALISTA EM ALONGAMENTO COM MECHAS, TÉCNICA PARA DAR VOLUME E CORTES; APROPRIADOS PARA JUNÇÃO DO CABELO COM ALON GAMENTO; DESENVOLVE TÉCNICAS EXCLUSIVAS DE MECHAS PARA EMPRESAS NACIONAIS E INTERNACIONAIS; AUTORA DE DIVERSAS APOSTILAS TÉCNICAS QUE SÃO HOJE USADAS EM CURSOS RENOMADOS; ESPECIALISTA EM MINISTRAR CURSOS PRÁTICOS EM BONECAS; MINISTRA WORKSHOP NO BRASIL E EM DIVERSOS PAÍSES; FREQUENTEMENTE ATUALIZA SUAS TÉCNICAS NA ITALIA, TRAZENDO AS ULTIMAS NOVIDADES DA EUROPA PARA O BRASIL; EM PARCERIA COM O TRI-CAMPEÃO MUNDIAL DE CORTES, RINO FARANO, DESENVOLVEU O CURSO DE TÉCNICAS DE MECHAS PROGRAMADAS PARA O CORTE - CURSO “COLORE & TAGLIO”</p>
+							COM DIREITO A ENTRADA NA FEIRA OS 03 DIAS. COMPRE 1º LOTE E GANHE ACESSO AOS 03 DIAS DE SHOWS
+						</div>
+					</div>
+				</div>
+				<div class="modal fade" id="infoCurso30" tabindex="-1" role="dialog" aria-labelledby="info30" aria-hidden="true">
+					<div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="info30">Informações Workshop</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+											<img src="<?=base_url('static/img/imgCursos/rino_2.jpg')?>" class="d-block w-100" alt="">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
 				<div class="team-member memberships-card" data-toggle="modal" data-target="#infoCurso8">
-					<img src="<?=base_url('static/img/imgCursos/work_5.jpg')?>" alt="">
+					<img src="<?=base_url('static/img/imgCursos/simone_2.jpg')?>" alt="">
 				</div>
 				<div class="panel">
 					<div class="panel-header" id="headingCinco">
@@ -445,7 +578,7 @@
 								<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 									<div class="carousel-inner">
 										<div class="carousel-item active">
-											<img src="<?=base_url('static/img/imgCursos/work_5.jpg')?>" class="d-block w-100" alt="">
+											<img src="<?=base_url('static/img/imgCursos/simone_2.jpg')?>" class="d-block w-100" alt="">
 										</div>
 									</div>
 								</div>
@@ -459,7 +592,7 @@
 			</div>
 			<div class="col-lg-4 col-md-6">
 				<div class="team-member memberships-card" data-toggle="modal" data-target="#infoCurso9">
-					<img src="<?=base_url('static/img/imgCursos/work_7.jpg')?>" alt="">
+					<img src="<?=base_url('static/img/imgCursos/suzana_1.jpg')?>" alt="">
 				</div>
 				<div class="panel">
 					<div class="panel-header" id="headingCinco">
@@ -488,7 +621,7 @@
 								<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 									<div class="carousel-inner">
 										<div class="carousel-item active">
-											<img src="<?=base_url('static/img/imgCursos/work_7.jpg')?>" class="d-block w-100" alt="">
+											<img src="<?=base_url('static/img/imgCursos/suzana_1.jpg')?>" class="d-block w-100" alt="">
 										</div>
 									</div>
 								</div>
@@ -502,7 +635,7 @@
 			</div>
 			<div class="col-lg-4 col-md-6">
 				<div class="team-member memberships-card" data-toggle="modal" data-target="#infoCurso6">
-					<img src="<?=base_url('static/img/imgCursos/curso_1.jpg')?>" alt="">
+					<img src="<?=base_url('static/img/imgCursos/adriana_4.jpg')?>" alt="">
 				</div>
 				<div class="panel">
 					<div class="panel-header" id="headingCinco">
@@ -531,7 +664,7 @@
 								<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 									<div class="carousel-inner">
 										<div class="carousel-item active">
-											<img src="<?=base_url('static/img/imgCursos/curso_1.jpg')?>" class="d-block w-100" alt="">
+											<img src="<?=base_url('static/img/imgCursos/adriana_4.jpg')?>" class="d-block w-100" alt="">
 										</div>
 									</div>
 								</div>
@@ -545,7 +678,7 @@
 			</div>
 			<div class="col-lg-4 col-md-6">
 				<div class="team-member memberships-card" data-toggle="modal" data-target="#infoCurso7">
-					<img src="<?=base_url('static/img/imgCursos/curso_8.jpg')?>" alt="">
+					<img src="<?=base_url('static/img/imgCursos/adriana_5.jpg')?>" alt="">
 				</div>
 				<div class="panel">
 					<div class="panel-header" id="headingCinco">
@@ -575,7 +708,7 @@
 								<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 									<div class="carousel-inner">
 										<div class="carousel-item active">
-											<img src="<?=base_url('static/img/imgCursos/curso_8.jpg')?>" class="d-block w-100" alt="">
+											<img src="<?=base_url('static/img/imgCursos/adriana_5.jpg')?>" class="d-block w-100" alt="">
 										</div>
 									</div>
 								</div>
@@ -589,11 +722,56 @@
 			</div>
 			<div class="col-lg-4 col-md-6">
 				<div class="team-member memberships-card" data-toggle="modal" data-target="#infoCurso10">
-					<img src="<?=base_url('static/img/imgCursos/work_11.jpg')?>" alt="">
+					<img src="<?=base_url('static/img/imgCursos/kleidyr_3.jpg')?>" alt="">
 				</div>
 				<div class="panel">
 					<div class="panel-header" id="headingCinco">
-						<div class="infoCurso-btn"><a data-toggle="modal" data-target="#infoCurso10">Paraíso III Fresh Blond & Paraiso VI Beach Blond
+						<div class="infoCurso-btn"><a data-toggle="modal" data-target="#infoCurso10">Coleção Paraíso III Fresh Blond</a></br>
+							<a data-toggle="collapse" data-target="#collapse151" aria-expanded="false" aria-controls="collapse2">Clique Aqui!</a></div>
+					</div>
+					<div id="collapse151" class="collapse" aria-labelledby="headingCinco" data-parent="#accordion">
+						<div class="panel-body">
+							<p>MINISTRADO POR KLEIDYR BARBOSA<br/>
+								Cabeleireiro profissional, a anos e Hair Stylist especialista em loiros conhecido como REI DO PLATINADO.</p>
+							<p>Conteúdo:<br/>
+								Paraíso III Fresh Blond:<br/>
+								TÉC. ESPECIFICAS(LOIRO FRESCO)</p>
+							COM DIREITO A ENTRADA NA FEIRA OS 03 DIAS. COMPRE 1º LOTE E GANHE ACESSO AOS 03 DIAS DE SHOWS
+						</div>
+					</div>
+				</div>
+				<div class="modal fade" id="infoCurso10" tabindex="-1" role="dialog" aria-labelledby="info10" aria-hidden="true">
+					<div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="info10">Informações Curso</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+											<img src="<?=base_url('static/img/imgCursos/kleidyr_3.jpg')?>" class="d-block w-100" alt="">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="team-member memberships-card" data-toggle="modal" data-target="#infoCurso10">
+					<img src="<?=base_url('static/img/imgCursos/kleidyr_4.jpg')?>" alt="">
+				</div>
+				<div class="panel">
+					<div class="panel-header" id="headingCinco">
+						<div class="infoCurso-btn"><a data-toggle="modal" data-target="#infoCurso10">Coleção Paraiso IV Beach Blond</a></br>
 							<a data-toggle="collapse" data-target="#collapse15" aria-expanded="false" aria-controls="collapse2">Clique Aqui!</a></div>
 					</div>
 					<div id="collapse15" class="collapse" aria-labelledby="headingCinco" data-parent="#accordion">
@@ -601,9 +779,7 @@
 							<p>MINISTRADO POR KLEIDYR BARBOSA<br/>
 								Cabeleireiro profissional, a anos e Hair Stylist especialista em loiros conhecido como REI DO PLATINADO.</p>
 							<p>Conteúdo:<br/>
-								Paraíso I Blond Sun:<br/>
-								TÉC. ESPECIFICAS(LOIRO FRESCO)<br/>
-								Conteúdo Paraiso II Stone Blond:<br/>
+								Conteúdo Paraiso IV Stone Blond:<br/>
 								TÉC. ESPECIFICAS(LOIRO PRAIA)</p>
 							COM DIREITO A ENTRADA NA FEIRA OS 03 DIAS. COMPRE 1º LOTE E GANHE ACESSO AOS 03 DIAS DE SHOWS
 						</div>
@@ -622,7 +798,51 @@
 								<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 									<div class="carousel-inner">
 										<div class="carousel-item active">
-											<img src="<?=base_url('static/img/imgCursos/work_11.jpg')?>" class="d-block w-100" alt="">
+											<img src="<?=base_url('static/img/imgCursos/kleidyr_4.jpg')?>" class="d-block w-100" alt="">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="team-member memberships-card accordion-area" data-toggle="modal" data-target="#infoCurso133" id="accordion">
+					<img src="<?=base_url('static/img/imgCursos/kamilla_1.jpg')?>" alt="">
+				</div>
+				<div class="panel">
+					<div class="panel-header" id="headingUm">
+						<div class="infoCurso-btn"><a data-toggle="modal" data-target="#infoCurso133">PENTEADOS & AUTOMAQUIAGEM</a><br />
+							<a data-toggle="collapse" data-target="#collapse66" aria-expanded="false" aria-controls="collapse1">Clique Aqui!</a></div>
+					</div>
+					<div id="collapse66" class="collapse" aria-labelledby="headingUm" data-parent="#accordion">
+						<div class="panel-body">
+							<p>MINISTRADO POR KAMILLA CAMPOS<br/>
+								PENTEADOS NOIVAS & FESTAS PARA LOIRAS & MORENAS – MAKE UP</p>
+							<p>Conteúdo Make up:<br/>
+								Preparação de Pele</br>Make dia Make noite</br>Contorno </br>Iluminação </br>Aplicação de Cílios postiços</p>
+							COM DIREITO A ENTRADA NA FEIRA OS 03 DIAS. COMPRE 1º LOTE E GANHE ACESSO AOS 03 DIAS DE SHOWS
+						</div>
+					</div>
+				</div>
+				<div class="modal fade" id="infoCurso133" tabindex="-1" role="dialog" aria-labelledby="info13" aria-hidden="true">
+					<div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="info13">Informações Curso</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+											<img src="<?=base_url('static/img/imgCursos/kamilla_1.jpg')?>" class="d-block w-100" alt="">
 										</div>
 									</div>
 								</div>
@@ -726,6 +946,140 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-4 col-md-6">
+				<div class="team-member memberships-card" data-toggle="modal" data-target="#infoCurso30">
+					<img src="<?=base_url('static/img/imgCursos/rino_3.jpg')?>" alt="">
+				</div>
+				<div class="panel">
+					<div class="panel-header" id="headingTres">
+						<div class="infoCurso-btn"><a data-toggle="modal" data-target="#infoCurso30">Cortes</a><br/>
+							<a data-toggle="collapse" data-target="#collapse30" aria-expanded="false" aria-controls="collapse30"> Clique aqui!</a></div>
+					</div>
+					<div id="collapse30" class="collapse" aria-labelledby="headingTres" data-parent="#accordion">
+						<div class="panel-body">
+							<p>MINISTRADO POR RINO FARANO & NANCI CARDOSO<br/>
+								<b>RINO FARANO:</b><br/>
+								TRÊS VEZES CAMPEÃO MUNDIAL EM CORTES E FINALIZAÇÃO; RENOMADO INTERNACIONALMENTE COM TRABALHOS REALIZADOS EM TODOS OS CONTINENTES; MINISTRA CURSOS EM VÁRIOS PAÍSES; DIRETOR INTERNACIONAL DA ACADEMIA U.A.A.M.I.; DIRETOR TÉCNICO DO SINDICADO DOS CABELEIREIROS DE SÃO PAULO; CONSULTOR DE HAIR FASHION DAS MAIORES GRIFES MUNDIAIS; DESENVOLVEDOR DE VÁRIAS TÉCNICAS QUE HOJE SÃO MUNDIALMENTE CONHECIDAS; PROFESSOR DOCENTE NA UNICAMP; PROFESSOR DOCENTE NA UNIRP; JURADO INTERNACIONAL DO CAMPEONATO MUNDIAL DOS CABELEIREIROS DA O.M.C. HAIR-WORLD; PRESIDENTE DA O.B.C.-O.M.C. MEMBER BRASIL.<br/>
+								<b>NANCI CARDOSO:</b>
+								ÚNICA BRASILEIRA A FAZER PARTE DA ACADEMIA ITALIANA U.A.A.M.I.; CAMPEÃ ITALIANA REVELAÇÃO EM 2005 COM TÉCNICAS DE MECHAS; PIONEIRA NO BRASIL EM TRABALHAR COM 25 NOVAS TÉCNICA DE MECHAS; MINISTRA CURSO DA CRIAÇÃO DO PENTEADO E SUA ESTRUTURA; ESPECIALISTA EM ALONGAMENTO COM MECHAS, TÉCNICA PARA DAR VOLUME E CORTES; APROPRIADOS PARA JUNÇÃO DO CABELO COM ALON GAMENTO; DESENVOLVE TÉCNICAS EXCLUSIVAS DE MECHAS PARA EMPRESAS NACIONAIS E INTERNACIONAIS; AUTORA DE DIVERSAS APOSTILAS TÉCNICAS QUE SÃO HOJE USADAS EM CURSOS RENOMADOS; ESPECIALISTA EM MINISTRAR CURSOS PRÁTICOS EM BONECAS; MINISTRA WORKSHOP NO BRASIL E EM DIVERSOS PAÍSES; FREQUENTEMENTE ATUALIZA SUAS TÉCNICAS NA ITALIA, TRAZENDO AS ULTIMAS NOVIDADES DA EUROPA PARA O BRASIL; EM PARCERIA COM O TRI-CAMPEÃO MUNDIAL DE CORTES, RINO FARANO, DESENVOLVEU O CURSO DE TÉCNICAS DE MECHAS PROGRAMADAS PARA O CORTE - CURSO “COLORE & TAGLIO”</p>
+							COM DIREITO A ENTRADA NA FEIRA OS 03 DIAS. COMPRE 1º LOTE E GANHE ACESSO AOS 03 DIAS DE SHOWS
+						</div>
+					</div>
+				</div>
+				<div class="modal fade" id="infoCurso30" tabindex="-1" role="dialog" aria-labelledby="info30" aria-hidden="true">
+					<div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="info30">Informações Workshop</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+											<img src="<?=base_url('static/img/imgCursos/rino_3.jpg')?>" class="d-block w-100" alt="">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="team-member memberships-card" data-toggle="modal" data-target="#infoCurso30">
+					<img src="<?=base_url('static/img/imgCursos/rino_4.jpg')?>" alt="">
+				</div>
+				<div class="panel">
+					<div class="panel-header" id="headingTres">
+						<div class="infoCurso-btn"><a data-toggle="modal" data-target="#infoCurso30">COLORE & TAGLIO</a><br/>
+							<a data-toggle="collapse" data-target="#collapse30" aria-expanded="false" aria-controls="collapse30"> Clique aqui!</a></div>
+					</div>
+					<div id="collapse30" class="collapse" aria-labelledby="headingTres" data-parent="#accordion">
+						<div class="panel-body">
+							<p>MINISTRADO POR RINO FARANO & NANCI CARDOSO<br/>
+								<b>RINO FARANO:</b><br/>
+								TRÊS VEZES CAMPEÃO MUNDIAL EM CORTES E FINALIZAÇÃO; RENOMADO INTERNACIONALMENTE COM TRABALHOS REALIZADOS EM TODOS OS CONTINENTES; MINISTRA CURSOS EM VÁRIOS PAÍSES; DIRETOR INTERNACIONAL DA ACADEMIA U.A.A.M.I.; DIRETOR TÉCNICO DO SINDICADO DOS CABELEIREIROS DE SÃO PAULO; CONSULTOR DE HAIR FASHION DAS MAIORES GRIFES MUNDIAIS; DESENVOLVEDOR DE VÁRIAS TÉCNICAS QUE HOJE SÃO MUNDIALMENTE CONHECIDAS; PROFESSOR DOCENTE NA UNICAMP; PROFESSOR DOCENTE NA UNIRP; JURADO INTERNACIONAL DO CAMPEONATO MUNDIAL DOS CABELEIREIROS DA O.M.C. HAIR-WORLD; PRESIDENTE DA O.B.C.-O.M.C. MEMBER BRASIL.<br/>
+								<b>NANCI CARDOSO:</b>
+								ÚNICA BRASILEIRA A FAZER PARTE DA ACADEMIA ITALIANA U.A.A.M.I.; CAMPEÃ ITALIANA REVELAÇÃO EM 2005 COM TÉCNICAS DE MECHAS; PIONEIRA NO BRASIL EM TRABALHAR COM 25 NOVAS TÉCNICA DE MECHAS; MINISTRA CURSO DA CRIAÇÃO DO PENTEADO E SUA ESTRUTURA; ESPECIALISTA EM ALONGAMENTO COM MECHAS, TÉCNICA PARA DAR VOLUME E CORTES; APROPRIADOS PARA JUNÇÃO DO CABELO COM ALON GAMENTO; DESENVOLVE TÉCNICAS EXCLUSIVAS DE MECHAS PARA EMPRESAS NACIONAIS E INTERNACIONAIS; AUTORA DE DIVERSAS APOSTILAS TÉCNICAS QUE SÃO HOJE USADAS EM CURSOS RENOMADOS; ESPECIALISTA EM MINISTRAR CURSOS PRÁTICOS EM BONECAS; MINISTRA WORKSHOP NO BRASIL E EM DIVERSOS PAÍSES; FREQUENTEMENTE ATUALIZA SUAS TÉCNICAS NA ITALIA, TRAZENDO AS ULTIMAS NOVIDADES DA EUROPA PARA O BRASIL; EM PARCERIA COM O TRI-CAMPEÃO MUNDIAL DE CORTES, RINO FARANO, DESENVOLVEU O CURSO DE TÉCNICAS DE MECHAS PROGRAMADAS PARA O CORTE - CURSO “COLORE & TAGLIO”</p>
+							COM DIREITO A ENTRADA NA FEIRA OS 03 DIAS. COMPRE 1º LOTE E GANHE ACESSO AOS 03 DIAS DE SHOWS
+						</div>
+					</div>
+				</div>
+				<div class="modal fade" id="infoCurso30" tabindex="-1" role="dialog" aria-labelledby="info30" aria-hidden="true">
+					<div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="info30">Informações Workshop</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+											<img src="<?=base_url('static/img/imgCursos/rino_4.jpg')?>" class="d-block w-100" alt="">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="team-member memberships-card" data-toggle="modal" data-target="#infoCurso8">
+					<img src="<?=base_url('static/img/imgCursos/simone_2.jpg')?>" alt="">
+				</div>
+				<div class="panel">
+					<div class="panel-header" id="headingCinco">
+						<div class="infoCurso-btn"><a data-toggle="modal" data-target="#infoCurso8">Colorimetria</a><br />
+							<a data-toggle="collapse" data-target="#collapse13" aria-expanded="false" aria-controls="collapse2">Clique Aqui!</a></div>
+					</div>
+					<div id="collapse13" class="collapse" aria-labelledby="headingCinco" data-parent="#accordion">
+						<div class="panel-body">
+							<p>MINISTRADO POR SIMONE BARROS<br/>
+								Marketing Pessoal / Etiqueta Pessoal; Curso COLORIMETRIA avançada com Alceni Moraes; Tec Italy, Curso corte Pré-Magilster Haidressing 360 com Luciano Henrique; Hactoon, Curso de Formação Nacional de Técnicos com Alceni Moraes ( Diretor Técnico); Tec Italy Brazilian Group Rio de Janeiro; L’anza Curso Ultimate Colorist com Edy Silva; Chaves da cor Lóreal; Multiplicadores Kérastase Expert. E muito mais.</p>
+							<p>Conteúdo:<br/>
+								Estrela de Oswald; Escala de pigmento residual; Círculo Cromático; Escala de melaninas; Formas de uso do oxidante; Tempo de aclaração e fixação.</p>
+							COM DIREITO A ENTRADA NA FEIRA OS 03 DIAS. COMPRE 1º LOTE E GANHE ACESSO AOS 03 DIAS DE SHOWS
+						</div>
+					</div>
+				</div>
+				<div class="modal fade" id="infoCurso8" tabindex="-1" role="dialog" aria-labelledby="info8" aria-hidden="true">
+					<div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="info8">Informações Curso</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+											<img src="<?=base_url('static/img/imgCursos/simone_2.jpg')?>" class="d-block w-100" alt="">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
 				<div class="team-member memberships-card" data-toggle="modal" data-target="#infoCurso31">
 					<img src="<?=base_url('static/img/imgCursos/russa_1.jpg')?>" alt="">
 				</div>
@@ -769,7 +1123,7 @@
 			</div>
 			<div class="col-lg-4 col-md-6">
 				<div class="team-member memberships-card accordion-area" data-toggle="modal" data-target="#infoCurso11" id="accordion">
-					<img src="<?=base_url('static/img/imgCursos/work_8.jpg')?>" alt="">
+					<img src="<?=base_url('static/img/imgCursos/adriana_6.jpg')?>" alt="">
 				</div>
 				<div class="panel">
 					<div class="panel-header" id="headingQuatro">
@@ -799,7 +1153,7 @@
 								<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 									<div class="carousel-inner">
 										<div class="carousel-item active">
-											<img src="<?=base_url('static/img/imgCursos/work_8.jpg')?>" class="d-block w-100" alt="">
+											<img src="<?=base_url('static/img/imgCursos/adriana_6.jpg')?>" class="d-block w-100" alt="">
 										</div>
 									</div>
 								</div>
@@ -813,7 +1167,7 @@
 			</div>
 			<div class="col-lg-4 col-md-6">
 				<div class="team-member memberships-card accordion-area" data-toggle="modal" data-target="#infoCurso12" id="accordion">
-					<img src="<?=base_url('static/img/imgCursos/work_9.jpg')?>" alt="">
+					<img src="<?=base_url('static/img/imgCursos/adriana_7.jpg')?>" alt="">
 				</div>
 				<div class="panel">
 					<div class="panel-header" id="headingUm">
@@ -844,7 +1198,7 @@
 								<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 									<div class="carousel-inner">
 										<div class="carousel-item active">
-											<img src="<?=base_url('static/img/imgCursos/work_9.jpg')?>" class="d-block w-100" alt="">
+											<img src="<?=base_url('static/img/imgCursos/adriana_7.jpg')?>" class="d-block w-100" alt="">
 										</div>
 									</div>
 								</div>
@@ -858,11 +1212,11 @@
 			</div>
 			<div class="col-lg-4 col-md-6">
 				<div class="team-member memberships-card accordion-area" data-toggle="modal" data-target="#infoCurso13" id="accordion">
-					<img src="<?=base_url('static/img/imgCursos/work_10.jpg')?>" alt="">
+					<img src="<?=base_url('static/img/imgCursos/kleidyr_5.jpg')?>" alt="">
 				</div>
 				<div class="panel">
 					<div class="panel-header" id="headingUm">
-						<div class="infoCurso-btn"><a data-toggle="modal" data-target="#infoCurso13">Paraíso V Sand Blond</a><br />
+						<div class="infoCurso-btn"><a data-toggle="modal" data-target="#infoCurso13">Coleção Paraíso V Sand Blond</a><br />
 							<a data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse1">Clique Aqui!</a></div>
 					</div>
 					<div id="collapse6" class="collapse" aria-labelledby="headingUm" data-parent="#accordion">
@@ -889,7 +1243,170 @@
 								<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 									<div class="carousel-inner">
 										<div class="carousel-item active">
-											<img src="<?=base_url('static/img/imgCursos/work_10.jpg')?>" class="d-block w-100" alt="">
+											<img src="<?=base_url('static/img/imgCursos/kleidyr_5.jpg')?>" class="d-block w-100" alt="">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="team-member memberships-card accordion-area" data-toggle="modal" data-target="#infoCurso139" id="accordion">
+					<img src="<?=base_url('static/img/imgCursos/herika_1.jpg')?>" alt="">
+				</div>
+				<div class="panel">
+					<div class="panel-header" id="headingUm">
+						<div class="infoCurso-btn"><a data-toggle="modal" data-target="#infoCurso139">Terapia Capilar</a><br />
+							<a data-toggle="collapse" data-target="#collapse69" aria-expanded="false" aria-controls="collapse1">Clique Aqui!</a></div>
+					</div>
+					<div id="collapse69" class="collapse" aria-labelledby="headingUm" data-parent="#accordion">
+						<div class="panel-body">
+							<p>MINISTRADO POR HÉRIKA SALLES<br/>
+								Especialista em Tricologia e Terapia Capilar;
+								</br>Graduada em Estética e Cosmetologia com títulos de Aromaterapeuta e
+								Terapeuta Capilar pela Universidade UNISUAM no Rio de Janeiro;
+								</br>Terapeuta Floral;
+								</br> Membro da Academia Brasileira de Tricologia e Formanda pela IAT -
+								International Association of Trichologists;
+								</br> Consultora de Tricologia e Terapia Capilar para profissionais da área de
+								saúde;
+								</br> Consultoria para médicos em tratamentos para doenças relacionadas ao
+								couro cabeludo;
+								</br> Palestrante e Educadora em diversos eventos que envolvem o tema
+								saúde capilar, estética e beleza;
+								</br> Tricologista e Educadora responsável no Centro de Saúde Capilar
+								Hérika Salles que leva seu nome;
+								</br> Premiada em excelência profissional por várias entidades;</p>
+							COM DIREITO A ENTRADA NA FEIRA OS 03 DIAS. COMPRE 1º LOTE E GANHE ACESSO AOS 03 DIAS DE SHOWS
+						</div>
+					</div>
+				</div>
+				<div class="modal fade" id="infoCurso139" tabindex="-1" role="dialog" aria-labelledby="info13" aria-hidden="true">
+					<div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="info13">Informações Curso</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+											<img src="<?=base_url('static/img/imgCursos/herika_1.jpg')?>" class="d-block w-100" alt="">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="team-member memberships-card accordion-area" data-toggle="modal" data-target="#infoCurso140" id="accordion">
+					<img src="<?=base_url('static/img/imgCursos/herika_2.jpg')?>" alt="">
+				</div>
+				<div class="panel">
+					<div class="panel-header" id="headingUm">
+						<div class="infoCurso-btn"><a data-toggle="modal" data-target="#infoCurso140">Tricologia & Terapia Capilar</a><br />
+							<a data-toggle="collapse" data-target="#collapse70" aria-expanded="false" aria-controls="collapse1">Clique Aqui!</a></div>
+					</div>
+					<div id="collapse70" class="collapse" aria-labelledby="headingUm" data-parent="#accordion">
+						<div class="panel-body">
+							<p>MINISTRADO POR HÉRIKA SALLES<br/>
+								Especialista em Tricologia e Terapia Capilar;
+								</br>Graduada em Estética e Cosmetologia com títulos de Aromaterapeuta e
+								Terapeuta Capilar pela Universidade UNISUAM no Rio de Janeiro;
+								</br>Terapeuta Floral;
+								</br> Membro da Academia Brasileira de Tricologia e Formanda pela IAT -
+								International Association of Trichologists;
+								</br> Consultora de Tricologia e Terapia Capilar para profissionais da área de
+								saúde;
+								</br> Consultoria para médicos em tratamentos para doenças relacionadas ao
+								couro cabeludo;
+								</br> Palestrante e Educadora em diversos eventos que envolvem o tema
+								saúde capilar, estética e beleza;
+								</br> Tricologista e Educadora responsável no Centro de Saúde Capilar
+								Hérika Salles que leva seu nome;
+								</br> Premiada em excelência profissional por várias entidades;</p>
+							<p>Conteúdo:<br/>
+								A importância da anamnese e como fazê-la.
+							</br> Como fazer um exame de tricoscopia digital.
+								</br> Afecções capilares: queda de cabelo, calvície, diversas alopecias,
+								algumas alternativas de tratamento e prevenção.
+								</br> O uso do laser de baixa potência e a importância da alta frequência nas
+								afecções capilares.</p>
+							COM DIREITO A ENTRADA NA FEIRA OS 03 DIAS. COMPRE 1º LOTE E GANHE ACESSO AOS 03 DIAS DE SHOWS
+						</div>
+					</div>
+				</div>
+				<div class="modal fade" id="infoCurso140" tabindex="-1" role="dialog" aria-labelledby="info13" aria-hidden="true">
+					<div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="info13">Informações Curso</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+											<img src="<?=base_url('static/img/imgCursos/herika_2.jpg')?>" class="d-block w-100" alt="">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="team-member memberships-card accordion-area" data-toggle="modal" data-target="#infoCurso133" id="accordion">
+					<img src="<?=base_url('static/img/imgCursos/kamilla_1.jpg')?>" alt="">
+				</div>
+				<div class="panel">
+					<div class="panel-header" id="headingUm">
+						<div class="infoCurso-btn"><a data-toggle="modal" data-target="#infoCurso133">PENTEADOS & AUTOMAQUIAGEM</a><br />
+							<a data-toggle="collapse" data-target="#collapse66" aria-expanded="false" aria-controls="collapse1">Clique Aqui!</a></div>
+					</div>
+					<div id="collapse66" class="collapse" aria-labelledby="headingUm" data-parent="#accordion">
+						<div class="panel-body">
+							<p>MINISTRADO POR KAMILLA CAMPOS<br/>
+								PENTEADOS NOIVAS & FESTAS PARA LOIRAS & MORENAS – MAKE UP</p>
+							<p>Conteúdo Make up:<br/>
+								Preparação de Pele</br>Make dia Make noite</br>Contorno </br>Iluminação </br>Aplicação de Cílios postiços</p>
+							COM DIREITO A ENTRADA NA FEIRA OS 03 DIAS. COMPRE 1º LOTE E GANHE ACESSO AOS 03 DIAS DE SHOWS
+						</div>
+					</div>
+				</div>
+				<div class="modal fade" id="infoCurso133" tabindex="-1" role="dialog" aria-labelledby="info13" aria-hidden="true">
+					<div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="info13">Informações Curso</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+											<img src="<?=base_url('static/img/imgCursos/kamilla_1.jpg')?>" class="d-block w-100" alt="">
 										</div>
 									</div>
 								</div>

@@ -6,10 +6,10 @@
 
 	<body>
 		<form action="<?=base_url('pagamento/processo')?>" method="post">
-			<input type="hidden" name="notificationCode" id="token" value="00F7393872A072A0BD5334A75FA391DB0767">
+			<input type="hidden" name="notificationCode" id="token" value="14F26577B74EB74E205CC400FF99F086B840">
 			<button type="submit">Botao</button>
 		</form>
-		<?php echo $tst;?>
+		<?php echo sha1('3122493#06532114308');?>
 	</body>
 
 	<footer>

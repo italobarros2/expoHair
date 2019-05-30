@@ -57,7 +57,8 @@
 				<!-- blog item -->
 
 				<div class="blog-item">
-					<div class="blog-thumb set-bg" data-setbg="<?=base_url('static/img/shows/img-show1.jpg')?>">
+					<div class="row">
+						<img class="blog-thumb" src="<?=base_url('static/img/shows/img-show1.jpg')?>">
 					</div>
 					<div class="blog-content">
 						<h3>Ingressos dia 13/07</h3>
@@ -124,8 +125,7 @@
 			</div>
 
 				<div class="blog-item">
-					<div class="blog-thumb set-bg" data-setbg="<?=base_url('static/img/shows/img-show2.jpg')?>">
-					</div>
+					<img class="blog-thumb" src="<?=base_url('static/img/shows/img-show2.jpg')?>">
 					<div class="blog-content">
 						<h3>Ingressos dia 14/07</h3>
 						<div class="blog-meta"><a href="javascript:void(0);">A partir de R$<?php echo $lote2->preco?>.00</a>|<a href="#">Acesso ao show do dia 14/07</a></div>
@@ -190,8 +190,7 @@
 					</div>
 				</div>
 				<div class="blog-item">
-					<div class="blog-thumb set-bg" data-setbg="<?=base_url('static/img/shows/img-show3.jpg')?>">
-					</div>
+					<img class="blog-thumb" src="<?=base_url('static/img/shows/img-show3.jpg')?>">
 					<div class="blog-content">
 						<h3>Ingressos dia 15/07</h3>
 						<div class="blog-meta"><a href="javascript:void(0);">A partir de R$<?php echo $lote3->preco?>.00</a>|<a href="#">Acesso ao show do dia 15/07</a></div>
@@ -257,8 +256,7 @@
 				</div>
 
 				<div class="blog-item">
-					<div class="blog-thumb set-bg" data-setbg="<?=base_url('static/img/shows/todos.jpg')?>">
-					</div>
+					<img class="blog-thumb" src="<?=base_url('static/img/shows/todos.jpg')?>">
 					<div class="blog-content">
 						<h3>Pacote Promocional - Todos os dias de Shows</h3>
 						<div class="blog-meta"><a href="javascript:void(0);">A partir de R$<?php echo $lote4->preco?>.00</a>|<a href="#">Acesso a todos os dias de evento</a></div>
@@ -393,16 +391,17 @@
 				<ul>
 					<li><strong>13/Julho - Sábado</strong></li>
 					<li>- Fábio Jr.</li>
-					<li>- Noda de Caju</li>
-					<li>- Laninha</li>
+					<li>- Janaína Show</li>
+					<li>- Lagosta Bronzeada</li>
 					<li><strong>14/Julho - Domingo</strong></li>
-					<li>- Samyra Show e Forró 100%</li>
 					<li>- Forró Real</li>
 					<li>- Forró da Diretoria</li>
+					<li>- Samyra Show e Forró 100%</li>
 					<li><strong>15/Julho - Segunda</strong></li>
 					<li>- Ludmilla</li>
 					<li>- Junior Vianna</li>
 					<li>- Taty Girl</li>
+					<li>- Dj's</li>
 				</ul>
 			</div>
 			<div class="sb-widget">
