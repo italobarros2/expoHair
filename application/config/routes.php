@@ -74,6 +74,14 @@ $route['vendor/inscricaoCongresso']              = 'pages/inscricaoVendor';
 $route['submitcongress'] = 			'pages/submitCongress';
 $route['submitVendor'] = 			'pages/submitCongress_vendor';
 
+$route['batalhadosbarbeiros']              = 'pages/inscreveBarbeiro';
+$route['vendor/batalhadosbarbeiros']              = 'pages/inscreveBarbeiroVendor';
+$route['submitbatalha'] = 			'pages/submitBatalha';
+$route['submitVendorBattle'] = 			'pages/submitBatalha_vendor';
+
+$route['convite']              = 'pages/convite';
+$route['processaConvite']              = 'pages/processaConvite';
+
 $route['ingressos']     		    = 'pages/ingresso';
 $route['submitingressos']     		    = 'pagseguro/submitingressos';
 

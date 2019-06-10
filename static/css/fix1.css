@@ -18,6 +18,12 @@
     display: none;
 }
 
+#owl-demo .item img{
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
 
 @media only screen and (min-height: 700px){
     .fixtable{

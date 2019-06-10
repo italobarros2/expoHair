@@ -52,6 +52,36 @@ class Pages extends CI_Controller {
 
 	}
 
+	public function enviaEmailConvite($email = 'italoctb@gmail.com', $informacoes = null){ //$titular, $dataEvento, $nomeEvento, $preco, $lote, $dataCompra, idIngresso){
+
+		$config = array(
+			'protocol' => 'smtp', // 'mail', 'sendmail', or 'smtp'
+			'smtp_host' => 'congressoexpohair.com.br',
+			'smtp_port' => 465,
+			'smtp_user' => 'vendas@congressoexpohair.com.br',
+			'smtp_pass' => 'ExpOhAIr123',
+			'smtp_crypto' => 'ssl', //can be 'ssl' or 'tls' for example
+			'mailtype' => 'html', //plaintext 'text' mails or 'html'
+
+		);
+
+		$this->email->initialize($config);
+
+		$this->email->from($config['smtp_user'], 'Congresso ExpoHair 2019 - Sobral');
+		$this->email->to($email);
+		$this->email->cc('italobarroscontato@gmail.com');
+		$this->email->subject('Convite Especial para Feira ExpoHair 2019');
+		$this->email->message($informacoes);
+		if ($this->email->send()) {
+			echo '<h3>Convite enviado pro e-mail com sucesso.</h3>';
+			echo '<a href="'.base_url().'"><button>Voltar</button></a>';
+		} else {
+			'<h3>Convite não enviado - ERROR.</h3>';
+			show_error($this->email->print_debugger());
+		}
+
+	}
+
 	public function pag(){
 		$this->load->view('tests/test_pag');
 	}
@@ -226,19 +256,19 @@ class Pages extends CI_Controller {
 
 		if ($tipo_stand == 0){
 			$monta_montagem = 'Área Livre.';
-			$const = 1000;
+			$const = 250;
 		}
 
 		if ($tipo_stand == 1){
 			$monta_montagem = 'Com montagem básica.';
-			$const = 2000;
+			$const = 280;
 		}
 
 		$this->pages_model->update_stands($unique_stands, $processa);
 
 		$mensagem = '
 					
-							<h1>Novo formulário de Compra de Stand</h1>
+							<h1>Comprovante compra de Stand</h1>
 							<h2>Dados do Representante</h2>
 							<h3><b>Nome do representante: </b>'.$nome.'</h3>
 							<h3><b>Email do representante: </b>'.$email.'</h3>
@@ -266,6 +296,20 @@ class Pages extends CI_Controller {
 							<h3><b>Stand(s) selecionado(s): </b>'.$stands.'</h3>
 							<h3><b>Tipo de montagem: </b>'.$monta_montagem.'</h3>
 							<h3><b>Total: </b>R$'.$valor_stand.'.00</h3>
+							<h2>Dados para Pagamento</h2>
+							<h3><b>Banco: CAIXA ECONÔMICA</b></h3>
+							<h3><b>Tipo de conta: POUPANÇA</b></h3>
+							<h3><b>Nominal à: TERESINHA MACIEL DE SOUSA</b></h3>
+							<h3><b>CPF: </b>102.001.263-34</h3>
+							<h3><b>Agência: </b>1047</h3>
+							<h3><b>Operação: </b>013</h3>
+							<h3><b>c/p: </b>0258-6</h3>
+							<h2>Observações</h2>
+							<ul>
+								<li>O expositor encontra no site o "MANUAL DO EXPOSITOR" com todas as regras contratuais.</li>
+								<li>A compra só é concretizada após o término do pagamento de todas as parcelas aqui pactuadas.</li>
+							</ul>
+							<h3><b>Pagamento: Dia 05/06/2019 - R$1500.00 ; Dia 05/07/2019 - R$900.00;</b></h3>
 							
 				';
 
@@ -281,8 +325,8 @@ class Pages extends CI_Controller {
 				'valor_compra' => $valor_stand,
 				'tipoPagamento' => 100,
 				'origemCancel' => null,
-				'lastEvent' =>  mdate('%d/%m/%Y', now('America/Fortaleza')),
-				'dataCompra' => mdate('%d/%m/%Y', now('America/Fortaleza')),
+				'lastEvent' =>  mdate('%Y/%m/%d %H/%i/%s' , now('America/Fortaleza')),
+				'dataCompra' => mdate('%Y/%m/%d %H/%i/%s', now('America/Fortaleza')),
 
 			);
 
@@ -429,7 +473,6 @@ class Pages extends CI_Controller {
 		$this->load->view('pages/comercial');
 		$this->load->view('templates/footer');
 	}
-
 
 	public function teste($data = null){
 		$mensagem = '
@@ -642,16 +685,339 @@ class Pages extends CI_Controller {
 //		echo sha1('3129468#06532114308');
 	}
 
-	/*
-            'combos' => $combos,
-            'concursos' => $concursos,
-            'cursos' => $cursos,
-            'workshops' => $workshops
-    */
+	public function convite(){
+		$this->load->view('templates/header');
+		$this->load->view('templates/nav');
+		$this->load->view('pages/convite');
+		$this->load->view('templates/footer');
+	}
 
-//	public function pagSeguro($data){
+	public function processaConvite(){
+		$nome = $this->input->post('nome');
+		$email = $this->input->post('email');
+		$cpf = str_replace(array('.', '-'), '', $this->input->post('cpf'));
+		$telefone = $this->input->post('telefone');
+		$cep = $this->input->post('cep');
+		$cidade = $this->input->post('cidade');
+		$bairro = $this->input->post('bairro');
+		$endereco = $this->input->post('endereco');
+		$numero = $this->input->post('numero');
+		$complemento = $this->input->post('complemento');
+		$profs = $this->input->post('prof');
+		$inviter = $this->input->post('inviter');
+
+		$monta = '*';
+		foreach ($profs as $prof){
+			$monta = $monta.$prof.'*';
+		}
+
+		$data = array(
+			'cpf' => $cpf,
+			'nome' => $nome,
+			'email' => $email,
+			'telefone' => $telefone,
+			'cep' => $cep,
+			'numero' => $numero,
+			'complemento' => $complemento,
+			'profissoes' => $monta,
+			'inviter' => $inviter
+		);
+		if(!$this->pages_model->verificaConvidado($cpf)){
+			$this->pages_model->insertConvidado($data);
+		}
+
+		$mensagem = '
+
+<body style="background-color: #e3d7e1;height: auto;">
+
+<div class="card" style="background-color: white;margin: auto;margin-top: 50px; height: auto;width: 715px;padding-top: 40px; border-style: ridge; border-width: 3px; padding-bottom: 40px;">
+
+    <section class="sec-logo" style="text-align: center;margin-bottom: 10px;">
+
+        <img id="resp_logo" src="https://www.congressoexpohair.com.br/static/img/logo_b.png"  style="height: 96px" alt="Congresso ExpoHair - Sobral">
+
+    </section>
+
+    <section class="sec-standard" style="background-color: #ae2185;padding-top: 20px;padding-bottom: 20px;color: white;text-align: center;">
+
+        <h1 style="font-family: Helvetica;">Seu Convite para Feira ExpoHair está disponível!</h1>
+
+    </section>
+
+    <section class="sec-body" style="padding-top: 50px; padding-left: 50px; padding-right: 50px; font-family: Helvetica;font-size: 18px;text-align: justify; color: #484848; line-height: 30px;">
+
+        <p>Olá '.$nome.',</p>
+        <p>detentor do documento: <b>'.$cpf.'</b>.</p> 
+        <p>Convidado por : <b>'.$inviter.'</b>.</p>
+        <p>Estamos muito contentes com sua aquisição, e para garantirmos que sua experiência seja a melhor possível, é importante ficar atento com alguns avisos:</p>
+        <ul>
+            <li style="margin-bottom: 5px;">Por questões de segurança, não repasse esse e-mail a ninguém.</li>
+            <li style="margin-bottom: 5px;">Para ter acesso a feira, basta apresentar na entrada juntamente com um documento com foto.</li>
+            <li style="margin-bottom: 5px;">A apresentação do ingresso <b>pode</b> ser feita através do email impresso ou a apresentação de algum dispositivo móvel (Celulares, Tablets, etc) com a imagem do ingresso.</li>
+            <li style="margin-bottom: 5px;">Divirta-se!</li>
+        </ul>
+
+
+    </section>
+
+</div>
+
+
+
+		';
+		$this->enviaEmailConvite($email, $mensagem);
+	}
+
+	public function inscreveBarbeiro(){
+		$data = array(
+			'categorias'	=> $this->pages_model->pesquisaCategoria()
+		);
+		$this->load->view('templates/header');
+		$this->load->view('templates/nav');
+		$this->load->view('pages/batalha', $data);
+		$this->load->view('templates/footer');
+	}
+
+	public function inscreveBarbeiroVendor(){
+		$data = array(
+			'categorias'	=> $this->pages_model->pesquisaCategoria()
+		);
+		$this->load->view('templates/header');
+		$this->load->view('templates/nav');
+		$this->load->view('pages/batalha-v', $data);
+		$this->load->view('templates/footer');
+	}
+
+	public function submitBatalha(){
+		$flag = true;   //TRUE = Real; FALSE = SANDBOX
+
+		if ($flag) {
+			$urlcheck = 'https://ws.pagseguro.uol.com.br/v2/checkout';
+			$urltransaction = 'https://pagseguro.uol.com.br/v2/checkout/payment.html?code=';
+			$id = 'ae50af72-db75-4b99-a2dd-dbde8e6e23323e76e1eb4391a482913211f770c15967301b-add2-451d-b266-0bd5925d5b3a';
+		} else {
+			$urlcheck = 'https://ws.sandbox.pagseguro.uol.com.br/v2/checkout';
+			$urltransaction = 'https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code=';
+			$id = '7CB64880FFC74C969B2E7BC163B2A4BF';
+		}
+
+
+		$nome = $this->input->post('nome');
+		$email = $this->input->post('email');
+		$cpf = str_replace(array('.', '-'), '', $this->input->post('cpf'));
+		$idVendor = $this->input->post('idvendor');
+		$sexo = $this->input->post('sexo');
+		$cidade = $this->input->post('cidade');
+		$bairro = $this->input->post('bairro');
+		$telefone = $this->input->post('telefone');
+		$categorias = $this->input->post('categorias_select');
+		$i = 1;
+		$format = "%d.00";
 //
-//	}
+		$dataUser = array(
+			'cpf' => $cpf,
+			'Nome' => $nome,
+			'email' => $email,
+			'Bairro' => $bairro,
+			'Cidade' => $cidade,
+			'sexo' => $sexo,
+			'telefone' => $telefone
+		);
+		$dataBuy = array(
+			'idCOMPRAS' => '',
+			'cpf' => $cpf,
+			'idVENDOR' => $idVendor,
+			'flag_congresso' => 1
+		);
+
+		if (!$dataBuy['idVENDOR']){
+			$dataBuy['idVENDOR'] = null;
+		}
+
+
+
+		if(!$this->pages_model->pesquisa_cliente($cpf)){
+			$this->pages_model->insert_db_clientes($dataUser);
+		}
+
+		$this->pages_model->insert_db_compras($dataBuy);
+
+		$pagseguro = array(
+			'charset' => 'UTF-8',
+			'token' => $id,
+			'email' => 'vendas@congressoexpohair.com.br',
+			'currency' => "BRL",
+			'shippingAddressRequired' => 'false',
+			'senderName' => $nome,
+			'senderEmail' => $email,
+			'senderCPF' => $cpf,
+			'reference' => $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS,
+			'redirectURL' => base_url(),
+			'excludePaymentMethodGroup'=>'DEPOSIT'
+
+		);
+
+		if($categorias != null){ //MUDAR FUNC DE PROCURA CONCURSO
+			foreach ($categorias as $atv){
+				$data_insc = array(
+					'idCATEGORIA' => $atv,
+					'cpf' => $cpf,
+					'idCOMPRAS' => $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS,
+				);
+				$pagseguro['itemId'.$i] = $this->pages_model->pesquisaCategoria($atv)->idCATEGORIA;
+				$pagseguro['itemDescription'.$i] = $this->pages_model->pesquisaCategoria($atv)->nome_categoria;
+				$pagseguro['itemQuantity'.$i] = 1;
+				$novo = sprintf($format, $this->pages_model->pesquisaCategoria($atv)->preco);
+				$pagseguro['itemAmount'.$i] = $novo;
+				$i++;
+
+				$this->pages_model->insertBarbeiro($data_insc);
+
+
+
+			}
+		}
+
+		$pagseguro = http_build_query($pagseguro);
+
+
+		$curl = curl_init($urlcheck);
+
+//			curl_setopt($curl, CURLOPT_ENCODING ,"UTF-8");
+		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_POST, true);
+		curl_setopt($curl, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
+		curl_setopt($curl, CURLOPT_POSTFIELDS, $pagseguro);
+
+		$xml= curl_exec($curl);
+
+		curl_close($curl);
+
+		$xml = simplexml_load_string($xml);
+		$tokie = $xml -> code;
+
+		redirect($urltransaction.$tokie);
+
+
+
+
+	}
+
+	public function submitBatalha_vendor(){
+		$flag = true;   //TRUE = Real; FALSE = SANDBOX
+
+		if ($flag) {
+			$urlcheck = 'https://ws.pagseguro.uol.com.br/v2/checkout';
+			$urltransaction = 'https://pagseguro.uol.com.br/v2/checkout/payment.html?code=';
+			$id = 'ae50af72-db75-4b99-a2dd-dbde8e6e23323e76e1eb4391a482913211f770c15967301b-add2-451d-b266-0bd5925d5b3a';
+		} else {
+			$urlcheck = 'https://ws.sandbox.pagseguro.uol.com.br/v2/checkout';
+			$urltransaction = 'https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code=';
+			$id = '7CB64880FFC74C969B2E7BC163B2A4BF';
+		}
+
+
+		$nome = $this->input->post('nome');
+		$email = $this->input->post('email');
+		$cpf = str_replace(array('.', '-'), '', $this->input->post('cpf'));
+		$idVendor = $this->input->post('idvendor');
+		$sexo = $this->input->post('sexo');
+		$cidade = $this->input->post('cidade');
+		$bairro = $this->input->post('bairro');
+		$telefone = $this->input->post('telefone');
+		$categorias = $this->input->post('categorias_select');
+		$i = 1;
+		$format = "%d.00";
+//
+		$dataUser = array(
+			'cpf' => $cpf,
+			'Nome' => $nome,
+			'email' => $email,
+			'Bairro' => $bairro,
+			'Cidade' => $cidade,
+			'sexo' => $sexo,
+			'telefone' => $telefone
+		);
+		$dataBuy = array(
+			'idCOMPRAS' => '',
+			'cpf' => $cpf,
+			'idVENDOR' => $idVendor,
+			'flag_congresso' => 1
+		);
+
+		if (!$dataBuy['idVENDOR']){
+			$dataBuy['idVENDOR'] = null;
+		}
+
+
+
+		if(!$this->pages_model->pesquisa_cliente($cpf)){
+			$this->pages_model->insert_db_clientes($dataUser);
+		}
+
+		$this->pages_model->insert_db_compras($dataBuy);
+
+		$pagseguro = array(
+			'charset' => 'UTF-8',
+			'token' => $id,
+			'email' => 'vendas@congressoexpohair.com.br',
+			'currency' => "BRL",
+			'shippingAddressRequired' => 'false',
+			'senderName' => $nome,
+			'senderEmail' => $email,
+			'senderCPF' => $cpf,
+			'reference' => $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS,
+			'redirectURL' => base_url(),
+			'excludePaymentMethodGroup'=>'DEPOSIT'
+
+		);
+
+		if($categorias != null){ //MUDAR FUNC DE PROCURA CONCURSO
+			foreach ($categorias as $atv){
+				$data_insc = array(
+					'idCATEGORIA' => $atv,
+					'cpf' => $cpf,
+					'idCOMPRAS' => $this->pages_model->pesquisa_ultimaCompra($cpf)->idCOMPRAS,
+				);
+				$pagseguro['itemId'.$i] = $this->pages_model->pesquisaCategoria($atv)->idCATEGORIA;
+				$pagseguro['itemDescription'.$i] = $this->pages_model->pesquisaCategoria($atv)->nome_categoria;
+				$pagseguro['itemQuantity'.$i] = 1;
+				$novo = sprintf($format, $this->pages_model->pesquisaCategoria($atv)->preco);
+				$pagseguro['itemAmount'.$i] = $novo;
+				$i++;
+
+				$this->pages_model->insertBarbeiro($data_insc);
+
+
+
+			}
+		}
+
+		$pagseguro = http_build_query($pagseguro);
+
+
+		$curl = curl_init($urlcheck);
+
+//			curl_setopt($curl, CURLOPT_ENCODING ,"UTF-8");
+		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_POST, true);
+		curl_setopt($curl, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
+		curl_setopt($curl, CURLOPT_POSTFIELDS, $pagseguro);
+
+		$xml= curl_exec($curl);
+
+		curl_close($curl);
+
+		$xml = simplexml_load_string($xml);
+		$tokie = $xml -> code;
+
+		echo $urltransaction.$tokie;
+		echo '</br><a href="'.base_url("vendor/batalhadosbarbeiros").'"><button>Voltar</button></a>';
+
+
+	}
 
 	public function criaPlanta(){
 		$max = 169;

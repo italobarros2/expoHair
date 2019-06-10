@@ -1,7 +1,7 @@
 <!-- Page info section -->
 <section class="page-info-section set-bg" data-setbg="<?=base_url('static/img/page-top-bg/1.jpg')?>" >
 	<div class="container text-center">
-		<h2>Cursos/Workshops/Concursos</h2>
+		<h2>O Congresso</h2>
 	</div>
 </section>
 <!-- Page info section end -->

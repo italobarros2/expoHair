@@ -17,8 +17,10 @@
 			<ul class="main-menu">
 				<li><a href="<?=base_url()?>">Home</a></li>
 				<li><a href="<?=base_url('inscricao')?>">Inscrição</a></li>
-				<li><a href="<?=base_url('cursos')?>">Cursos/Workshops/Concursos</a></li>
+				<li><a href="<?=base_url('cursos')?>">O Congresso</a></li>
 				<li><a href="<?=base_url('ingressos')?>">Shows</a></li>
+				<li><a href="<?=base_url('batalhadosbarbeiros')?>">Batalha dos Barbeiros</a></li>
+				<li><a href="<?=base_url('convite')?>">Convite para Feira</a></li>
                 <li><a href="<?=base_url('pages/info')?>">Sobre</a></li>
 				<li><a href="<?=base_url('pages/planta')?>">Planta</a></li>
 			</ul>

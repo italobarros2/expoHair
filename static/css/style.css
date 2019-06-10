@@ -566,7 +566,7 @@ ol {
 
 .hs-content {
 	width: calc(50% + 30px);
-	padding: 118px 65px 100px 60px;
+	padding: 80px 65px 100px 60px;
 	background: #1e1e1e;
 }
 
@@ -1352,6 +1352,11 @@ ol {
 
 .blog-item {
 	margin-bottom: 65px;
+	padding: 5px 10px;
+	padding-top: 0px;
+	border: groove;
+	text-align: center;
+	padding-bottom: 25px;
 }
 
 .blog-item .blog-thumb {

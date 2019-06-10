@@ -165,6 +165,18 @@
 
 <script>
 
+	$("a[href^='#']").click(function(e) {
+		e.preventDefault();
+
+		var position = $($(this).attr("href")).offset().top;
+
+		$("body, html").animate({
+			scrollTop: position
+		}, 'slow' );
+	});
+
+	$('.carousel').carousel();
+
 	function somenteNumeros(num) {
 		var er = /[^0-9.-]/;
 		er.lastIndex = 0;
@@ -287,14 +299,24 @@
 		return true;
 	}
 
+	function showOutros(){
+		if($("#profs").val() == 11){
+			$("#outros").fadeIn();
+		}else{
+			$("#outros").fadeOut();
+		}
+	}
+
+
+
 	function total_stands(){
 		if($("input[name='optradio']:checked").val()==1){
 			if($('#tipo_pagamento').val() == ''){
 				$('#tipo_pagamento').val(0);
 			}
 			var count = 0;
-			var taxa_0 = 1000;
-			var taxa_1 = 2000;
+			var taxa_0 = 250;
+			var taxa_1 = 280;
 			for(var i = 0; i<$('#stands').val().length; i++){
 				if($('#tipo_pagamento').val() == 0){
 

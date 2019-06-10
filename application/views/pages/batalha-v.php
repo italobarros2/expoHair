@@ -4,7 +4,7 @@
 			<div class="col-lg-12">
 				<h2 class="contact-title">Inscrição</h2>
 
-				<form class="needs-validation contact-form" name="myform" action="<?=base_url('submitbatalha')?>"  method="post" novalidate>
+				<form class="needs-validation contact-form" name="myform" action="<?=base_url('submitVendorBattle')?>"  method="post" novalidate>
 					<h4 style="margin-bottom: 20px">Dados do Participante</h4>
 					<div class="form-row">
 						<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mb-2">
@@ -98,7 +98,7 @@
 								<div class="form-check">
 									<input class="form-check-input form-perso" type="checkbox" value="" id="invalidCheck" style="width: 50px; margin-left:-28px; margin-top: 20px" required>
 									<span class="form-check-label"  for="invalidCheck" style="position: relative; left: 25px; top: 20px;">
-										Lí e declaro estar de acordo com o regulamento da <a href="<?=base_url('static/manualexpo.pdf')?>" target="_blank"><b>Batalha dos barbeiros</b></a>
+										Lí e declaro estar de acordo com o regulamento da <a href="<?=base_url('static/batalha.pdf')?>" target="_blank"><b>Batalha dos barbeiros</b></a>
 									</span>
 									<div class="invalid-feedback" style="margin-top: 20px;">
 										Você deve aceitar os termos do regulamento antes de se inscrever.

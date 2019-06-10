@@ -177,7 +177,34 @@ class pages_model extends CI_Model
 		return $query->result();
 	}
 
+	public function pesquisaCategoria($id = null){
+		if($id != null){
+			$query = $this->db->query("SELECT * FROM categoria_barbeiros NATURAL JOIN precos_atividades WHERE idCATEGORIA = $id;");
+			return $query->row();
+		}
+		$query = $this->db->query("SELECT * FROM categoria_barbeiros NATURAL JOIN precos_atividades;");
+		foreach ($query->result() as $item){
+			$num = $this->db->query("SELECT COUNT(idCATEGORIA) AS num FROM barbeiro_has_categoria WHERE idCATEGORIA = $item->idCATEGORIA");
+			if($num->row()->num==10){
+				$query = $this->db->query("SELECT * FROM categoria_barbeiros NATURAL JOIN precos_atividades WHERE idCATEGORIA != $item->idCATEGORIA;");
+			}
+		}
+		return $query->result();
+	}
 
+	public function insertBarbeiro($data){
+		$this->db->insert('barbeiro_has_categoria', $data);
+	}
+
+
+
+	public function verificaConvidado($cpf){
+		$this->db->query("SELECT * FROM convidados WHERE cpf = $cpf");
+	}
+
+	public function insertConvidado($data){
+		$this->db->insert('convidados', $data);
+	}
 
 	public function insertRepresentante($data){
 		$this->db->insert('representantes', $data);
